@@ -1,22 +1,25 @@
-import { Star, Quote } from 'lucide-react';
+import { Star, Quote, BadgeCheck, MapPin } from 'lucide-react';
 import Reveal from '@/components/Reveal';
 
 const testimonials = [
   {
     name: 'Aarohi Mehta',
-    image: 'https://images.pexels.com/photos/10577048/pexels-photo-10577048.jpeg?auto=compress&cs=tinysrgb&w=400',
+    location: 'Mumbai, India',
+    image: 'https://images.pexels.com/photos/22679062/pexels-photo-22679062.jpeg?auto=compress&cs=tinysrgb&w=400',
     review:
       'The craftsmanship exceeded all expectations. Every detail was perfect — my engagement ring feels like it was made for me alone.',
   },
   {
     name: 'Sophia Laurent',
-    image: 'https://images.pexels.com/photos/7717254/pexels-photo-7717254.jpeg?auto=compress&cs=tinysrgb&w=400',
+    location: 'Paris, France',
+    image: 'https://images.pexels.com/photos/10577048/pexels-photo-10577048.jpeg?auto=compress&cs=tinysrgb&w=400',
     review:
       'The perfect engagement ring experience. Lumora understood exactly what I wanted and delivered something truly extraordinary.',
   },
   {
     name: 'Priya Nair',
-    image: 'https://images.pexels.com/photos/34930167/pexels-photo-34930167.jpeg?auto=compress&cs=tinysrgb&w=400',
+    location: 'Hyderabad, India',
+    image: 'https://images.pexels.com/photos/4993172/pexels-photo-4993172.jpeg?auto=compress&cs=tinysrgb&w=400',
     review:
       'Exceptional quality and outstanding customer service. The lifetime servicing gives me peace of mind that my pieces will shine forever.',
   },
@@ -44,7 +47,7 @@ export default function Testimonials() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3 lg:gap-10">
           {testimonials.map((t, i) => (
             <Reveal key={t.name} delay={i * 120}>
-              <article className="group h-full rounded-lg border border-noir/8 bg-white p-8 shadow-[0_4px_30px_rgba(17,17,17,0.04)] transition-all duration-500 hover:shadow-[0_20px_50px_rgba(201,162,39,0.1)] lg:p-10">
+              <article className="card-lift group h-full rounded-lg border border-noir/8 bg-white p-8 shadow-[0_4px_30px_rgba(17,17,17,0.04)] transition-all duration-500 hover:shadow-[0_20px_50px_rgba(201,162,39,0.12)] lg:p-10">
                 {/* Quote icon */}
                 <Quote
                   className="h-8 w-8 text-gold/30 transition-colors duration-500 group-hover:text-gold/50"
@@ -72,16 +75,26 @@ export default function Testimonials() {
                   <img
                     src={t.image}
                     alt={t.name}
-                    className="h-12 w-12 rounded-full object-cover ring-2 ring-gold/30"
+                    loading="lazy"
+                    className="h-14 w-14 rounded-full object-cover ring-2 ring-gold/30 transition-all duration-500 group-hover:ring-gold/60"
                   />
-                  <div>
+                  <div className="flex-1">
                     <p className="font-heading text-lg font-medium text-noir">
                       {t.name}
                     </p>
-                    <p className="text-xs font-light uppercase tracking-wider-luxe text-charcoal/40">
-                      Verified Client
+                    <p className="flex items-center gap-1 text-xs font-light text-charcoal/40">
+                      <MapPin className="h-3 w-3" strokeWidth={1.5} />
+                      {t.location}
                     </p>
                   </div>
+                </div>
+
+                {/* Verified buyer badge */}
+                <div className="mt-4 flex items-center gap-1.5">
+                  <BadgeCheck className="h-3.5 w-3.5 text-gold" strokeWidth={2} />
+                  <span className="text-[10px] font-medium uppercase tracking-wider-luxe text-gold/80">
+                    Verified Buyer
+                  </span>
                 </div>
               </article>
             </Reveal>

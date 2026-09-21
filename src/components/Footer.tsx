@@ -2,7 +2,7 @@ import {
   Gem,
   Instagram,
   Facebook,
-  Twitter,
+  Linkedin,
   Mail,
   Phone,
   MapPin,
@@ -12,10 +12,11 @@ import {
 
 const quickLinks = [
   { label: 'Home', href: '#home' },
-  { label: 'Bridal', href: '#bridal' },
-  { label: 'About', href: '#about' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Collections', href: '#collections' },
+  { label: 'Signature Jewellery', href: '#signature' },
+  { label: 'About Founder', href: '#founder' },
   { label: 'Book Appointment', href: '#appointment' },
+  { label: 'Contact', href: '#contact' },
 ];
 
 const collectionLinks = [
@@ -27,15 +28,14 @@ const collectionLinks = [
 ];
 
 const socials = [
-  { icon: Instagram, href: '#', label: 'Instagram' },
+  { icon: Instagram, href: 'https://instagram.com/pavan_rajz', label: 'Instagram' },
   { icon: Facebook, href: '#', label: 'Facebook' },
-  { icon: Twitter, href: '#', label: 'Twitter' },
+  { icon: Linkedin, href: '#', label: 'LinkedIn' },
 ];
 
 const hours = [
-  { day: 'Monday – Friday', time: '10:00 AM – 7:00 PM' },
-  { day: 'Saturday', time: '10:00 AM – 8:00 PM' },
-  { day: 'Sunday', time: '12:00 PM – 6:00 PM' },
+  { day: 'Monday – Friday', time: '10:00 AM – 11:00 PM' },
+  { day: 'Saturday – Sunday', time: '10:00 AM – 12:00 Midnight' },
 ];
 
 export default function Footer() {
@@ -81,7 +81,7 @@ export default function Footer() {
             </div>
             <p className="mt-5 max-w-xs text-sm font-light leading-relaxed text-ivory/55">
               Handcrafted fine jewellery for weddings, celebrations and timeless
-              memories. Crafted with devotion since 1998.
+              memories. Crafted with passion since 2026.
             </p>
             <div className="mt-6 flex gap-3">
               {socials.map((social) => {
@@ -90,6 +90,8 @@ export default function Footer() {
                   <a
                     key={social.label}
                     href={social.href}
+                    target={social.href.startsWith('http') ? '_blank' : undefined}
+                    rel={social.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                     aria-label={social.label}
                     className="group flex h-10 w-10 items-center justify-center border border-ivory/15 transition-all duration-300 hover:border-gold hover:bg-gold"
                   >
@@ -158,25 +160,25 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold/70" strokeWidth={1.5} />
                 <span className="text-sm font-light leading-relaxed text-ivory/60">
-                  24 Aurelia Street, Diamond District, New York, NY 10001
+                  Banjara Hills, Hyderabad, Telangana, India
                 </span>
               </li>
               <li>
                 <a
-                  href="mailto:hello@lumorajewels.com"
+                  href="mailto:saipavanvizag601@gmail.com"
                   className="group flex items-center gap-3 text-sm font-light text-ivory/60 transition-colors hover:text-gold"
                 >
                   <Mail className="h-4 w-4 shrink-0 text-gold/70" strokeWidth={1.5} />
-                  hello@lumorajewels.com
+                  saipavanvizag601@gmail.com
                 </a>
               </li>
               <li>
                 <a
-                  href="tel:+18005866721"
+                  href="tel:+917661930097"
                   className="group flex items-center gap-3 text-sm font-light text-ivory/60 transition-colors hover:text-gold"
                 >
                   <Phone className="h-4 w-4 shrink-0 text-gold/70" strokeWidth={1.5} />
-                  +1 (800) 586-6721
+                  +91 7661930097
                 </a>
               </li>
             </ul>
@@ -211,18 +213,40 @@ export default function Footer() {
           <div className="flex items-center gap-2">
             <span className="h-px w-6 bg-gold/40" />
             <span className="font-heading text-sm italic text-gold/70">
-              Crafted with devotion
+              Crafted with Passion Since 2026
             </span>
             <span className="h-px w-6 bg-gold/40" />
           </div>
-          <div className="flex gap-6">
-            <a href="#" className="text-xs font-light tracking-wider-luxe text-ivory/40 transition-colors hover:text-gold">
-              Privacy
+          <div className="flex flex-col items-center gap-1 lg:flex-row lg:gap-4">
+            <a
+              href="https://instagram.com/pavan_rajz"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-light tracking-wider-luxe text-ivory/40 transition-colors hover:text-gold"
+            >
+              Instagram
             </a>
-            <a href="#" className="text-xs font-light tracking-wider-luxe text-ivory/40 transition-colors hover:text-gold">
-              Terms
+            <a
+              href="mailto:saipavanvizag601@gmail.com"
+              className="text-xs font-light tracking-wider-luxe text-ivory/40 transition-colors hover:text-gold"
+            >
+              Email
+            </a>
+            <a
+              href="tel:+917661930097"
+              className="text-xs font-light tracking-wider-luxe text-ivory/40 transition-colors hover:text-gold"
+            >
+              Phone
             </a>
           </div>
+        </div>
+
+        {/* Designer credit */}
+        <div className="border-t border-ivory/5 py-4 text-center">
+          <p className="text-xs font-light tracking-wider-luxe text-ivory/30">
+            Designed & Developed by{' '}
+            <span className="font-medium text-gold/70">Sai Pavan Rali</span>
+          </p>
         </div>
       </div>
     </footer>

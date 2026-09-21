@@ -1,7 +1,7 @@
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Eye } from 'lucide-react';
 import Reveal from '@/components/Reveal';
 
-type Badge = 'New' | 'Bestseller' | 'Limited';
+type Badge = 'New' | 'Bestseller' | 'Limited Edition' | 'Handcrafted';
 
 const products: {
   name: string;
@@ -13,57 +13,57 @@ const products: {
   {
     name: 'Eternal Solitaire Ring',
     purity: '18K',
-    price: '$4,850',
+    price: '₹3,98,000',
     badge: 'Bestseller',
     image: 'https://images.pexels.com/photos/30541171/pexels-photo-30541171.jpeg?auto=compress&cs=tinysrgb&w=800',
   },
   {
     name: 'Heritage Gold Choker',
     purity: '22K',
-    price: '$6,200',
+    price: '₹5,12,000',
     badge: 'New',
     image: 'https://images.pexels.com/photos/20100141/pexels-photo-20100141.jpeg?auto=compress&cs=tinysrgb&w=800',
   },
   {
     name: 'Celestia Diamond Set',
     purity: '18K',
-    price: '$8,900',
-    badge: 'Limited',
+    price: '₹7,45,000',
+    badge: 'Limited Edition',
     image: 'https://images.pexels.com/photos/29245554/pexels-photo-29245554.jpeg?auto=compress&cs=tinysrgb&w=800',
   },
   {
     name: 'Régence Gold Bangle',
     purity: '22K',
-    price: '$3,450',
-    badge: 'Bestseller',
+    price: '₹2,84,000',
+    badge: 'Handcrafted',
     image: 'https://images.pexels.com/photos/30541169/pexels-photo-30541169.jpeg?auto=compress&cs=tinysrgb&w=800',
   },
   {
     name: 'Aurora Pendant Necklace',
     purity: '18K',
-    price: '$2,980',
+    price: '₹2,45,000',
     badge: 'New',
     image: 'https://images.pexels.com/photos/10215179/pexels-photo-10215179.jpeg?auto=compress&cs=tinysrgb&w=800',
   },
   {
     name: 'Lumière Diamond Earrings',
     purity: '18K',
-    price: '$5,600',
-    badge: 'Limited',
+    price: '₹4,62,000',
+    badge: 'Limited Edition',
     image: 'https://images.pexels.com/photos/7093769/pexels-photo-7093769.jpeg?auto=compress&cs=tinysrgb&w=800',
   },
   {
     name: 'Saffron Temple Jhumkas',
     purity: '22K',
-    price: '$3,890',
-    badge: 'Bestseller',
+    price: '₹3,20,000',
+    badge: 'Handcrafted',
     image: 'https://images.pexels.com/photos/8031399/pexels-photo-8031399.jpeg?auto=compress&cs=tinysrgb&w=800',
   },
   {
     name: 'Monarch Signet Ring',
     purity: '22K',
-    price: '$2,150',
-    badge: 'New',
+    price: '₹1,78,000',
+    badge: 'Bestseller',
     image: 'https://images.pexels.com/photos/13524236/pexels-photo-13524236.jpeg?auto=compress&cs=tinysrgb&w=800',
   },
 ];
@@ -71,7 +71,8 @@ const products: {
 const badgeStyles: Record<Badge, string> = {
   New: 'bg-gold text-noir',
   Bestseller: 'bg-noir text-gold',
-  Limited: 'border border-gold text-gold bg-transparent',
+  'Limited Edition': 'border border-gold text-gold bg-noir/80',
+  Handcrafted: 'border border-charcoal/40 text-ivory bg-charcoal/90',
 };
 
 export default function SignatureJewellery() {
@@ -100,14 +101,18 @@ export default function SignatureJewellery() {
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {products.map((p, i) => (
             <Reveal key={p.name} delay={(i % 4) * 80}>
-              <article className="group flex flex-col">
+              <article className="card-lift group flex flex-col">
                 {/* Image */}
                 <div className="relative aspect-[4/5] overflow-hidden rounded-lg bg-ivory">
                   <img
                     src={p.image}
                     alt={p.name}
+                    loading="lazy"
                     className="h-full w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-110"
                   />
+
+                  {/* Gradient overlay on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-noir/30 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
                   {/* Badge */}
                   <span
@@ -116,12 +121,18 @@ export default function SignatureJewellery() {
                     {p.badge}
                   </span>
 
-                  {/* Hover overlay */}
-                  <div className="absolute inset-0 flex items-end justify-center pb-5 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                    <button className="btn-gold inline-flex items-center gap-2 bg-gold px-6 py-2.5 text-[10px] font-medium uppercase tracking-wider-luxe text-noir">
-                      View Details
-                      <ArrowRight className="h-3 w-3" strokeWidth={1.5} />
-                    </button>
+                  {/* Hover overlay with View Details */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-all duration-500 group-hover:opacity-100">
+                    <div className="flex flex-col items-center gap-3">
+                      <span className="flex items-center gap-1.5 text-[10px] font-light uppercase tracking-wider-luxe text-ivory/80">
+                        <Eye className="h-3.5 w-3.5" strokeWidth={1.5} />
+                        Quick View
+                      </span>
+                      <button className="btn-gold inline-flex items-center gap-2 bg-gold px-6 py-2.5 text-[10px] font-medium uppercase tracking-wider-luxe text-noir">
+                        View Details
+                        <ArrowRight className="h-3 w-3" strokeWidth={1.5} />
+                      </button>
+                    </div>
                   </div>
                 </div>
 
