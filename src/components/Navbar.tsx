@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react';
 import { Gem, Menu, X, CalendarHeart } from 'lucide-react';
 
 const navLinks = [
-  { label: 'Home', href: '#home', active: true },
+  { label: 'Home', href: '#home' },
   { label: 'Collections', href: '#collections' },
-  { label: 'Bridal', href: '#bridal' },
-  { label: 'About', href: '#about' },
+  { label: 'Signature', href: '#signature' },
+  { label: 'About', href: '#founder' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -14,9 +14,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 40);
-    };
+    const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
@@ -25,17 +23,15 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-ivory/95 backdrop-blur-md shadow-[0_2px_20px_rgba(17,17,17,0.08)] py-3'
-          : 'bg-transparent py-5'
+          ? 'glass-nav shadow-[0_2px_24px_rgba(17,17,17,0.06)] py-3'
+          : 'bg-transparent py-6'
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-10">
         {/* Logo */}
         <a href="#home" className="group flex items-center gap-2.5">
           <Gem
-            className={`h-5 w-5 transition-colors duration-500 ${
-              scrolled ? 'text-gold' : 'text-gold'
-            }`}
+            className="h-5 w-5 text-gold transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110"
             strokeWidth={1.5}
           />
           <span
@@ -48,14 +44,14 @@ export default function Navbar() {
         </a>
 
         {/* Desktop menu */}
-        <ul className="hidden items-center gap-9 lg:flex">
+        <ul className="hidden items-center gap-10 lg:flex">
           {navLinks.map((link) => (
             <li key={link.label}>
               <a
                 href={link.href}
-                className={`nav-link text-sm font-light tracking-wider-luxe ${
-                  scrolled ? 'text-charcoal' : 'text-ivory/90'
-                } ${link.active ? 'active' : ''}`}
+                className={`nav-link text-sm font-light tracking-wider-luxe transition-colors duration-300 ${
+                  scrolled ? 'text-charcoal hover:text-gold' : 'text-ivory/90 hover:text-gold'
+                }`}
               >
                 {link.label}
               </a>
@@ -67,7 +63,7 @@ export default function Navbar() {
         <div className="hidden items-center lg:flex">
           <a
             href="#appointment"
-            className="btn-gold inline-flex items-center gap-2 rounded-none bg-gold px-6 py-3 text-xs font-medium uppercase tracking-luxe text-noir"
+            className="btn-gold inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3 text-xs font-medium uppercase tracking-luxe text-noir"
           >
             <CalendarHeart className="h-4 w-4" strokeWidth={1.5} />
             Book Appointment
@@ -81,6 +77,7 @@ export default function Navbar() {
             scrolled ? 'text-noir' : 'text-ivory'
           }`}
           aria-label="Toggle menu"
+          aria-expanded={mobileOpen}
         >
           {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
@@ -89,16 +86,14 @@ export default function Navbar() {
       {/* Mobile menu */}
       {mobileOpen && (
         <div className="lg:hidden animate-fade-in">
-          <div className="mx-4 mt-4 glass-dark rounded-lg px-6 py-6">
+          <div className="mx-4 mt-4 glass-dark rounded-2xl px-6 py-6">
             <ul className="flex flex-col gap-5">
               {navLinks.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
-                    className={`block text-sm font-light tracking-wider-luxe transition-colors hover:text-gold ${
-                      link.active ? 'text-gold' : 'text-ivory/90'
-                    }`}
+                    className="block text-sm font-light tracking-wider-luxe text-ivory/90 transition-colors hover:text-gold"
                   >
                     {link.label}
                   </a>
@@ -108,7 +103,7 @@ export default function Navbar() {
                 <a
                   href="#appointment"
                   onClick={() => setMobileOpen(false)}
-                  className="btn-gold inline-flex w-full items-center justify-center gap-2 bg-gold px-6 py-3 text-xs font-medium uppercase tracking-luxe text-noir"
+                  className="btn-gold inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-6 py-3 text-xs font-medium uppercase tracking-luxe text-noir"
                 >
                   <CalendarHeart className="h-4 w-4" strokeWidth={1.5} />
                   Book Appointment
