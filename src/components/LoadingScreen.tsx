@@ -10,7 +10,7 @@ export default function LoadingScreen() {
         </div>
         <div className="flex items-center gap-2">
           <span className="font-heading text-xl font-medium tracking-wide text-ivory">
-            Lumora <span className="text-gold">Jewels</span>
+            Aurivelle
           </span>
         </div>
       </div>

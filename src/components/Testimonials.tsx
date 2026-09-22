@@ -7,13 +7,13 @@ const testimonials = [
     name: 'Aarohi Mehta',
     location: 'Mumbai, India',
     image: 'https://images.pexels.com/photos/22679062/pexels-photo-22679062.jpeg?auto=compress&cs=tinysrgb&w=400',
-    review: 'From the first consultation to the final reveal, every moment felt special. My engagement ring is a masterpiece — Lumora made the entire experience unforgettable.',
+    review: 'From the first consultation to the final reveal, every moment felt special. My engagement ring is a masterpiece — Aurivelle made the entire experience unforgettable.',
   },
   {
     name: 'Sophia Laurent',
     location: 'Paris, France',
     image: 'https://images.pexels.com/photos/10577048/pexels-photo-10577048.jpeg?auto=compress&cs=tinysrgb&w=400',
-    review: 'I have collected jewellery from houses across the world. Lumora stands among the finest — the craftsmanship, the warmth, the attention to detail is simply extraordinary.',
+    review: 'I have collected jewellery from houses across the world. Aurivelle stands among the finest — the craftsmanship, the warmth, the attention to detail is simply extraordinary.',
   },
   {
     name: 'Priya Nair',

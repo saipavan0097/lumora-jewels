@@ -21,7 +21,7 @@ export default function Founder() {
                 <div className="overflow-hidden rounded-2xl shadow-[0_12px_60px_rgba(17,17,17,0.1)]">
                   <img
                     src="/images/founder/IMG-20250514-WA0001 copy.jpg"
-                    alt="Sai Pavan Rali, founder of Lumora Jewels"
+                    alt="Sai Pavan Rali, founder of Aurivelle"
                     loading="lazy"
                     className="aspect-[4/5] w-full object-cover object-center transition-transform duration-700 hover:scale-[1.02]"
                   />
@@ -39,7 +39,7 @@ export default function Founder() {
                 </div>
                 <h3 className="font-heading text-3xl font-medium text-noir sm:text-4xl lg:text-5xl">Sai Pavan Rali</h3>
                 <p className="mt-7 text-sm font-light leading-relaxed text-charcoal/60">
-                  Lumora Jewels was founded with a vision to create timeless jewellery that celebrates elegance, craftsmanship and unforgettable moments. Every collection is designed with passion, precision and luxury.
+                  Aurivelle was founded with a vision to create timeless jewellery that celebrates elegance, craftsmanship and unforgettable moments. Every collection is designed with passion, precision and luxury.
                 </p>
                 <div className="mt-8 flex items-center gap-3 border-t border-noir/8 pt-6">
                   <Sparkles className="h-4 w-4 text-gold/60" strokeWidth={1.5} />

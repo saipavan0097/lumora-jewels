@@ -12,13 +12,17 @@ import {
   ArrowUpRight,
 } from 'lucide-react';
 
+interface FooterProps {
+  onNavigate: (path: string) => void;
+}
+
 const quickLinks = [
-  { label: 'Home', href: '#home' },
-  { label: 'Collections', href: '#collections' },
-  { label: 'Signature Jewellery', href: '#signature' },
-  { label: 'About Founder', href: '#founder' },
-  { label: 'Book Appointment', href: '#appointment' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Home', href: '/' },
+  { label: 'Shop', href: '/shop' },
+  { label: 'Collections', href: '/#collections' },
+  { label: 'About Founder', href: '/#founder' },
+  { label: 'Book Appointment', href: '/#appointment' },
+  { label: 'Contact', href: '/#contact' },
 ];
 
 const collectionLinks = [
@@ -36,7 +40,7 @@ const socials = [
   { icon: Mail, href: 'mailto:saipavanvizag601@gmail.com', label: 'Email' },
 ];
 
-export default function Footer() {
+export default function Footer({ onNavigate }: FooterProps) {
   return (
     <footer className="bg-noir text-ivory">
       {/* Top border accent */}
@@ -49,14 +53,11 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2.5">
               <Gem className="h-5 w-5 text-gold" strokeWidth={1.5} />
-              <span className="font-heading text-2xl font-semibold tracking-wide">
-                Lumora <span className="text-gold">Jewels</span>
-              </span>
+              <span className="font-heading text-2xl font-semibold tracking-wide">Aurivelle</span>
             </div>
             <p className="mt-5 max-w-xs text-sm font-light leading-relaxed text-ivory/50">
               Luxury Jewellery Studio. Crafted with passion since 2026.
-              Handcrafted fine jewellery for weddings, celebrations and timeless
-              memories.
+              Handcrafted fine jewellery for weddings, celebrations and timeless memories.
             </p>
             <div className="mt-7 flex gap-3">
               {socials.map((social) => {
@@ -88,8 +89,8 @@ export default function Footer() {
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
+                  <button
+                    onClick={() => onNavigate(link.href)}
                     className="group inline-flex items-center gap-1.5 text-sm font-light text-ivory/55 transition-colors hover:text-gold"
                   >
                     {link.label}
@@ -97,7 +98,7 @@ export default function Footer() {
                       className="h-3 w-3 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                       strokeWidth={1.5}
                     />
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -111,8 +112,8 @@ export default function Footer() {
             <ul className="space-y-3">
               {collectionLinks.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
+                  <button
+                    onClick={() => onNavigate('/shop')}
                     className="group inline-flex items-center gap-1.5 text-sm font-light text-ivory/55 transition-colors hover:text-gold"
                   >
                     {link.label}
@@ -120,7 +121,7 @@ export default function Footer() {
                       className="h-3 w-3 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                       strokeWidth={1.5}
                     />
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -165,7 +166,7 @@ export default function Footer() {
       <div className="border-t border-ivory/10">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-6 lg:flex-row lg:px-10">
           <p className="text-xs font-light tracking-wider-luxe text-ivory/35">
-            © 2026 Lumora Jewels. All Rights Reserved.
+            © 2026 Aurivelle. All Rights Reserved.
           </p>
           <div className="flex items-center gap-2">
             <span className="h-px w-6 bg-gold/40" />

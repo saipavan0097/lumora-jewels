@@ -62,7 +62,7 @@ export default function AppointmentForm() {
                 <p className="mt-4 max-w-md text-sm font-light leading-relaxed text-ivory/60 animate-fade-in-up delay-400">
                   Your private consultation request has been received. Our team
                   will contact you shortly to confirm your appointment. We look
-                  forward to welcoming you to Lumora Jewels.
+                  forward to welcoming you to Aurivelle.
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}
