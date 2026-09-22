@@ -4,6 +4,8 @@ import {
   Facebook,
   Linkedin,
   Youtube,
+  Github,
+  MessageCircle,
   Mail,
   Phone,
   MapPin,
@@ -28,10 +30,10 @@ const collectionLinks = [
 ];
 
 const socials = [
-  { icon: Instagram, href: 'https://instagram.com/pavan_rajz', label: 'Instagram' },
-  { icon: Facebook, href: 'https://facebook.com/PavanRajz', label: 'Facebook' },
-  { icon: Linkedin, href: 'https://linkedin.com/in/sai-pavan-rali', label: 'LinkedIn' },
-  { icon: Youtube, href: 'https://youtube.com/@saipavangoldworks', label: 'YouTube' },
+  { icon: Github, href: '#', label: 'GitHub' },
+  { icon: Instagram, href: 'https://instagram.com/', label: 'Instagram' },
+  { icon: MessageCircle, href: 'https://wa.me/91XXXXXXXXXX', label: 'WhatsApp' },
+  { icon: Mail, href: 'mailto:saipavanvizag601@gmail.com', label: 'Email' },
 ];
 
 export default function Footer() {
@@ -133,7 +135,7 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold/70" strokeWidth={1.5} />
                 <span className="text-sm font-light leading-relaxed text-ivory/55">
-                  TCS Adibatla, Hyderabad, Telangana, India – 501510
+                  Visakhapatnam, Andhra Pradesh
                 </span>
               </li>
               <li>
@@ -147,11 +149,11 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="tel:+917661930097"
+                  href="tel:+91XXXXXXXXXX"
                   className="group flex items-center gap-3 text-sm font-light text-ivory/55 transition-colors hover:text-gold"
                 >
                   <Phone className="h-4 w-4 shrink-0 text-gold/70" strokeWidth={1.5} />
-                  +91 7661930097
+                  +91 XXXXX XXXXX
                 </a>
               </li>
             </ul>

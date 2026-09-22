@@ -16,6 +16,7 @@ const inputClass =
   'w-full border border-noir/15 bg-ivory/50 px-4 py-3 text-sm font-light text-noir placeholder:text-charcoal/35 transition-all duration-300 focus:border-gold focus:bg-white focus:outline-none focus:ring-1 focus:ring-gold/30';
 const labelClass =
   'mb-2 block text-[11px] font-medium uppercase tracking-wider-luxe text-charcoal/55';
+const today = new Date().toISOString().split('T')[0];
 
 export default function AppointmentForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -82,6 +83,8 @@ export default function AppointmentForm() {
                       id="name"
                       type="text"
                       required
+                      minLength={2}
+                      autoComplete="name"
                       placeholder="Your full name"
                       className={inputClass}
                     />
@@ -94,6 +97,8 @@ export default function AppointmentForm() {
                       id="mobile"
                       type="tel"
                       required
+                      pattern="[+0-9 ()-]{10,}"
+                      autoComplete="tel"
                       placeholder="+91 00000 00000"
                       className={inputClass}
                     />
@@ -109,6 +114,7 @@ export default function AppointmentForm() {
                     id="email"
                     type="email"
                     required
+                    autoComplete="email"
                     placeholder="you@email.com"
                     className={inputClass}
                   />
@@ -130,6 +136,7 @@ export default function AppointmentForm() {
                         id="date"
                         type="date"
                         required
+                        min={today}
                         className={`${inputClass} pr-10`}
                       />
                     </div>

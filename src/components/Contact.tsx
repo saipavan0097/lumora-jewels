@@ -13,13 +13,13 @@ import {
 import Reveal from '@/components/Reveal';
 
 const contactInfo = [
-  { icon: Phone, label: 'Phone', value: '+91 7661930097', href: 'tel:+917661930097' },
-  { icon: MessageCircle, label: 'WhatsApp', value: '+91 7661930097', href: 'https://wa.me/917661930097' },
+  { icon: Phone, label: 'Phone', value: '+91 XXXXX XXXXX', href: 'tel:+91XXXXXXXXXX' },
+  { icon: MessageCircle, label: 'WhatsApp', value: 'Chat on WhatsApp', href: 'https://wa.me/91XXXXXXXXXX' },
   { icon: Mail, label: 'Email', value: 'saipavanvizag601@gmail.com', href: 'mailto:saipavanvizag601@gmail.com' },
 ];
 
 const socialLinks = [
-  { icon: Instagram, label: 'Instagram', value: '@pavan_rajz', href: 'https://instagram.com/pavan_rajz' },
+  { icon: Instagram, label: 'Instagram', value: 'Instagram', href: 'https://instagram.com/' },
   { icon: Facebook, label: 'Facebook', value: 'Pavan Rajz', href: 'https://facebook.com/PavanRajz' },
   { icon: Linkedin, label: 'LinkedIn', value: 'Sai Pavan Rali', href: 'https://linkedin.com/in/sai-pavan-rali' },
   { icon: Youtube, label: 'YouTube', value: '@saipavangoldworks', href: 'https://youtube.com/@saipavangoldworks' },
@@ -141,7 +141,7 @@ export default function Contact() {
                     <h3 className="text-xs font-medium uppercase tracking-luxe text-gold">Our Location</h3>
                   </div>
                   <p className="text-sm font-light leading-relaxed text-noir">
-                    TCS Adibatla, Hyderabad, Telangana, India – 501510
+                    Visakhapatnam, Andhra Pradesh
                   </p>
                 </div>
               </div>
@@ -160,8 +160,8 @@ export default function Contact() {
                 </div>
               )}
               <iframe
-                title="Lumora Jewels — TCS Adibatla, Hyderabad"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.5!2d78.4358!3d17.2333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91e1e1e1e1e1%3A0x0!2zMTfCsDE0JzAwLjAiTiA3OMKwMjYnMDkuMCJF!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                title="Lumora Jewels — Visakhapatnam, Andhra Pradesh"
+                src="https://www.google.com/maps?q=Visakhapatnam%2C%20Andhra%20Pradesh%2C%20India&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0, minHeight: '500px' }}
