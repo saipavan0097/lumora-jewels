@@ -20,7 +20,7 @@ export default function Founder() {
               <div className="relative">
                 <div className="overflow-hidden rounded-2xl shadow-[0_12px_60px_rgba(17,17,17,0.1)]">
                   <img
-                    src="/images/founder/IMG-20250514-WA0001.jpg"
+                    src="/images/founder/IMG-20250514-WA0001 copy.jpg"
                     alt="Sai Pavan Rali, founder of Lumora Jewels"
                     loading="lazy"
                     className="aspect-[4/5] w-full object-cover object-center transition-transform duration-700 hover:scale-[1.02]"
