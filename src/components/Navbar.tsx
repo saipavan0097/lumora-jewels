@@ -51,10 +51,10 @@ export default function Navbar({ onNavigate, currentPath, onSearch, searchQuery 
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-10">
         {/* Logo */}
-        <button onClick={() => onNavigate('/')} className="group flex items-center gap-2.5">
+        <button onClick={() => onNavigate('/')} className="group flex items-center gap-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-transparent rounded-lg" aria-label="Orvélia home">
           <Gem className="h-5 w-5 text-gold transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110" strokeWidth={1.5} />
           <span className={`font-heading text-2xl font-semibold tracking-wide transition-colors duration-500 ${scrolled || currentPath !== '/' ? 'text-noir' : 'text-ivory'}`}>
-            Aurivelle
+            Orvélia
           </span>
         </button>
 
@@ -79,8 +79,9 @@ export default function Navbar({ onNavigate, currentPath, onSearch, searchQuery 
           {/* Search */}
           <button
             onClick={() => setSearchOpen(!searchOpen)}
-            aria-label="Search"
-            className={`transition-colors duration-300 ${scrolled || currentPath !== '/' ? 'text-noir hover:text-gold' : 'text-ivory hover:text-gold'}`}
+            aria-label="Search jewellery"
+            aria-expanded={searchOpen}
+            className={`transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-transparent rounded-lg p-1 ${scrolled || currentPath !== '/' ? 'text-noir hover:text-gold' : 'text-ivory hover:text-gold'}`}
           >
             <Search className="h-5 w-5" strokeWidth={1.5} />
           </button>
@@ -88,8 +89,8 @@ export default function Navbar({ onNavigate, currentPath, onSearch, searchQuery 
           {/* Wishlist */}
           <button
             onClick={() => onNavigate('/shop')}
-            aria-label="Wishlist"
-            className={`relative transition-colors duration-300 ${scrolled || currentPath !== '/' ? 'text-noir hover:text-gold' : 'text-ivory hover:text-gold'}`}
+            aria-label={`Wishlist with ${wishlist.length} items`}
+            className={`relative transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-transparent rounded-lg p-1 ${scrolled || currentPath !== '/' ? 'text-noir hover:text-gold' : 'text-ivory hover:text-gold'}`}
           >
             <Heart className="h-5 w-5" strokeWidth={1.5} />
             {wishlist.length > 0 && (
@@ -100,8 +101,8 @@ export default function Navbar({ onNavigate, currentPath, onSearch, searchQuery 
           {/* Cart */}
           <button
             onClick={() => setCartOpen(true)}
-            aria-label="Shopping bag"
-            className={`relative transition-colors duration-300 ${scrolled || currentPath !== '/' ? 'text-noir hover:text-gold' : 'text-ivory hover:text-gold'}`}
+            aria-label={`Shopping bag with ${cartCount} items`}
+            className={`relative transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-transparent rounded-lg p-1 ${scrolled || currentPath !== '/' ? 'text-noir hover:text-gold' : 'text-ivory hover:text-gold'}`}
           >
             <ShoppingBag className="h-5 w-5" strokeWidth={1.5} />
             {cartCount > 0 && (
@@ -121,8 +122,8 @@ export default function Navbar({ onNavigate, currentPath, onSearch, searchQuery 
           {/* Mobile toggle */}
           <button
             onClick={() => setMobileOpen((v) => !v)}
-            className={`lg:hidden transition-colors duration-500 ${scrolled || currentPath !== '/' ? 'text-noir' : 'text-ivory'}`}
-            aria-label="Toggle menu"
+            className={`lg:hidden transition-colors duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-transparent rounded-lg p-1 ${scrolled || currentPath !== '/' ? 'text-noir' : 'text-ivory'}`}
+            aria-label="Toggle navigation menu"
             aria-expanded={mobileOpen}
           >
             {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}

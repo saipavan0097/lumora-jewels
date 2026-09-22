@@ -60,7 +60,7 @@ export default function Contact() {
             <div className="flex h-full flex-col gap-7">
               {/* Business info */}
               <div className="rounded-2xl border border-noir/8 bg-ivory/40 p-7">
-                <h3 className="mb-1 font-heading text-2xl font-medium text-noir">Aurivelle</h3>
+                <h3 className="mb-1 font-heading text-2xl font-medium text-noir">Orvélia</h3>
                 <p className="text-xs font-light uppercase tracking-wider-luxe text-gold/80">
                   Luxury Jewellery Studio
                 </p>
@@ -160,7 +160,7 @@ export default function Contact() {
                 </div>
               )}
               <iframe
-                title="Aurivelle — Visakhapatnam, Andhra Pradesh"
+                title="Orvélia — Visakhapatnam, Andhra Pradesh"
                 src="https://www.google.com/maps?q=Visakhapatnam%2C%20Andhra%20Pradesh%2C%20India&output=embed"
                 width="100%"
                 height="100%"

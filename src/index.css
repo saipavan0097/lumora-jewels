@@ -21,6 +21,22 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Cormorant Garamond', serif;
   }
+
+  /* Ensure consistent heading-to-paragraph spacing */
+  h1 + p, h2 + p, h3 + p {
+    margin-top: 1.25rem;
+  }
+
+  /* Accessible focus ring for keyboard navigation */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid #C9A227;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
 }
 
 @layer utilities {
@@ -152,6 +168,10 @@
   box-shadow: 0 0 24px rgba(201,162,39,0.45), 0 10px 30px -8px rgba(201,162,39,0.5);
   transform: translateY(-2px);
 }
+.btn-gold:active {
+  transform: translateY(0);
+  box-shadow: 0 0 12px rgba(201,162,39,0.3);
+}
 
 .btn-outline-gold {
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -163,14 +183,33 @@
   box-shadow: 0 0 20px rgba(201,162,39,0.35), 0 10px 30px -8px rgba(201,162,39,0.4);
   transform: translateY(-2px);
 }
+.btn-outline-gold:active {
+  transform: translateY(0);
+  box-shadow: 0 0 12px rgba(201,162,39,0.25);
+}
 
 /* ===== Card lift ===== */
 
 .card-lift {
   transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94),
               box-shadow 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
+  will-change: transform;
 }
 .card-lift:hover { transform: translateY(-8px); }
+
+/* Soft image zoom on hover for any .img-zoom wrapper */
+.img-zoom img {
+  transition: transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94);
+  will-change: transform;
+}
+.img-zoom:hover img {
+  transform: scale(1.05);
+}
+
+/* Smooth fade transition utility */
+.fade-transition {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
 
 /* ===== Nav link underline ===== */
 
@@ -188,6 +227,11 @@
 }
 .nav-link:hover::after, .nav-link.active::after { width: 100%; }
 .nav-link:hover { color: #C9A227; }
+.nav-link:focus-visible {
+  outline: 2px solid #C9A227;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
 
 /* ===== Scrollbar ===== */
 

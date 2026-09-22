@@ -46,7 +46,7 @@ export default function ProductCard({ product, onQuickView, onNavigate }: Produc
         <button
           onClick={(e) => { e.stopPropagation(); toggleWishlist(product.id); }}
           aria-label={wished ? 'Remove from wishlist' : 'Add to wishlist'}
-          className={`absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full border transition-all duration-300 ${
+          className={`absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full border transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-transparent ${
             wished
               ? 'border-gold bg-gold text-noir'
               : 'border-ivory/40 bg-noir/30 text-ivory backdrop-blur-sm hover:border-gold hover:bg-gold hover:text-noir'
@@ -58,9 +58,9 @@ export default function ProductCard({ product, onQuickView, onNavigate }: Produc
         {/* Quick view overlay */}
         <div className="absolute inset-0 flex items-end justify-center bg-gradient-to-t from-noir/40 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100">
           <button
-            onClick={(e) => { e.stopPropagation(); onQuickView(product); }}
-            className="mb-4 inline-flex items-center gap-2 rounded-full bg-ivory/95 px-5 py-2.5 text-[11px] font-medium uppercase tracking-wider-luxe text-noir backdrop-blur-sm transition-all duration-300 hover:bg-gold"
-          >
+          onClick={(e) => { e.stopPropagation(); onQuickView(product); }}
+          className="mb-4 inline-flex items-center gap-2 rounded-full bg-ivory/95 px-5 py-2.5 text-[11px] font-medium uppercase tracking-wider-luxe text-noir backdrop-blur-sm transition-all duration-300 hover:bg-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+        >
             <Eye className="h-3.5 w-3.5" strokeWidth={1.5} />
             Quick View
           </button>
@@ -77,7 +77,7 @@ export default function ProductCard({ product, onQuickView, onNavigate }: Produc
         {/* Title */}
         <button
           onClick={() => onNavigate(`/product/${product.id}`)}
-          className="mt-1.5 block text-left"
+          className="mt-1.5 block text-left focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold rounded"
         >
           <h3 className="font-heading text-lg font-medium text-noir transition-colors duration-300 group-hover:text-gold">
             {product.title}
@@ -109,7 +109,7 @@ export default function ProductCard({ product, onQuickView, onNavigate }: Produc
         {/* Add to cart */}
         <button
           onClick={() => addToCart(product)}
-          className="btn-gold mt-4 flex w-full items-center justify-center gap-2 bg-noir py-3 text-[11px] font-medium uppercase tracking-wider-luxe text-ivory transition-all duration-300 hover:bg-gold hover:text-noir"
+          className="btn-gold mt-4 flex w-full items-center justify-center gap-2 bg-noir py-3 text-[11px] font-medium uppercase tracking-wider-luxe text-ivory transition-all duration-300 hover:bg-gold hover:text-noir focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
         >
           <ShoppingBag className="h-3.5 w-3.5" strokeWidth={1.5} />
           Add to Cart

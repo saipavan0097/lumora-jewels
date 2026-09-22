@@ -46,7 +46,7 @@ export default function ProductPage({ productId, onNavigate }: ProductPageProps)
     1: product.materials,
     2: 'Rings: Size 4–12 available. Bangles: 2-4, 2-6, 2-8 sizes. Necklaces: 16, 18, 20 inch chains. Free resizing on all pieces.',
     3: 'Complimentary insured shipping worldwide. Delivery within 3–7 business days. Free returns within 30 days.',
-    4: 'Store in the provided Aurivelle box. Clean with a soft cloth. Avoid contact with perfumes and chemicals. Complimentary lifetime cleaning service.',
+    4: 'Store in the provided Orvélia box. Clean with a soft cloth. Avoid contact with perfumes and chemicals. Complimentary lifetime cleaning service.',
   };
 
   return (

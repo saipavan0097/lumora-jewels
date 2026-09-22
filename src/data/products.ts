@@ -291,7 +291,7 @@ export const products: Product[] = [
       'https://images.pexels.com/photos/6011749/pexels-photo-6011749.jpeg?auto=compress&cs=tinysrgb&w=900',
       'https://images.pexels.com/photos/33023960/pexels-photo-33023960.jpeg?auto=compress&cs=tinysrgb&w=900',
     ],
-    description: 'The pinnacle of Aurivelle craftsmanship — a complete bridal jewellery ensemble featuring emerald and gold detailing fit for a queen.',
+    description: 'The pinnacle of Orvélia craftsmanship — a complete bridal jewellery ensemble featuring emerald and gold detailing fit for a queen.',
     materials: '22K Yellow Gold, Colombian Emeralds, Complete Bridal Set',
     isNew: true,
     popularity: 100,

@@ -49,7 +49,7 @@ export default function TrustBadges() {
           <div className="mb-4 flex items-center justify-center gap-3">
             <span className="h-px w-10 bg-gold/50" />
             <span className="text-xs font-light uppercase tracking-luxe text-gold">
-              The Aurivelle Assurance
+              The Orvélia Assurance
             </span>
             <span className="h-px w-10 bg-gold/50" />
           </div>

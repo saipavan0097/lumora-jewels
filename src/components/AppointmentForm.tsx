@@ -11,6 +11,7 @@ const occasions = [
 ];
 
 const budgets = ['₹25,000+', '₹50,000+', '₹1 Lakh+', '₹5 Lakh+'];
+const jewelleryTypes = ['Ring', 'Necklace', 'Bracelet', 'Earrings', 'Bangles', 'Bridal Set', 'Custom'];
 
 const inputClass =
   'w-full border border-noir/15 bg-ivory/50 px-4 py-3 text-sm font-light text-noir placeholder:text-charcoal/35 transition-all duration-300 focus:border-gold focus:bg-white focus:outline-none focus:ring-1 focus:ring-gold/30';
@@ -62,7 +63,7 @@ export default function AppointmentForm() {
                 <p className="mt-4 max-w-md text-sm font-light leading-relaxed text-ivory/60 animate-fade-in-up delay-400">
                   Your private consultation request has been received. Our team
                   will contact you shortly to confirm your appointment. We look
-                  forward to welcoming you to Aurivelle.
+                  forward to welcoming you to Orvélia.
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}
@@ -188,6 +189,21 @@ export default function AppointmentForm() {
                         <input type="radio" name="budget" value={b} className="peer sr-only" required />
                         <span className="inline-block border border-ivory/20 px-4 py-2 text-xs font-light tracking-wider-luxe text-ivory/60 transition-all duration-300 peer-checked:border-gold peer-checked:bg-gold peer-checked:text-noir hover:border-gold/50">
                           {b}
+                        </span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Jewellery Type */}
+                <div>
+                  <label className={labelClass}>Jewellery Type</label>
+                  <div className="flex flex-wrap gap-2.5">
+                    {jewelleryTypes.map((t) => (
+                      <label key={t} className="cursor-pointer">
+                        <input type="radio" name="jewellery-type" value={t} className="peer sr-only" />
+                        <span className="inline-block border border-ivory/20 px-4 py-2 text-xs font-light tracking-wider-luxe text-ivory/60 transition-all duration-300 peer-checked:border-gold peer-checked:bg-gold peer-checked:text-noir hover:border-gold/50">
+                          {t}
                         </span>
                       </label>
                     ))}

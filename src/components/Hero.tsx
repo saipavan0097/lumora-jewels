@@ -27,6 +27,7 @@ export default function Hero() {
     <section
       id="home"
       className="relative flex min-h-screen items-center justify-center overflow-hidden"
+      aria-label="Hero section"
     >
       {/* Background image with parallax */}
       <div
@@ -78,16 +79,16 @@ export default function Hero() {
         </h1>
 
         {/* Subheading */}
-        <p className="animate-fade-in-up delay-400 mx-auto mt-10 max-w-xl text-base font-light leading-relaxed text-ivory/75 sm:text-lg">
-          Handcrafted jewellery designed for weddings, celebrations and timeless
-          memories.
+        <p className="animate-fade-in-up delay-400 mx-auto mt-8 max-w-xl text-base font-light leading-relaxed text-ivory/75 sm:text-lg">
+          Handcrafted jewellery designed for weddings, celebrations and timeless memories.
         </p>
 
         {/* Buttons */}
-        <div className="animate-fade-in-up delay-600 mt-14 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <div className="animate-fade-in-up delay-600 mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <a
             href="#collections"
-            className="btn-gold group inline-flex items-center gap-2.5 rounded-full bg-gold px-9 py-4 text-xs font-medium uppercase tracking-luxe text-noir"
+            className="btn-gold group inline-flex items-center gap-2.5 rounded-full bg-gold px-9 py-4 text-xs font-medium uppercase tracking-luxe text-noir focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+            aria-label="Explore jewellery collection"
           >
             Explore Collection
             <ArrowRight
@@ -97,7 +98,8 @@ export default function Hero() {
           </a>
           <a
             href="#appointment"
-            className="btn-outline-gold inline-flex items-center gap-2.5 rounded-full border border-gold/60 px-9 py-4 text-xs font-medium uppercase tracking-luxe text-ivory"
+            className="btn-outline-gold inline-flex items-center gap-2.5 rounded-full border border-gold/60 px-9 py-4 text-xs font-medium uppercase tracking-luxe text-ivory focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+            aria-label="Book a private appointment"
           >
             <CalendarHeart className="h-4 w-4" strokeWidth={1.5} />
             Book Appointment

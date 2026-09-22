@@ -71,7 +71,7 @@ export default function ShopPage({ onNavigate }: ShopPageProps) {
             <span className="text-xs font-light uppercase tracking-luxe text-gold">The Collection</span>
             <span className="h-px w-12 bg-gold/50" />
           </div>
-          <h1 className="font-heading text-4xl font-light text-noir sm:text-5xl">Shop Aurivelle</h1>
+          <h1 className="font-heading text-4xl font-light text-noir sm:text-5xl">Shop Orvélia</h1>
           <p className="mx-auto mt-5 max-w-lg text-sm font-light leading-relaxed text-charcoal/55">
             Discover handcrafted fine jewellery — each piece a testament to timeless elegance and master craftsmanship.
           </p>

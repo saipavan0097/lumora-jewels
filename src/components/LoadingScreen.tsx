@@ -2,7 +2,7 @@ import { Gem } from 'lucide-react';
 
 export default function LoadingScreen() {
   return (
-    <div className="animate-loader fixed inset-0 z-[100] flex items-center justify-center bg-noir">
+    <div className="animate-loader fixed inset-0 z-[100] flex items-center justify-center bg-noir" role="status" aria-label="Loading Orvélia">
       <div className="flex flex-col items-center gap-6">
         <div className="relative">
           <div className="animate-loader-spin h-16 w-16 rounded-full border-2 border-gold/20 border-t-gold" />
@@ -10,7 +10,7 @@ export default function LoadingScreen() {
         </div>
         <div className="flex items-center gap-2">
           <span className="font-heading text-xl font-medium tracking-wide text-ivory">
-            Aurivelle
+            Orvélia
           </span>
         </div>
       </div>

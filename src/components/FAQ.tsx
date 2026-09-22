@@ -5,7 +5,7 @@ import Reveal from '@/components/Reveal';
 const faqs = [
   {
     q: 'Do you offer certified jewellery?',
-    a: 'Every piece at Aurivelle comes with a certificate of authenticity. Our diamonds are graded to international standards, and all gold carries BIS hallmark certification.',
+    a: 'Every piece at Orvélia comes with a certificate of authenticity. Our diamonds are graded to international standards, and all gold carries BIS hallmark certification.',
   },
   {
     q: 'Can I customize a piece of jewellery?',
@@ -20,12 +20,12 @@ const faqs = [
     a: 'Yes, we offer complimentary insured shipping worldwide. Domestic orders arrive within 3–7 business days, and international orders within 7–14 business days.',
   },
   {
-    q: 'Is there a warranty on Aurivelle jewellery?',
+    q: 'Is there a warranty on Orvélia jewellery?',
     a: 'Every piece comes with a lifetime warranty covering manufacturing defects. We also provide complimentary cleaning, polishing, and maintenance for life.',
   },
   {
     q: 'How do I care for my jewellery?',
-    a: 'Store your pieces in the provided Aurivelle box, clean with a soft cloth, and avoid contact with perfumes and chemicals. Visit us anytime for professional cleaning.',
+    a: 'Store your pieces in the provided Orvélia box, clean with a soft cloth, and avoid contact with perfumes and chemicals. Visit us anytime for professional cleaning.',
   },
 ];
 
