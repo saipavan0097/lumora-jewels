@@ -132,6 +132,31 @@
   100% { transform: rotate(360deg); }
 }
 
+@keyframes loaderSpinReverse {
+  0% { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes loaderShimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+@keyframes loaderBar {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUpFade {
+  from { opacity: 0; transform: translateY(100%); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .animate-fade-in-up { opacity: 0; animation: fadeInUp 1s ease-out forwards; }
 .animate-fade-in { opacity: 0; animation: fadeIn 1.5s ease-out forwards; }
 .animate-sparkle { animation: sparkleFloat 3s ease-in-out infinite; }
@@ -140,6 +165,11 @@
 .animate-float-subtle { animation: floatSubtle 6s ease-in-out infinite; }
 .animate-loader { animation: loaderFade 2s ease-in-out forwards; }
 .animate-loader-spin { animation: loaderSpin 1.2s linear infinite; }
+.animate-loader-spin-reverse { animation: loaderSpinReverse 1.8s linear infinite; }
+.animate-loader-shimmer { animation: loaderShimmer 2s ease-in-out infinite; }
+.animate-loader-bar { animation: loaderBar 1.5s ease-in-out infinite; }
+.animate-page-enter { animation: pageEnter 0.5s ease-out forwards; }
+.animate-slide-up-fade { animation: slideUpFade 0.4s cubic-bezier(0.25,0.46,0.45,0.94) forwards; }
 
 .delay-200 { animation-delay: 0.2s; }
 .delay-400 { animation-delay: 0.4s; }

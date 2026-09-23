@@ -34,10 +34,10 @@ const collectionLinks = [
 ];
 
 const socials = [
-  { icon: Github, href: 'https://github.com', label: 'GitHub' },
+  { icon: Github, href: 'https://github.com/Saipavanrali', label: 'GitHub' },
   { icon: Linkedin, href: 'https://linkedin.com/in/sai-pavan-rali', label: 'LinkedIn' },
-  { icon: Instagram, href: 'https://instagram.com/', label: 'Instagram' },
-  { icon: MessageCircle, href: 'https://wa.me/91XXXXXXXXXX', label: 'WhatsApp' },
+  { icon: Instagram, href: 'https://instagram.com/pavan_rajz', label: 'Instagram' },
+  { icon: MessageCircle, href: 'https://wa.me/919000000000', label: 'WhatsApp' },
   { icon: Mail, href: 'mailto:saipavanvizag601@gmail.com', label: 'Email' },
 ];
 
@@ -151,11 +151,11 @@ export default function Footer({ onNavigate }: FooterProps) {
               </li>
               <li>
                 <a
-                  href="tel:+91XXXXXXXXXX"
+                  href="tel:+919000000000"
                   className="group flex items-center gap-3 text-sm font-light text-ivory/55 transition-colors hover:text-gold focus-visible:outline-none focus-visible:text-gold"
                 >
                   <Phone className="h-4 w-4 shrink-0 text-gold/70" strokeWidth={1.5} />
-                  +91 XXXXX XXXXX
+                  +91 90000 00000
                 </a>
               </li>
             </ul>

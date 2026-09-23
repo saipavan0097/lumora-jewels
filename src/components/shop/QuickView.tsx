@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { X, Star, ShoppingBag, Heart } from 'lucide-react';
 import type { Product } from '@/data/products';
 import { formatPrice } from '@/data/products';
@@ -14,6 +14,17 @@ export default function QuickView({ product, onClose, onNavigate }: QuickViewPro
   const { addToCart, toggleWishlist, isInWishlist } = useShop();
   const [activeImage, setActiveImage] = useState(0);
 
+  useEffect(() => {
+    if (!product) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', onKey);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      document.body.style.overflow = '';
+    };
+  }, [product, onClose]);
+
   if (!product) return null;
   const wished = isInWishlist(product.id);
 
@@ -21,6 +32,9 @@ export default function QuickView({ product, onClose, onNavigate }: QuickViewPro
     <div
       className="fixed inset-0 z-[80] flex items-center justify-center bg-noir/60 backdrop-blur-sm animate-fade-in p-4"
       onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label={`Quick view: ${product.title}`}
     >
       <div
         className="relative max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-2xl bg-white shadow-2xl"

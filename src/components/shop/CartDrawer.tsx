@@ -1,4 +1,5 @@
 import { X, Plus, Minus, ShoppingBag, Trash2 } from 'lucide-react';
+import { useEffect } from 'react';
 import { useShop } from '@/context/ShopContext';
 import { formatPrice } from '@/data/products';
 
@@ -9,11 +10,22 @@ interface CartDrawerProps {
 export default function CartDrawer({ onNavigate }: CartDrawerProps) {
   const { cart, isCartOpen, setCartOpen, updateQuantity, removeFromCart, cartSubtotal, cartCount } = useShop();
 
+  useEffect(() => {
+    if (!isCartOpen) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setCartOpen(false); };
+    window.addEventListener('keydown', onKey);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      document.body.style.overflow = '';
+    };
+  }, [isCartOpen, setCartOpen]);
+
   return (
     <>
       {/* Backdrop */}
       <div
-        className={`fixed inset-0 z-[70] bg-noir/50 backdrop-blur-sm transition-opacity duration-400 ${
+        className={`fixed inset-0 z-[70] bg-noir/50 backdrop-blur-sm transition-opacity duration-500 ${
           isCartOpen ? 'opacity-100' : 'pointer-events-none opacity-0'
         }`}
         onClick={() => setCartOpen(false)}

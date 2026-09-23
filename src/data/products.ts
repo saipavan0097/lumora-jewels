@@ -50,7 +50,7 @@ export const collections = ['Heritage', 'Eternity', 'Aurelia', 'Maharaja', 'Cele
 
 export const products: Product[] = [
   {
-    id: 'aurivelle-solitaire-ring',
+    id: 'orvelia-solitaire-ring',
     title: 'Solitaire Eternity Ring',
     category: 'Rings',
     price: 185000,
@@ -72,7 +72,7 @@ export const products: Product[] = [
     popularity: 95,
   },
   {
-    id: 'aurivelle-sapphire-ring',
+    id: 'orvelia-sapphire-ring',
     title: 'Ceylon Sapphire Ring',
     category: 'Rings',
     price: 245000,
@@ -92,7 +92,7 @@ export const products: Product[] = [
     popularity: 88,
   },
   {
-    id: 'aurivelle-rose-gold-ring',
+    id: 'orvelia-rose-gold-ring',
     title: 'Rose Gold Diamond Ring',
     category: 'Rings',
     price: 165000,
@@ -112,7 +112,7 @@ export const products: Product[] = [
     popularity: 82,
   },
   {
-    id: 'aurivelle-diamond-pendant-necklace',
+    id: 'orvelia-diamond-pendant-necklace',
     title: 'Diamond Pendant Necklace',
     category: 'Necklaces',
     price: 320000,
@@ -134,7 +134,7 @@ export const products: Product[] = [
     popularity: 90,
   },
   {
-    id: 'aurivelle-gold-chain-necklace',
+    id: 'orvelia-gold-chain-necklace',
     title: 'Heritage Gold Chain Necklace',
     category: 'Necklaces',
     price: 285000,
@@ -154,7 +154,7 @@ export const products: Product[] = [
     popularity: 78,
   },
   {
-    id: 'aurivelle-gold-pendant-necklace',
+    id: 'orvelia-gold-pendant-necklace',
     title: 'Aurelia Pendant Necklace',
     category: 'Necklaces',
     price: 195000,
@@ -174,7 +174,7 @@ export const products: Product[] = [
     popularity: 75,
   },
   {
-    id: 'aurivelle-gold-bracelet',
+    id: 'orvelia-gold-bracelet',
     title: 'Geometric Gold Bracelet',
     category: 'Bracelets',
     price: 145000,
@@ -194,7 +194,7 @@ export const products: Product[] = [
     popularity: 70,
   },
   {
-    id: 'aurivelle-leaf-bangle',
+    id: 'orvelia-leaf-bangle',
     title: 'Leaf Motif Bangle',
     category: 'Bangles',
     price: 210000,
@@ -214,7 +214,7 @@ export const products: Product[] = [
     popularity: 85,
   },
   {
-    id: 'aurivelle-gold-bangles-set',
+    id: 'orvelia-gold-bangles-set',
     title: 'Heritage Bangles Set',
     category: 'Bangles',
     price: 395000,
@@ -235,7 +235,7 @@ export const products: Product[] = [
     popularity: 92,
   },
   {
-    id: 'aurivelle-jewellery-set',
+    id: 'orvelia-jewellery-set',
     title: 'Celeste Jewellery Set',
     category: 'Luxury Collection',
     price: 575000,
@@ -255,7 +255,7 @@ export const products: Product[] = [
     popularity: 96,
   },
   {
-    id: 'aurivelle-bridal-necklace-set',
+    id: 'orvelia-bridal-necklace-set',
     title: 'Royal Bridal Necklace Set',
     category: 'Wedding Collection',
     price: 895000,
@@ -276,7 +276,7 @@ export const products: Product[] = [
     popularity: 98,
   },
   {
-    id: 'aurivelle-bridal-jewellery',
+    id: 'orvelia-bridal-jewellery',
     title: 'Maharaja Bridal Collection',
     category: 'Wedding Collection',
     price: 1250000,

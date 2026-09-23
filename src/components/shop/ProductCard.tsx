@@ -36,7 +36,7 @@ export default function ProductCard({ product, onQuickView, onNavigate }: Produc
         {/* Badge */}
         {product.badge && (
           <span
-            className={`absolute left-3 top-3 px-3 py-1 text-[10px] font-medium uppercase tracking-wider-luxe ${badgeStyles[product.badge]}`}
+            className={`absolute left-3 top-3 rounded-full px-3 py-1 text-[10px] font-medium uppercase tracking-wider-luxe ${badgeStyles[product.badge]}`}
           >
             {product.badge}
           </span>

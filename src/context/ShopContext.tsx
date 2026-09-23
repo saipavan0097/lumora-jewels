@@ -29,8 +29,8 @@ export function ShopProvider({ children }: { children: ReactNode }) {
   const [isCartOpen, setCartOpen] = useState(false);
 
   useEffect(() => {
-    const savedCart = localStorage.getItem('aurivelle-cart');
-    const savedWishlist = localStorage.getItem('aurivelle-wishlist');
+    const savedCart = localStorage.getItem('orvelia-cart');
+    const savedWishlist = localStorage.getItem('orvelia-wishlist');
     if (savedCart) {
       try { setCart(JSON.parse(savedCart)); } catch { /* ignore */ }
     }
@@ -40,11 +40,11 @@ export function ShopProvider({ children }: { children: ReactNode }) {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('aurivelle-cart', JSON.stringify(cart));
+    localStorage.setItem('orvelia-cart', JSON.stringify(cart));
   }, [cart]);
 
   useEffect(() => {
-    localStorage.setItem('aurivelle-wishlist', JSON.stringify(wishlist));
+    localStorage.setItem('orvelia-wishlist', JSON.stringify(wishlist));
   }, [wishlist]);
 
   const addToCart = (product: Product, quantity = 1) => {

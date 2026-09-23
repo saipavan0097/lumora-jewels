@@ -59,7 +59,7 @@ function App() {
         {loading && <LoadingScreen />}
         <Navbar onNavigate={navigate} currentPath={route.path} onSearch={setSearchQuery} searchQuery={searchQuery} />
 
-        <main>
+        <main key={route.path + (route.productId ?? '')} className="animate-page-enter">
           {route.path === '/shop' && <ShopPage onNavigate={navigate} />}
           {route.path === '/product' && route.productId && <ProductPage productId={route.productId} onNavigate={navigate} />}
           {route.path === '/checkout' && <CheckoutPage onNavigate={navigate} />}

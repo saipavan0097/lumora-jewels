@@ -2,7 +2,7 @@ import { CalendarHeart } from 'lucide-react';
 
 export default function MobileStickyCTA() {
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-40 lg:hidden">
+    <div className="fixed bottom-0 left-0 right-0 z-40 lg:hidden animate-slide-up-fade">
       <div className="glass-nav border-t border-gold/20 px-4 py-3 shadow-[0_-4px_20px_rgba(17,17,17,0.08)]">
         <a
           href="#appointment"

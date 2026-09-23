@@ -80,7 +80,7 @@ export default function ProductPage({ productId, onNavigate }: ProductPageProps)
                 <ZoomIn className="h-3 w-3" strokeWidth={1.5} /> Hover to zoom
               </div>
               {product.badge && (
-                <span className="absolute left-3 top-3 bg-gold px-3 py-1 text-[10px] font-medium uppercase tracking-wider-luxe text-noir">{product.badge}</span>
+                <span className="absolute left-3 top-3 rounded-full bg-gold px-3 py-1 text-[10px] font-medium uppercase tracking-wider-luxe text-noir">{product.badge}</span>
               )}
             </div>
             {/* Thumbnails */}

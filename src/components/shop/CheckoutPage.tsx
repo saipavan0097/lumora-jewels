@@ -20,7 +20,7 @@ export default function CheckoutPage({ onNavigate }: CheckoutPageProps) {
   const total = cartSubtotal + shipping - discount;
 
   const applyCoupon = () => {
-    if (coupon.toUpperCase() === 'AURIVELLE10') {
+    if (coupon.toUpperCase() === 'ORVELIA10') {
       setDiscount(Math.round(cartSubtotal * 0.1));
     } else {
       setDiscount(0);
@@ -48,7 +48,7 @@ export default function CheckoutPage({ onNavigate }: CheckoutPageProps) {
           </p>
           <div className="mt-6 rounded-2xl border border-gold/20 bg-white p-5 animate-fade-in-up delay-600">
             <p className="text-[10px] font-medium uppercase tracking-wider-luxe text-charcoal/40">Order Number</p>
-            <p className="mt-1 font-heading text-xl text-gold">AUR-{Date.now().toString().slice(-8)}</p>
+            <p className="mt-1 font-heading text-xl text-gold">ORV-{Date.now().toString().slice(-8)}</p>
           </div>
           <button
             onClick={() => onNavigate('/shop')}
@@ -183,7 +183,7 @@ export default function CheckoutPage({ onNavigate }: CheckoutPageProps) {
                       type="text"
                       value={coupon}
                       onChange={(e) => setCoupon(e.target.value)}
-                      placeholder="Try AURIVELLE10"
+                      placeholder="Try ORVELIA10"
                       className={`${inputClass} pl-9`}
                     />
                   </div>

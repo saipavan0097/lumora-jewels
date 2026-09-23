@@ -116,7 +116,7 @@ export default function SignatureJewellery() {
 
                   {/* Badge */}
                   <span
-                    className={`absolute left-4 top-4 px-3 py-1 text-[10px] font-medium uppercase tracking-wider-luxe ${badgeStyles[p.badge]}`}
+                    className={`absolute left-4 top-4 rounded-full px-3 py-1 text-[10px] font-medium uppercase tracking-wider-luxe ${badgeStyles[p.badge]}`}
                   >
                     {p.badge}
                   </span>
@@ -125,12 +125,12 @@ export default function SignatureJewellery() {
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-all duration-500 group-hover:opacity-100">
                     <div className="flex flex-col items-center gap-3">
                       <span className="flex items-center gap-1.5 text-[10px] font-light uppercase tracking-wider-luxe text-ivory/80">
-                        <Eye className="h-3.5 w-3.5" strokeWidth={1.5} />
+                        <Eye className="h-3.5 w-3.5" strokeWidth={1.5} aria-hidden="true" />
                         Quick View
                       </span>
-                      <button className="btn-gold inline-flex items-center gap-2 bg-gold px-6 py-2.5 text-[10px] font-medium uppercase tracking-wider-luxe text-noir">
+                      <button className="btn-gold inline-flex items-center gap-2 rounded-full bg-gold px-6 py-2.5 text-[10px] font-medium uppercase tracking-wider-luxe text-noir">
                         View Details
-                        <ArrowRight className="h-3 w-3" strokeWidth={1.5} />
+                        <ArrowRight className="h-3 w-3" strokeWidth={1.5} aria-hidden="true" />
                       </button>
                     </div>
                   </div>

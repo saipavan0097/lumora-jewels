@@ -55,6 +55,7 @@ export default function Hero() {
           <Sparkles
             className={`${s.size} text-gold drop-shadow-[0_0_8px_rgba(201,162,39,0.7)]`}
             strokeWidth={1.5}
+            aria-hidden="true"
           />
         </div>
       ))}

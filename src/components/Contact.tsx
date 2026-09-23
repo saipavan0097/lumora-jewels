@@ -13,13 +13,13 @@ import {
 import Reveal from '@/components/Reveal';
 
 const contactInfo = [
-  { icon: Phone, label: 'Phone', value: '+91 XXXXX XXXXX', href: 'tel:+91XXXXXXXXXX' },
-  { icon: MessageCircle, label: 'WhatsApp', value: 'Chat on WhatsApp', href: 'https://wa.me/91XXXXXXXXXX' },
+  { icon: Phone, label: 'Phone', value: '+91 90000 00000', href: 'tel:+919000000000' },
+  { icon: MessageCircle, label: 'WhatsApp', value: 'Chat on WhatsApp', href: 'https://wa.me/919000000000' },
   { icon: Mail, label: 'Email', value: 'saipavanvizag601@gmail.com', href: 'mailto:saipavanvizag601@gmail.com' },
 ];
 
 const socialLinks = [
-  { icon: Instagram, label: 'Instagram', value: 'Instagram', href: 'https://instagram.com/' },
+  { icon: Instagram, label: 'Instagram', value: '@pavan_rajz', href: 'https://instagram.com/pavan_rajz' },
   { icon: Facebook, label: 'Facebook', value: 'Pavan Rajz', href: 'https://facebook.com/PavanRajz' },
   { icon: Linkedin, label: 'LinkedIn', value: 'Sai Pavan Rali', href: 'https://linkedin.com/in/sai-pavan-rali' },
   { icon: Youtube, label: 'YouTube', value: '@saipavangoldworks', href: 'https://youtube.com/@saipavangoldworks' },
