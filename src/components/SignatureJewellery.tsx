@@ -1,21 +1,25 @@
-import { ArrowRight, Eye } from 'lucide-react';
+import { ArrowRight, Eye, ShoppingBag } from 'lucide-react';
 import Reveal from '@/components/Reveal';
 
 type Badge = 'New' | 'Bestseller' | 'Limited Edition' | 'Handcrafted';
 
-const products: {
+interface SignatureProduct {
   name: string;
   purity: string;
   price: string;
   badge: Badge;
   image: string;
-}[] = [
+  productId: string;
+}
+
+const products: SignatureProduct[] = [
   {
     name: 'Eternal Solitaire Ring',
     purity: '18K',
     price: '₹3,98,000',
     badge: 'Bestseller',
     image: 'https://images.pexels.com/photos/30541171/pexels-photo-30541171.jpeg?auto=compress&cs=tinysrgb&w=800',
+    productId: 'daivique-solitaire-ring',
   },
   {
     name: 'Heritage Gold Choker',
@@ -23,6 +27,7 @@ const products: {
     price: '₹5,12,000',
     badge: 'New',
     image: 'https://images.pexels.com/photos/20100141/pexels-photo-20100141.jpeg?auto=compress&cs=tinysrgb&w=800',
+    productId: 'daivique-gold-chain-necklace',
   },
   {
     name: 'Celestia Diamond Set',
@@ -30,6 +35,7 @@ const products: {
     price: '₹7,45,000',
     badge: 'Limited Edition',
     image: 'https://images.pexels.com/photos/29245554/pexels-photo-29245554.jpeg?auto=compress&cs=tinysrgb&w=800',
+    productId: 'daivique-jewellery-set',
   },
   {
     name: 'Régence Gold Bangle',
@@ -37,6 +43,7 @@ const products: {
     price: '₹2,84,000',
     badge: 'Handcrafted',
     image: 'https://images.pexels.com/photos/30541169/pexels-photo-30541169.jpeg?auto=compress&cs=tinysrgb&w=800',
+    productId: 'daivique-leaf-bangle',
   },
   {
     name: 'Aurora Pendant Necklace',
@@ -44,6 +51,7 @@ const products: {
     price: '₹2,45,000',
     badge: 'New',
     image: 'https://images.pexels.com/photos/10215179/pexels-photo-10215179.jpeg?auto=compress&cs=tinysrgb&w=800',
+    productId: 'daivique-gold-pendant-necklace',
   },
   {
     name: 'Lumière Diamond Earrings',
@@ -51,6 +59,7 @@ const products: {
     price: '₹4,62,000',
     badge: 'Limited Edition',
     image: 'https://images.pexels.com/photos/7093769/pexels-photo-7093769.jpeg?auto=compress&cs=tinysrgb&w=800',
+    productId: 'daivique-rose-gold-ring',
   },
   {
     name: 'Saffron Temple Jhumkas',
@@ -58,6 +67,7 @@ const products: {
     price: '₹3,20,000',
     badge: 'Handcrafted',
     image: 'https://images.pexels.com/photos/8031399/pexels-photo-8031399.jpeg?auto=compress&cs=tinysrgb&w=800',
+    productId: 'daivique-gold-bangles-set',
   },
   {
     name: 'Monarch Signet Ring',
@@ -65,6 +75,7 @@ const products: {
     price: '₹1,78,000',
     badge: 'Bestseller',
     image: 'https://images.pexels.com/photos/13524236/pexels-photo-13524236.jpeg?auto=compress&cs=tinysrgb&w=800',
+    productId: 'daivique-sapphire-ring',
   },
 ];
 
@@ -75,7 +86,11 @@ const badgeStyles: Record<Badge, string> = {
   Handcrafted: 'border border-charcoal/40 text-ivory bg-charcoal/90',
 };
 
-export default function SignatureJewellery() {
+interface SignatureJewelleryProps {
+  onNavigate: (path: string) => void;
+}
+
+export default function SignatureJewellery({ onNavigate }: SignatureJewelleryProps) {
   return (
     <section id="signature" className="bg-white py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
@@ -112,7 +127,7 @@ export default function SignatureJewellery() {
                   />
 
                   {/* Gradient overlay on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-noir/30 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-noir/30 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
                   {/* Badge */}
                   <span
@@ -128,7 +143,10 @@ export default function SignatureJewellery() {
                         <Eye className="h-3.5 w-3.5" strokeWidth={1.5} aria-hidden="true" />
                         Quick View
                       </span>
-                      <button className="btn-gold inline-flex items-center gap-2 rounded-full bg-gold px-6 py-2.5 text-[10px] font-medium uppercase tracking-wider-luxe text-noir">
+                      <button
+                        onClick={() => onNavigate(`/product/${p.productId}`)}
+                        className="btn-gold inline-flex items-center gap-2 rounded-full bg-gold px-6 py-2.5 text-[10px] font-medium uppercase tracking-wider-luxe text-noir focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
+                      >
                         View Details
                         <ArrowRight className="h-3 w-3" strokeWidth={1.5} aria-hidden="true" />
                       </button>
@@ -138,15 +156,27 @@ export default function SignatureJewellery() {
 
                 {/* Info */}
                 <div className="mt-5 text-center">
-                  <h3 className="font-heading text-xl font-medium text-noir transition-colors duration-300 group-hover:text-gold">
-                    {p.name}
-                  </h3>
+                  <button
+                    onClick={() => onNavigate(`/product/${p.productId}`)}
+                    className="focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold rounded"
+                  >
+                    <h3 className="font-heading text-xl font-medium text-noir transition-colors duration-300 group-hover:text-gold">
+                      {p.name}
+                    </h3>
+                  </button>
                   <p className="mt-1 text-xs font-light uppercase tracking-wider-luxe text-charcoal/45">
                     {p.purity} Gold
                   </p>
                   <p className="mt-3 font-heading text-lg font-medium text-gold">
                     {p.price}
                   </p>
+                  <button
+                    onClick={() => onNavigate(`/product/${p.productId}`)}
+                    className="mt-4 inline-flex items-center gap-2 rounded-full border border-gold/40 px-5 py-2.5 text-[10px] font-medium uppercase tracking-wider-luxe text-noir transition-all duration-300 hover:bg-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
+                  >
+                    <ShoppingBag className="h-3.5 w-3.5" strokeWidth={1.5} />
+                    View Product
+                  </button>
                 </div>
               </article>
             </Reveal>

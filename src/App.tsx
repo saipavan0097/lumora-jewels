@@ -67,7 +67,7 @@ function App() {
             <>
               <Hero />
               <FeaturedCollections />
-              <SignatureJewellery />
+              <SignatureJewellery onNavigate={navigate} />
               <WhyChooseLumora />
               <TrustBadges />
               <Testimonials />

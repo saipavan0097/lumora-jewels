@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { Star, Heart, ShoppingBag, ZoomIn, Truck, ShieldCheck, Sparkles, ChevronRight } from 'lucide-react';
-import { getProductById, getRelatedProducts, formatPrice } from '@/data/products';
+import { Star, Heart, ShoppingBag, ZoomIn, Truck, ShieldCheck, Sparkles, ChevronRight, CalendarHeart } from 'lucide-react';
+import { getProductById, getRelatedProducts, formatPrice, type Product } from '@/data/products';
 import { useShop } from '@/context/ShopContext';
 import ProductCard from '@/components/shop/ProductCard';
+import QuickView from '@/components/shop/QuickView';
 import Reveal from '@/components/Reveal';
 
 interface ProductPageProps {
@@ -20,6 +21,7 @@ export default function ProductPage({ productId, onNavigate }: ProductPageProps)
   const [isZoomed, setIsZoomed] = useState(false);
   const [zoomPos, setZoomPos] = useState({ x: 50, y: 50 });
   const [quantity, setQuantity] = useState(1);
+  const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
 
   if (!product) {
     return (
@@ -162,6 +164,15 @@ export default function ProductPage({ productId, onNavigate }: ProductPageProps)
               </button>
             </div>
 
+            {/* Book Appointment */}
+            <button
+              onClick={() => onNavigate('/#appointment')}
+              className="mt-4 flex w-full items-center justify-center gap-2 rounded-lg border border-gold/50 py-3.5 text-xs font-medium uppercase tracking-luxe text-noir transition-all duration-300 hover:bg-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
+            >
+              <CalendarHeart className="h-4 w-4" strokeWidth={1.5} />
+              Book Appointment
+            </button>
+
             {/* Trust icons */}
             <div className="mt-7 grid grid-cols-3 gap-4">
               {[
@@ -210,13 +221,15 @@ export default function ProductPage({ productId, onNavigate }: ProductPageProps)
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {related.map((p, i) => (
                 <Reveal key={p.id} delay={i * 80}>
-                  <ProductCard product={p} onQuickView={() => {}} onNavigate={onNavigate} />
+                  <ProductCard product={p} onQuickView={setQuickViewProduct} onNavigate={onNavigate} />
                 </Reveal>
               ))}
             </div>
           </div>
         )}
       </div>
+
+      <QuickView product={quickViewProduct} onClose={() => setQuickViewProduct(null)} onNavigate={onNavigate} />
     </section>
   );
 }

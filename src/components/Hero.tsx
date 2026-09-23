@@ -72,7 +72,7 @@ export default function Hero() {
         </div>
 
         {/* Headline */}
-        <h1 className="animate-fade-in-up delay-200 font-heading text-3xl font-light leading-[1.15] text-ivory sm:text-4xl md:text-5xl lg:text-6xl">
+        <h1 className="animate-fade-in-up delay-200 font-heading text-2xl font-light leading-[1.15] text-ivory sm:text-3xl md:text-4xl lg:text-5xl">
           Jewellery That
           <br />
           Becomes{' '}

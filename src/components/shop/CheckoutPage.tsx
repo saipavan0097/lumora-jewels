@@ -7,7 +7,7 @@ interface CheckoutPageProps {
   onNavigate: (path: string) => void;
 }
 
-const inputClass = 'w-full border border-noir/15 bg-ivory/50 px-4 py-3 text-sm font-light text-noir placeholder:text-charcoal/35 transition-all duration-300 focus:border-gold focus:bg-white focus:outline-none focus:ring-1 focus:ring-gold/30';
+const inputClass = 'w-full rounded-lg border border-gold/20 bg-white px-4 py-3 text-sm font-light text-noir placeholder:text-charcoal/35 transition-all duration-300 focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/25';
 const labelClass = 'mb-2 block text-[11px] font-medium uppercase tracking-wider-luxe text-charcoal/55';
 
 export default function CheckoutPage({ onNavigate }: CheckoutPageProps) {

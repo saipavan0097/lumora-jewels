@@ -51,7 +51,7 @@ export default function Navbar({ onNavigate, currentPath, onSearch, searchQuery 
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-10">
         {/* Logo */}
-        <button onClick={() => onNavigate('/')} className="group flex items-center gap-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-transparent rounded-lg" aria-label="DAIVIQUE home">
+        <button onClick={() => onNavigate('/')} className="group flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-transparent rounded-lg" aria-label="DAIVIQUE home">
           <Gem className="h-5 w-5 text-gold transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110" strokeWidth={1.5} />
           <span className={`font-heading text-2xl font-semibold tracking-wide transition-colors duration-500 ${scrolled || currentPath !== '/' ? 'text-noir' : 'text-ivory'}`}>
             DAIVIQUE
@@ -59,7 +59,7 @@ export default function Navbar({ onNavigate, currentPath, onSearch, searchQuery 
         </button>
 
         {/* Desktop menu */}
-        <ul className="hidden items-center gap-7 lg:flex">
+        <ul className="hidden items-center gap-9 lg:flex">
           {navLinks.map((link) => {
             const isActive = currentPath === link.path || (link.path === '/' && currentPath === '/');
             return (
