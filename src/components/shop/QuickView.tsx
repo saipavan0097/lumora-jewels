@@ -92,6 +92,17 @@ export default function QuickView({ product, onClose, onNavigate }: QuickViewPro
               <p className="mt-1 text-sm font-light text-noir">{product.materials}</p>
             </div>
 
+            <div className="mt-4 grid grid-cols-2 gap-4 border-t border-noir/8 pt-4">
+              <div>
+                <p className="text-[10px] font-medium uppercase tracking-wider-luxe text-charcoal/45">Metal</p>
+                <p className="mt-1 text-sm font-light text-noir">{product.metal}</p>
+              </div>
+              <div>
+                <p className="text-[10px] font-medium uppercase tracking-wider-luxe text-charcoal/45">Stone</p>
+                <p className="mt-1 text-sm font-light text-noir">{product.stone}</p>
+              </div>
+            </div>
+
             <div className="mt-auto flex gap-3 pt-6">
               <button
                 onClick={() => { addToCart(product); onClose(); }}

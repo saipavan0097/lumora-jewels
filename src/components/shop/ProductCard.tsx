@@ -56,10 +56,10 @@ export default function ProductCard({ product, onQuickView, onNavigate }: Produc
         </button>
 
         {/* Quick view overlay */}
-        <div className="absolute inset-0 flex items-end justify-center bg-gradient-to-t from-noir/40 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+        <div className="pointer-events-none absolute inset-0 flex items-end justify-center bg-gradient-to-t from-noir/40 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-hover:pointer-events-auto">
           <button
           onClick={(e) => { e.stopPropagation(); onQuickView(product); }}
-          className="mb-4 inline-flex items-center gap-2 rounded-full bg-ivory/95 px-5 py-2.5 text-[11px] font-medium uppercase tracking-wider-luxe text-noir backdrop-blur-sm transition-all duration-300 hover:bg-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+          className="pointer-events-auto mb-4 inline-flex items-center gap-2 rounded-full bg-ivory/95 px-5 py-2.5 text-[11px] font-medium uppercase tracking-wider-luxe text-noir backdrop-blur-sm transition-all duration-300 hover:bg-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
         >
             <Eye className="h-3.5 w-3.5" strokeWidth={1.5} />
             Quick View

@@ -1,5 +1,8 @@
+import { useState } from 'react';
 import { ArrowRight, Eye, ShoppingBag } from 'lucide-react';
 import Reveal from '@/components/Reveal';
+import QuickView from '@/components/shop/QuickView';
+import { getProductById, type Product } from '@/data/products';
 
 type Badge = 'New' | 'Bestseller' | 'Limited Edition' | 'Handcrafted';
 
@@ -59,7 +62,7 @@ const products: SignatureProduct[] = [
     price: '₹4,62,000',
     badge: 'Limited Edition',
     image: 'https://images.pexels.com/photos/7093769/pexels-photo-7093769.jpeg?auto=compress&cs=tinysrgb&w=800',
-    productId: 'daivique-rose-gold-ring',
+    productId: 'daivique-diamond-stud-earrings',
   },
   {
     name: 'Saffron Temple Jhumkas',
@@ -67,7 +70,7 @@ const products: SignatureProduct[] = [
     price: '₹3,20,000',
     badge: 'Handcrafted',
     image: 'https://images.pexels.com/photos/8031399/pexels-photo-8031399.jpeg?auto=compress&cs=tinysrgb&w=800',
-    productId: 'daivique-gold-bangles-set',
+    productId: 'daivique-temple-jhumka-earrings',
   },
   {
     name: 'Monarch Signet Ring',
@@ -91,6 +94,13 @@ interface SignatureJewelleryProps {
 }
 
 export default function SignatureJewellery({ onNavigate }: SignatureJewelleryProps) {
+  const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
+
+  const handleQuickView = (productId: string) => {
+    const product = getProductById(productId);
+    if (product) setQuickViewProduct(product);
+  };
+
   return (
     <section id="signature" className="bg-white py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
@@ -136,13 +146,16 @@ export default function SignatureJewellery({ onNavigate }: SignatureJewelleryPro
                     {p.badge}
                   </span>
 
-                  {/* Hover overlay with View Details */}
+                  {/* Hover overlay with Quick View + View Details */}
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-all duration-500 group-hover:opacity-100">
                     <div className="flex flex-col items-center gap-3">
-                      <span className="flex items-center gap-1.5 text-[10px] font-light uppercase tracking-wider-luxe text-ivory/80">
+                      <button
+                        onClick={() => handleQuickView(p.productId)}
+                        className="inline-flex items-center gap-1.5 rounded-full bg-ivory/95 px-5 py-2.5 text-[10px] font-medium uppercase tracking-wider-luxe text-noir backdrop-blur-sm transition-all duration-300 hover:bg-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                      >
                         <Eye className="h-3.5 w-3.5" strokeWidth={1.5} aria-hidden="true" />
                         Quick View
-                      </span>
+                      </button>
                       <button
                         onClick={() => onNavigate(`/product/${p.productId}`)}
                         className="btn-gold inline-flex items-center gap-2 rounded-full bg-gold px-6 py-2.5 text-[10px] font-medium uppercase tracking-wider-luxe text-noir focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
@@ -183,6 +196,8 @@ export default function SignatureJewellery({ onNavigate }: SignatureJewelleryPro
           ))}
         </div>
       </div>
+
+      <QuickView product={quickViewProduct} onClose={() => setQuickViewProduct(null)} onNavigate={onNavigate} />
     </section>
   );
 }
