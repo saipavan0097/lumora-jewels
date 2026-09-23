@@ -5,7 +5,7 @@ export default function LoadingScreen() {
     <div
       className="animate-loader fixed inset-0 z-[100] flex items-center justify-center bg-noir"
       role="status"
-      aria-label="Loading Orvélia"
+      aria-label="Loading DAIVIQUE"
     >
       {/* Ambient glow */}
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/10 blur-3xl" />
@@ -25,7 +25,7 @@ export default function LoadingScreen() {
         {/* Brand name with shimmer */}
         <div className="relative overflow-hidden">
           <span className="font-heading text-2xl font-medium tracking-[0.3em] text-ivory">
-            Orvélia
+            DAIVIQUE
           </span>
           <div className="absolute inset-0 -translate-x-full animate-loader-shimmer bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
         </div>

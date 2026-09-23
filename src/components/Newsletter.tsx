@@ -21,7 +21,7 @@ export default function Newsletter() {
             <span className="h-px w-12 bg-gold/50" />
           </div>
           <h2 className="font-heading text-4xl font-light text-ivory sm:text-5xl">
-            Join the Orvélia Circle
+            Join the DAIVIQUE Circle
           </h2>
           <p className="mx-auto mt-6 max-w-lg text-sm font-light leading-relaxed text-ivory/50">
             Be the first to discover new collections, private events, and exclusive offers.
@@ -32,7 +32,7 @@ export default function Newsletter() {
             <div className="mx-auto mt-10 flex max-w-md items-center justify-center gap-3 rounded-xl border border-gold/30 bg-gold/5 py-5 animate-fade-in-up">
               <Check className="h-5 w-5 text-gold" strokeWidth={1.5} />
               <p className="text-sm font-light text-ivory/80">
-                Welcome to the Orvélia Circle. Check your inbox for a special gift.
+                Welcome to the DAIVIQUE Circle. Check your inbox for a special gift.
               </p>
             </div>
           ) : (
@@ -59,7 +59,7 @@ export default function Newsletter() {
           )}
 
           <p className="mt-4 text-[10px] font-light text-ivory/30">
-            By subscribing, you agree to receive marketing emails from Orvélia. Unsubscribe anytime.
+            By subscribing, you agree to receive marketing emails from DAIVIQUE. Unsubscribe anytime.
           </p>
         </Reveal>
       </div>

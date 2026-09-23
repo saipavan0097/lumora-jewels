@@ -50,7 +50,7 @@ export const collections = ['Heritage', 'Eternity', 'Aurelia', 'Maharaja', 'Cele
 
 export const products: Product[] = [
   {
-    id: 'orvelia-solitaire-ring',
+    id: 'daivique-solitaire-ring',
     title: 'Solitaire Eternity Ring',
     category: 'Rings',
     price: 185000,
@@ -72,7 +72,7 @@ export const products: Product[] = [
     popularity: 95,
   },
   {
-    id: 'orvelia-sapphire-ring',
+    id: 'daivique-sapphire-ring',
     title: 'Ceylon Sapphire Ring',
     category: 'Rings',
     price: 245000,
@@ -92,7 +92,7 @@ export const products: Product[] = [
     popularity: 88,
   },
   {
-    id: 'orvelia-rose-gold-ring',
+    id: 'daivique-rose-gold-ring',
     title: 'Rose Gold Diamond Ring',
     category: 'Rings',
     price: 165000,
@@ -112,7 +112,7 @@ export const products: Product[] = [
     popularity: 82,
   },
   {
-    id: 'orvelia-diamond-pendant-necklace',
+    id: 'daivique-diamond-pendant-necklace',
     title: 'Diamond Pendant Necklace',
     category: 'Necklaces',
     price: 320000,
@@ -134,7 +134,7 @@ export const products: Product[] = [
     popularity: 90,
   },
   {
-    id: 'orvelia-gold-chain-necklace',
+    id: 'daivique-gold-chain-necklace',
     title: 'Heritage Gold Chain Necklace',
     category: 'Necklaces',
     price: 285000,
@@ -154,7 +154,7 @@ export const products: Product[] = [
     popularity: 78,
   },
   {
-    id: 'orvelia-gold-pendant-necklace',
+    id: 'daivique-gold-pendant-necklace',
     title: 'Aurelia Pendant Necklace',
     category: 'Necklaces',
     price: 195000,
@@ -174,7 +174,7 @@ export const products: Product[] = [
     popularity: 75,
   },
   {
-    id: 'orvelia-gold-bracelet',
+    id: 'daivique-gold-bracelet',
     title: 'Geometric Gold Bracelet',
     category: 'Bracelets',
     price: 145000,
@@ -194,7 +194,7 @@ export const products: Product[] = [
     popularity: 70,
   },
   {
-    id: 'orvelia-leaf-bangle',
+    id: 'daivique-leaf-bangle',
     title: 'Leaf Motif Bangle',
     category: 'Bangles',
     price: 210000,
@@ -214,7 +214,7 @@ export const products: Product[] = [
     popularity: 85,
   },
   {
-    id: 'orvelia-gold-bangles-set',
+    id: 'daivique-gold-bangles-set',
     title: 'Heritage Bangles Set',
     category: 'Bangles',
     price: 395000,
@@ -235,7 +235,7 @@ export const products: Product[] = [
     popularity: 92,
   },
   {
-    id: 'orvelia-jewellery-set',
+    id: 'daivique-jewellery-set',
     title: 'Celeste Jewellery Set',
     category: 'Luxury Collection',
     price: 575000,
@@ -255,7 +255,7 @@ export const products: Product[] = [
     popularity: 96,
   },
   {
-    id: 'orvelia-bridal-necklace-set',
+    id: 'daivique-bridal-necklace-set',
     title: 'Royal Bridal Necklace Set',
     category: 'Wedding Collection',
     price: 895000,
@@ -276,7 +276,7 @@ export const products: Product[] = [
     popularity: 98,
   },
   {
-    id: 'orvelia-bridal-jewellery',
+    id: 'daivique-bridal-jewellery',
     title: 'Maharaja Bridal Collection',
     category: 'Wedding Collection',
     price: 1250000,
@@ -291,7 +291,7 @@ export const products: Product[] = [
       'https://images.pexels.com/photos/6011749/pexels-photo-6011749.jpeg?auto=compress&cs=tinysrgb&w=900',
       'https://images.pexels.com/photos/33023960/pexels-photo-33023960.jpeg?auto=compress&cs=tinysrgb&w=900',
     ],
-    description: 'The pinnacle of Orvélia craftsmanship — a complete bridal jewellery ensemble featuring emerald and gold detailing fit for a queen.',
+    description: 'The pinnacle of DAIVIQUE craftsmanship — a complete bridal jewellery ensemble featuring emerald and gold detailing fit for a queen.',
     materials: '22K Yellow Gold, Colombian Emeralds, Complete Bridal Set',
     isNew: true,
     popularity: 100,

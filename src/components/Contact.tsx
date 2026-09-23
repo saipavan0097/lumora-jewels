@@ -13,8 +13,8 @@ import {
 import Reveal from '@/components/Reveal';
 
 const contactInfo = [
-  { icon: Phone, label: 'Phone', value: '+91 90000 00000', href: 'tel:+919000000000' },
-  { icon: MessageCircle, label: 'WhatsApp', value: 'Chat on WhatsApp', href: 'https://wa.me/919000000000' },
+  { icon: Phone, label: 'Phone', value: '+91 7661930097', href: 'tel:+917661930097' },
+  { icon: MessageCircle, label: 'WhatsApp', value: 'Chat on WhatsApp', href: 'https://wa.me/917661930097' },
   { icon: Mail, label: 'Email', value: 'saipavanvizag601@gmail.com', href: 'mailto:saipavanvizag601@gmail.com' },
 ];
 
@@ -60,7 +60,7 @@ export default function Contact() {
             <div className="flex h-full flex-col gap-7">
               {/* Business info */}
               <div className="rounded-2xl border border-noir/8 bg-ivory/40 p-7">
-                <h3 className="mb-1 font-heading text-2xl font-medium text-noir">Orvélia</h3>
+                <h3 className="mb-1 font-heading text-2xl font-medium text-noir">DAIVIQUE</h3>
                 <p className="text-xs font-light uppercase tracking-wider-luxe text-gold/80">
                   Luxury Jewellery Studio
                 </p>
@@ -160,7 +160,7 @@ export default function Contact() {
                 </div>
               )}
               <iframe
-                title="Orvélia — Visakhapatnam, Andhra Pradesh"
+                title="DAIVIQUE — Visakhapatnam, Andhra Pradesh"
                 src="https://www.google.com/maps?q=Visakhapatnam%2C%20Andhra%20Pradesh%2C%20India&output=embed"
                 width="100%"
                 height="100%"

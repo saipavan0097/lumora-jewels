@@ -51,31 +51,35 @@ export default function Navbar({ onNavigate, currentPath, onSearch, searchQuery 
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-10">
         {/* Logo */}
-        <button onClick={() => onNavigate('/')} className="group flex items-center gap-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-transparent rounded-lg" aria-label="Orvélia home">
+        <button onClick={() => onNavigate('/')} className="group flex items-center gap-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-transparent rounded-lg" aria-label="DAIVIQUE home">
           <Gem className="h-5 w-5 text-gold transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110" strokeWidth={1.5} />
           <span className={`font-heading text-2xl font-semibold tracking-wide transition-colors duration-500 ${scrolled || currentPath !== '/' ? 'text-noir' : 'text-ivory'}`}>
-            Orvélia
+            DAIVIQUE
           </span>
         </button>
 
         {/* Desktop menu */}
-        <ul className="hidden items-center gap-8 lg:flex">
-          {navLinks.map((link) => (
-            <li key={link.label}>
-              <button
-                onClick={() => handleNavClick(link.href, link.path)}
-                className={`nav-link text-sm font-light tracking-wider-luxe transition-colors duration-300 ${
-                  scrolled || currentPath !== '/' ? 'text-charcoal hover:text-gold' : 'text-ivory/90 hover:text-gold'
-                }`}
-              >
-                {link.label}
-              </button>
-            </li>
-          ))}
+        <ul className="hidden items-center gap-7 lg:flex">
+          {navLinks.map((link) => {
+            const isActive = currentPath === link.path || (link.path === '/' && currentPath === '/');
+            return (
+              <li key={link.label}>
+                <button
+                  onClick={() => handleNavClick(link.href, link.path)}
+                  className={`nav-link relative text-sm font-light tracking-wider-luxe transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-transparent rounded-lg px-1 py-1 ${
+                    scrolled || currentPath !== '/' ? 'text-charcoal hover:text-gold' : 'text-ivory/90 hover:text-gold'
+                  }`}
+                >
+                  {link.label}
+                  <span className={`absolute -bottom-0.5 left-0 h-px bg-gold transition-all duration-300 ${isActive ? 'w-full' : 'w-0'}`} />
+                </button>
+              </li>
+            );
+          })}
         </ul>
 
         {/* Right icons */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 lg:gap-4">
           {/* Search */}
           <button
             onClick={() => setSearchOpen(!searchOpen)}

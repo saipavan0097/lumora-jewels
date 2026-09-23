@@ -37,7 +37,7 @@ const socials = [
   { icon: Github, href: 'https://github.com/Saipavanrali', label: 'GitHub' },
   { icon: Linkedin, href: 'https://linkedin.com/in/sai-pavan-rali', label: 'LinkedIn' },
   { icon: Instagram, href: 'https://instagram.com/pavan_rajz', label: 'Instagram' },
-  { icon: MessageCircle, href: 'https://wa.me/919000000000', label: 'WhatsApp' },
+  { icon: MessageCircle, href: 'https://wa.me/917661930097', label: 'WhatsApp' },
   { icon: Mail, href: 'mailto:saipavanvizag601@gmail.com', label: 'Email' },
 ];
 
@@ -54,7 +54,7 @@ export default function Footer({ onNavigate }: FooterProps) {
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2.5">
               <Gem className="h-5 w-5 text-gold" strokeWidth={1.5} />
-              <span className="font-heading text-2xl font-semibold tracking-wide">Orvélia</span>
+              <span className="font-heading text-2xl font-semibold tracking-wide">DAIVIQUE</span>
             </div>
             <p className="mt-5 max-w-xs text-sm font-light leading-relaxed text-ivory/50">
               Luxury Jewellery Maison. Crafted with passion since 2026.
@@ -151,11 +151,11 @@ export default function Footer({ onNavigate }: FooterProps) {
               </li>
               <li>
                 <a
-                  href="tel:+919000000000"
+                  href="tel:+917661930097"
                   className="group flex items-center gap-3 text-sm font-light text-ivory/55 transition-colors hover:text-gold focus-visible:outline-none focus-visible:text-gold"
                 >
                   <Phone className="h-4 w-4 shrink-0 text-gold/70" strokeWidth={1.5} />
-                  +91 90000 00000
+                  +91 7661930097
                 </a>
               </li>
             </ul>
@@ -167,7 +167,7 @@ export default function Footer({ onNavigate }: FooterProps) {
       <div className="border-t border-ivory/10">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-6 lg:flex-row lg:px-10">
           <p className="text-xs font-light tracking-wider-luxe text-ivory/35">
-            © 2026 Orvélia. All Rights Reserved.
+            © 2026 DAIVIQUE. All Rights Reserved.
           </p>
           <div className="flex items-center gap-2">
             <span className="h-px w-6 bg-gold/40" />

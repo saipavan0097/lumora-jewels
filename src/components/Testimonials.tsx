@@ -7,13 +7,13 @@ const testimonials = [
     name: 'Aarohi Mehta',
     location: 'Mumbai, India',
     image: 'https://images.pexels.com/photos/22679062/pexels-photo-22679062.jpeg?auto=compress&cs=tinysrgb&w=400',
-    review: 'From the first consultation to the final reveal, every moment felt special. My engagement ring is a masterpiece — Orvélia made the entire experience unforgettable.',
+    review: 'From the first consultation to the final reveal, every moment felt special. My engagement ring is a masterpiece — DAIVIQUE made the entire experience unforgettable.',
   },
   {
     name: 'Sophia Laurent',
     location: 'Paris, France',
     image: 'https://images.pexels.com/photos/10577048/pexels-photo-10577048.jpeg?auto=compress&cs=tinysrgb&w=400',
-    review: 'I have collected jewellery from houses across the world. Orvélia stands among the finest — the craftsmanship, the warmth, the attention to detail is simply extraordinary.',
+    review: 'I have collected jewellery from houses across the world. DAIVIQUE stands among the finest — the craftsmanship, the warmth, the attention to detail is simply extraordinary.',
   },
   {
     name: 'Priya Nair',
@@ -92,7 +92,7 @@ export default function Testimonials() {
             </div>
           </div>
           <div className="mt-7 flex items-center justify-center gap-4">
-            <button onClick={() => setActiveIndex((activeIndex + testimonials.length - 1) % testimonials.length)} aria-label="Previous testimonial" className="flex h-10 w-10 items-center justify-center rounded-full border border-gold/40 text-gold transition-colors hover:bg-gold hover:text-noir">
+            <button onClick={() => setActiveIndex((activeIndex + testimonials.length - 1) % testimonials.length)} aria-label="Previous testimonial" className="flex h-10 w-10 items-center justify-center rounded-full border border-gold/40 text-gold transition-colors hover:bg-gold hover:text-noir focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-transparent">
               <ChevronLeft className="h-4 w-4" strokeWidth={1.5} />
             </button>
             <div className="flex gap-2">
@@ -100,7 +100,7 @@ export default function Testimonials() {
                 <button key={testimonial.name} onClick={() => setActiveIndex(index)} aria-label={`Show testimonial ${index + 1}`} className={`h-1.5 rounded-full transition-all duration-300 ${activeIndex === index ? 'w-8 bg-gold' : 'w-1.5 bg-gold/30'}`} />
               ))}
             </div>
-            <button onClick={() => setActiveIndex((activeIndex + 1) % testimonials.length)} aria-label="Next testimonial" className="flex h-10 w-10 items-center justify-center rounded-full border border-gold/40 text-gold transition-colors hover:bg-gold hover:text-noir">
+            <button onClick={() => setActiveIndex((activeIndex + 1) % testimonials.length)} aria-label="Next testimonial" className="flex h-10 w-10 items-center justify-center rounded-full border border-gold/40 text-gold transition-colors hover:bg-gold hover:text-noir focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-transparent">
               <ChevronRight className="h-4 w-4" strokeWidth={1.5} />
             </button>
           </div>

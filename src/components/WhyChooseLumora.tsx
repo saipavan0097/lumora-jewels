@@ -18,7 +18,7 @@ const features = [
   {
     icon: RefreshCw,
     title: 'Lifetime Service',
-    description: 'Complimentary cleaning, polishing and maintenance for every Orvélia piece.',
+    description: 'Complimentary cleaning, polishing and maintenance for every DAIVIQUE piece.',
   },
   {
     icon: PenTool,
@@ -56,12 +56,12 @@ export default function WhyChooseLumora() {
           <div className="mb-5 flex items-center justify-center gap-4">
             <span className="h-px w-12 bg-gold/50" />
             <span className="text-xs font-light uppercase tracking-luxe text-gold">
-              The Orvélia Promise
+              The DAIVIQUE Promise
             </span>
             <span className="h-px w-12 bg-gold/50" />
           </div>
           <h2 className="font-heading text-4xl font-light text-ivory sm:text-5xl lg:text-6xl">
-            Why Choose Orvélia
+            Why Choose DAIVIQUE
           </h2>
           <p className="mx-auto mt-6 max-w-lg text-sm font-light leading-relaxed text-ivory/45">
             Seven commitments that define every piece we create and every

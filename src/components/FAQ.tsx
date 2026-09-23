@@ -5,7 +5,7 @@ import Reveal from '@/components/Reveal';
 const faqs = [
   {
     q: 'Do you offer certified jewellery?',
-    a: 'Every piece at Orvélia comes with a certificate of authenticity. Our diamonds are graded to international standards, and all gold carries BIS hallmark certification.',
+    a: 'Every piece at DAIVIQUE comes with a certificate of authenticity. Our diamonds are graded to international standards, and all gold carries BIS hallmark certification.',
   },
   {
     q: 'Can I customize a piece of jewellery?',
@@ -20,12 +20,12 @@ const faqs = [
     a: 'Yes, we offer complimentary insured shipping worldwide. Domestic orders arrive within 3–7 business days, and international orders within 7–14 business days.',
   },
   {
-    q: 'Is there a warranty on Orvélia jewellery?',
+    q: 'Is there a warranty on DAIVIQUE jewellery?',
     a: 'Every piece comes with a lifetime warranty covering manufacturing defects. We also provide complimentary cleaning, polishing, and maintenance for life.',
   },
   {
     q: 'How do I care for my jewellery?',
-    a: 'Store your pieces in the provided Orvélia box, clean with a soft cloth, and avoid contact with perfumes and chemicals. Visit us anytime for professional cleaning.',
+    a: 'Store your pieces in the provided DAIVIQUE box, clean with a soft cloth, and avoid contact with perfumes and chemicals. Visit us anytime for professional cleaning.',
   },
 ];
 
@@ -50,8 +50,10 @@ export default function FAQ() {
               <div className="rounded-xl border border-noir/8 bg-ivory/40 transition-all duration-300 hover:border-gold/20">
                 <button
                   onClick={() => setOpen(open === i ? null : i)}
-                  className="flex w-full items-center justify-between gap-4 p-5 text-left"
+                  className="flex w-full items-center justify-between gap-4 p-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-transparent rounded-xl"
                   aria-expanded={open === i}
+                  aria-controls={`faq-panel-${i}`}
+                  id={`faq-button-${i}`}
                 >
                   <span className="font-heading text-lg font-medium text-noir">{faq.q}</span>
                   {open === i ? (
@@ -60,7 +62,7 @@ export default function FAQ() {
                     <Plus className="h-5 w-5 shrink-0 text-gold" strokeWidth={1.5} />
                   )}
                 </button>
-                <div className={`overflow-hidden transition-all duration-400 ${open === i ? 'max-h-48' : 'max-h-0'}`}>
+                <div id={`faq-panel-${i}`} role="region" aria-labelledby={`faq-button-${i}`} className={`overflow-hidden transition-all duration-400 ${open === i ? 'max-h-48' : 'max-h-0'}`}>
                   <p className="px-5 pb-5 text-sm font-light leading-relaxed text-charcoal/60">{faq.a}</p>
                 </div>
               </div>

@@ -46,7 +46,7 @@ export default function ProductPage({ productId, onNavigate }: ProductPageProps)
     1: product.materials,
     2: 'Rings: Size 4–12 available. Bangles: 2-4, 2-6, 2-8 sizes. Necklaces: 16, 18, 20 inch chains. Free resizing on all pieces.',
     3: 'Complimentary insured shipping worldwide. Delivery within 3–7 business days. Free returns within 30 days.',
-    4: 'Store in the provided Orvélia box. Clean with a soft cloth. Avoid contact with perfumes and chemicals. Complimentary lifetime cleaning service.',
+    4: 'Store in the provided DAIVIQUE box. Clean with a soft cloth. Avoid contact with perfumes and chemicals. Complimentary lifetime cleaning service.',
   };
 
   return (
@@ -143,9 +143,9 @@ export default function ProductPage({ productId, onNavigate }: ProductPageProps)
             {/* Quantity + Actions */}
             <div className="mt-6 flex items-center gap-4">
               <div className="flex items-center border border-noir/15">
-                <button onClick={() => setQuantity(Math.max(1, quantity - 1))} aria-label="Decrease" className="flex h-12 w-12 items-center justify-center text-noir transition-colors hover:bg-noir hover:text-ivory">–</button>
+                <button onClick={() => setQuantity(Math.max(1, quantity - 1))} aria-label="Decrease quantity" className="flex h-12 w-12 items-center justify-center text-noir transition-colors hover:bg-noir hover:text-ivory focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-transparent">–</button>
                 <span className="w-12 text-center text-sm font-light text-noir">{quantity}</span>
-                <button onClick={() => setQuantity(quantity + 1)} aria-label="Increase" className="flex h-12 w-12 items-center justify-center text-noir transition-colors hover:bg-noir hover:text-ivory">+</button>
+                <button onClick={() => setQuantity(quantity + 1)} aria-label="Increase quantity" className="flex h-12 w-12 items-center justify-center text-noir transition-colors hover:bg-noir hover:text-ivory focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-transparent">+</button>
               </div>
               <button
                 onClick={() => addToCart(product, quantity)}

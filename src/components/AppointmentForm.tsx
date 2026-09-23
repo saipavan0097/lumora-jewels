@@ -14,7 +14,7 @@ const budgets = ['₹25,000+', '₹50,000+', '₹1 Lakh+', '₹5 Lakh+'];
 const jewelleryTypes = ['Ring', 'Necklace', 'Bracelet', 'Earrings', 'Bangles', 'Bridal Set', 'Custom'];
 
 const inputClass =
-  'w-full border border-noir/15 bg-ivory/50 px-4 py-3 text-sm font-light text-noir placeholder:text-charcoal/35 transition-all duration-300 focus:border-gold focus:bg-white focus:outline-none focus:ring-1 focus:ring-gold/30';
+  'w-full rounded-lg border border-gold/20 bg-white px-4 py-3 text-sm font-light text-noir placeholder:text-charcoal/35 transition-all duration-300 focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/25 [&::-webkit-calendar-picker-indicator]:text-gold [&::-webkit-calendar-picker-indicator]:opacity-60';
 const labelClass =
   'mb-2 block text-[11px] font-medium uppercase tracking-wider-luxe text-charcoal/55';
 const today = new Date().toISOString().split('T')[0];
@@ -63,7 +63,7 @@ export default function AppointmentForm() {
                 <p className="mt-4 max-w-md text-sm font-light leading-relaxed text-ivory/60 animate-fade-in-up delay-400">
                   Your private consultation request has been received. Our team
                   will contact you shortly to confirm your appointment. We look
-                  forward to welcoming you to Orvélia.
+                  forward to welcoming you to DAIVIQUE.
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}
