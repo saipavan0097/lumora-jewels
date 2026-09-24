@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { Search, SlidersHorizontal, X, ChevronDown } from 'lucide-react';
 import ProductCard from '@/components/shop/ProductCard';
 import QuickView from '@/components/shop/QuickView';
@@ -7,6 +7,7 @@ import { products, categories, metals, stones, collections, type Product, type C
 
 interface ShopPageProps {
   onNavigate: (path: string) => void;
+  externalSearch?: string;
 }
 
 const sortOptions = [
@@ -17,8 +18,12 @@ const sortOptions = [
   { label: 'Rating', value: 'rating' },
 ];
 
-export default function ShopPage({ onNavigate }: ShopPageProps) {
-  const [search, setSearch] = useState('');
+export default function ShopPage({ onNavigate, externalSearch }: ShopPageProps) {
+  const [search, setSearch] = useState(externalSearch ?? '');
+
+  useEffect(() => {
+    if (externalSearch !== undefined) setSearch(externalSearch);
+  }, [externalSearch]);
   const [selectedCategories, setSelectedCategories] = useState<Category[]>([]);
   const [selectedMetals, setSelectedMetals] = useState<string[]>([]);
   const [selectedStones, setSelectedStones] = useState<string[]>([]);

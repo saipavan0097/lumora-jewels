@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import { Gem, Menu, X, CalendarHeart, Search, Heart, ShoppingBag } from 'lucide-react';
 import { useShop } from '@/context/ShopContext';
+import { products, formatPrice } from '@/data/products';
 
 interface NavbarProps {
   onNavigate: (path: string) => void;
@@ -22,11 +23,22 @@ export default function Navbar({ onNavigate, currentPath, onSearch, searchQuery 
   const [mobileOpen, setMobileOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const { cartCount, wishlist, setCartOpen } = useShop();
+  const searchRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  useEffect(() => {
+    const onClickOutside = (e: MouseEvent) => {
+      if (searchRef.current && !searchRef.current.contains(e.target as Node)) {
+        setSearchOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', onClickOutside);
+    return () => document.removeEventListener('mousedown', onClickOutside);
   }, []);
 
   const handleNavClick = (href: string, path: string) => {
@@ -39,6 +51,36 @@ export default function Navbar({ onNavigate, currentPath, onSearch, searchQuery 
     } else {
       onNavigate(path);
     }
+  };
+
+  const suggestions = useMemo(() => {
+    if (!searchQuery.trim()) return [];
+    const q = searchQuery.toLowerCase();
+    return products
+      .filter(
+        (p) =>
+          p.title.toLowerCase().includes(q) ||
+          p.category.toLowerCase().includes(q) ||
+          p.metal.toLowerCase().includes(q) ||
+          p.stone.toLowerCase().includes(q) ||
+          p.collection.toLowerCase().includes(q)
+      )
+      .slice(0, 5);
+  }, [searchQuery]);
+
+  const handleSuggestionClick = (productId: string) => {
+    setSearchOpen(false);
+    onSearch('');
+    onNavigate(`/product/${productId}`);
+  };
+
+  const handleSearchSubmit = () => {
+    onNavigate('/shop');
+    setSearchOpen(false);
+  };
+
+  const clearSearch = () => {
+    onSearch('');
   };
 
   return (
@@ -135,9 +177,9 @@ export default function Navbar({ onNavigate, currentPath, onSearch, searchQuery 
         </div>
       </nav>
 
-      {/* Search bar */}
+      {/* Search bar with live suggestions */}
       {searchOpen && (
-        <div className="animate-fade-in lg:block">
+        <div className="animate-fade-in" ref={searchRef}>
           <div className="mx-auto max-w-2xl px-6 py-4">
             <div className="relative">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-charcoal/40" strokeWidth={1.5} />
@@ -145,11 +187,68 @@ export default function Navbar({ onNavigate, currentPath, onSearch, searchQuery 
                 type="text"
                 value={searchQuery}
                 onChange={(e) => onSearch(e.target.value)}
-                placeholder="Search jewellery..."
+                placeholder="Search by name, category, metal, stone..."
                 autoFocus
-                className="w-full border border-noir/15 bg-white py-3.5 pl-12 pr-4 text-sm font-light text-noir placeholder:text-charcoal/35 transition-all duration-300 focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold/30"
-                onKeyDown={(e) => { if (e.key === 'Enter') { onNavigate('/shop'); setSearchOpen(false); } }}
+                className="w-full rounded-lg border border-noir/15 bg-white py-3.5 pl-12 pr-10 text-sm font-light text-noir placeholder:text-charcoal/35 transition-all duration-300 focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold/30"
+                onKeyDown={(e) => { if (e.key === 'Enter') handleSearchSubmit(); }}
               />
+              {searchQuery && (
+                <button
+                  onClick={clearSearch}
+                  aria-label="Clear search"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-charcoal/40 transition-colors hover:text-gold"
+                >
+                  <X className="h-4 w-4" strokeWidth={1.5} />
+                </button>
+              )}
+
+              {/* Live suggestions dropdown */}
+              {searchQuery.trim() && (
+                <div className="mt-2 overflow-hidden rounded-lg border border-noir/10 bg-white shadow-[0_8px_30px_rgba(17,17,17,0.08)]">
+                  {suggestions.length > 0 ? (
+                    <>
+                      {suggestions.map((p) => (
+                        <button
+                          key={p.id}
+                          onClick={() => handleSuggestionClick(p.id)}
+                          className="flex w-full items-center gap-3 px-4 py-3 text-left transition-colors hover:bg-ivory/50"
+                        >
+                          <img
+                            src={p.images[0]}
+                            alt={p.title}
+                            loading="lazy"
+                            className="h-12 w-12 rounded-md object-cover"
+                          />
+                          <div className="flex-1 min-w-0">
+                            <p className="truncate text-sm font-medium text-noir">{p.title}</p>
+                            <p className="text-[10px] font-light uppercase tracking-wider-luxe text-gold/70">
+                              {p.category} · {p.metal}
+                            </p>
+                          </div>
+                          <span className="text-sm font-medium text-noir">{formatPrice(p.price)}</span>
+                        </button>
+                      ))}
+                      <button
+                        onClick={handleSearchSubmit}
+                        className="flex w-full items-center justify-center gap-1.5 border-t border-noir/8 px-4 py-3 text-[11px] font-medium uppercase tracking-wider-luxe text-gold transition-colors hover:bg-gold/5"
+                      >
+                        View all results
+                        <Search className="h-3 w-3" strokeWidth={1.5} />
+                      </button>
+                    </>
+                  ) : (
+                    <div className="px-4 py-6 text-center">
+                      <p className="text-sm font-light text-charcoal/50">No pieces found for "{searchQuery}"</p>
+                      <button
+                        onClick={clearSearch}
+                        className="mt-2 text-[11px] font-medium uppercase tracking-wider-luxe text-gold transition-opacity hover:opacity-70"
+                      >
+                        Clear search
+                      </button>
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
           </div>
         </div>

@@ -103,6 +103,11 @@ export default function QuickView({ product, onClose, onNavigate }: QuickViewPro
               </div>
             </div>
 
+            <div className="mt-4 border-t border-noir/8 pt-4">
+              <p className="text-[10px] font-medium uppercase tracking-wider-luxe text-charcoal/45">SKU</p>
+              <p className="mt-1 text-sm font-light text-noir">{product.id.toUpperCase()}</p>
+            </div>
+
             <div className="mt-auto flex gap-3 pt-6">
               <button
                 onClick={() => { addToCart(product); onClose(); }}
