@@ -4,28 +4,28 @@ import Reveal from '@/components/Reveal';
 
 const faqs = [
   {
-    q: 'Do you offer certified jewellery?',
-    a: 'Every piece at DAIVIQUE comes with a certificate of authenticity. Our diamonds are graded to international standards, and all gold carries BIS hallmark certification.',
+    q: 'Who made the jewellery in this gallery?',
+    a: 'The gallery showcases ornaments made by Sai Pavan and his father. Each entry includes photographs from their family workshop.',
   },
   {
-    q: 'Can I customize a piece of jewellery?',
-    a: 'Absolutely. We offer bespoke design services where our master craftsmen work with you to create a one-of-a-kind piece. Book a private consultation to begin the journey.',
+    q: 'How do I enquire about a piece?',
+    a: 'Open the piece and choose Enquire about this piece. WhatsApp opens with its name and reference ready to send. You can discuss materials, sizing, price and availability with us directly.',
   },
   {
-    q: 'What is your return and exchange policy?',
-    a: 'We offer a 30-day return policy on all non-customized pieces. Items must be in their original condition with all packaging and certificates included.',
+    q: 'Why are there studio edits and original photos?',
+    a: 'AI studio edits offer a cleaner presentation, but fine details can differ. Original workshop photos are included for comparison and remain the reference for the photographed ornament.',
   },
   {
-    q: 'Do you provide worldwide shipping?',
-    a: 'Yes, we offer complimentary insured shipping worldwide. Domestic orders arrive within 3–7 business days, and international orders within 7–14 business days.',
+    q: 'Are these pieces available to buy immediately?',
+    a: 'This is a showcase of our work, not a live inventory. Please contact us to confirm whether a photographed piece is available or to discuss a similar design.',
   },
   {
-    q: 'Is there a warranty on DAIVIQUE jewellery?',
-    a: 'Every piece comes with a lifetime warranty covering manufacturing defects. We also provide complimentary cleaning, polishing, and maintenance for life.',
+    q: 'Where can I find the price and material details?',
+    a: 'Ask us for the specification and a current quote for the particular piece. Purity, stone identity, weight, making charges and any certification should be confirmed before an order.',
   },
   {
-    q: 'How do I care for my jewellery?',
-    a: 'Store your pieces in the provided DAIVIQUE box, clean with a soft cloth, and avoid contact with perfumes and chemicals. Visit us anytime for professional cleaning.',
+    q: 'Can I discuss a custom design or a visit?',
+    a: 'Yes—use the WhatsApp link to start a conversation. Design feasibility, timing and any appointment are agreed directly with us; the website does not automatically confirm bookings.',
   },
 ];
 

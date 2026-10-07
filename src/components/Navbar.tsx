@@ -1,7 +1,6 @@
 import { useState, useEffect, useMemo, useRef } from 'react';
-import { Gem, Menu, X, CalendarHeart, Search, Heart, ShoppingBag } from 'lucide-react';
-import { useShop } from '@/context/ShopContext';
-import { products, formatPrice } from '@/data/products';
+import { Gem, Menu, X, CalendarHeart, Search } from 'lucide-react';
+import { atelierPieces } from '@/data/atelier';
 
 interface NavbarProps {
   onNavigate: (path: string) => void;
@@ -11,18 +10,17 @@ interface NavbarProps {
 }
 
 const navLinks = [
-  { label: 'Home', href: '#home', path: '/' },
-  { label: 'Shop', href: '#shop', path: '/shop' },
-  { label: 'Collections', href: '#collections', path: '/#collections' },
-  { label: 'About', href: '#founder', path: '/#founder' },
-  { label: 'Contact', href: '#contact', path: '/#contact' },
+  { label: 'Home', path: '/' },
+  { label: 'Our Work', path: '/shop' },
+  { label: 'Collections', path: '/#collections' },
+  { label: 'About', path: '/#founder' },
+  { label: 'Contact', path: '/#contact' },
 ];
 
 export default function Navbar({ onNavigate, currentPath, onSearch, searchQuery }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
-  const { cartCount, wishlist, setCartOpen } = useShop();
   const searchRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -41,37 +39,23 @@ export default function Navbar({ onNavigate, currentPath, onSearch, searchQuery 
     return () => document.removeEventListener('mousedown', onClickOutside);
   }, []);
 
-  const handleNavClick = (href: string, path: string) => {
-    if (path.startsWith('/#')) {
-      onNavigate('/');
-      setTimeout(() => {
-        const el = document.querySelector(href);
-        el?.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
-    } else {
-      onNavigate(path);
-    }
-  };
-
   const suggestions = useMemo(() => {
     if (!searchQuery.trim()) return [];
-    const q = searchQuery.toLowerCase();
-    return products
+    const q = searchQuery.trim().toLowerCase();
+    return atelierPieces
       .filter(
         (p) =>
           p.title.toLowerCase().includes(q) ||
           p.category.toLowerCase().includes(q) ||
-          p.metal.toLowerCase().includes(q) ||
-          p.stone.toLowerCase().includes(q) ||
-          p.collection.toLowerCase().includes(q)
+          p.description.toLowerCase().includes(q)
       )
       .slice(0, 5);
   }, [searchQuery]);
 
-  const handleSuggestionClick = (productId: string) => {
+  const handleSuggestionClick = (title: string) => {
     setSearchOpen(false);
-    onSearch('');
-    onNavigate(`/product/${productId}`);
+    onSearch(title);
+    onNavigate('/shop');
   };
 
   const handleSearchSubmit = () => {
@@ -107,7 +91,7 @@ export default function Navbar({ onNavigate, currentPath, onSearch, searchQuery 
             return (
               <li key={link.label}>
                 <button
-                  onClick={() => handleNavClick(link.href, link.path)}
+                  onClick={() => onNavigate(link.path)}
                   className={`nav-link relative text-sm font-light tracking-wider-luxe transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-transparent rounded-lg px-1 py-1 ${
                     scrolled || currentPath !== '/' ? 'text-charcoal hover:text-gold' : 'text-ivory/90 hover:text-gold'
                   }`}
@@ -132,33 +116,9 @@ export default function Navbar({ onNavigate, currentPath, onSearch, searchQuery 
             <Search className="h-5 w-5" strokeWidth={1.5} />
           </button>
 
-          {/* Wishlist */}
-          <button
-            onClick={() => onNavigate('/shop')}
-            aria-label={`Wishlist with ${wishlist.length} items`}
-            className={`relative transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-transparent rounded-lg p-1 ${scrolled || currentPath !== '/' ? 'text-noir hover:text-gold' : 'text-ivory hover:text-gold'}`}
-          >
-            <Heart className="h-5 w-5" strokeWidth={1.5} />
-            {wishlist.length > 0 && (
-              <span className="absolute -right-2 -top-2 flex h-4 w-4 items-center justify-center rounded-full bg-gold text-[9px] font-medium text-noir">{wishlist.length}</span>
-            )}
-          </button>
-
-          {/* Cart */}
-          <button
-            onClick={() => setCartOpen(true)}
-            aria-label={`Shopping bag with ${cartCount} items`}
-            className={`relative transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-transparent rounded-lg p-1 ${scrolled || currentPath !== '/' ? 'text-noir hover:text-gold' : 'text-ivory hover:text-gold'}`}
-          >
-            <ShoppingBag className="h-5 w-5" strokeWidth={1.5} />
-            {cartCount > 0 && (
-              <span className="absolute -right-2 -top-2 flex h-4 w-4 items-center justify-center rounded-full bg-gold text-[9px] font-medium text-noir">{cartCount}</span>
-            )}
-          </button>
-
           {/* CTA */}
           <button
-            onClick={() => handleNavClick('#appointment', '/#appointment')}
+            onClick={() => onNavigate('/#appointment')}
             className="btn-gold hidden items-center gap-2 rounded-full bg-gold px-6 py-3 text-xs font-medium uppercase tracking-luxe text-noir lg:inline-flex"
           >
             <CalendarHeart className="h-4 w-4" strokeWidth={1.5} />
@@ -187,7 +147,7 @@ export default function Navbar({ onNavigate, currentPath, onSearch, searchQuery 
                 type="text"
                 value={searchQuery}
                 onChange={(e) => onSearch(e.target.value)}
-                placeholder="Search by name, category, metal, stone..."
+                placeholder="Search our handmade jewellery..."
                 autoFocus
                 className="w-full rounded-lg border border-noir/15 bg-white py-3.5 pl-12 pr-10 text-sm font-light text-noir placeholder:text-charcoal/35 transition-all duration-300 focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold/30"
                 onKeyDown={(e) => { if (e.key === 'Enter') handleSearchSubmit(); }}
@@ -210,11 +170,11 @@ export default function Navbar({ onNavigate, currentPath, onSearch, searchQuery 
                       {suggestions.map((p) => (
                         <button
                           key={p.id}
-                          onClick={() => handleSuggestionClick(p.id)}
+                          onClick={() => handleSuggestionClick(p.title)}
                           className="flex w-full items-center gap-3 px-4 py-3 text-left transition-colors hover:bg-ivory/50"
                         >
                           <img
-                            src={p.images[0]}
+                            src={p.image}
                             alt={p.title}
                             loading="lazy"
                             className="h-12 w-12 rounded-md object-cover"
@@ -222,10 +182,9 @@ export default function Navbar({ onNavigate, currentPath, onSearch, searchQuery 
                           <div className="flex-1 min-w-0">
                             <p className="truncate text-sm font-medium text-noir">{p.title}</p>
                             <p className="text-[10px] font-light uppercase tracking-wider-luxe text-gold/70">
-                              {p.category} · {p.metal}
+                              {p.category}
                             </p>
                           </div>
-                          <span className="text-sm font-medium text-noir">{formatPrice(p.price)}</span>
                         </button>
                       ))}
                       <button
@@ -262,7 +221,7 @@ export default function Navbar({ onNavigate, currentPath, onSearch, searchQuery 
               {navLinks.map((link) => (
                 <li key={link.label}>
                   <button
-                    onClick={() => { handleNavClick(link.href, link.path); setMobileOpen(false); }}
+                    onClick={() => { onNavigate(link.path); setMobileOpen(false); }}
                     className="block text-sm font-light tracking-wider-luxe text-ivory/90 transition-colors hover:text-gold"
                   >
                     {link.label}
@@ -271,7 +230,7 @@ export default function Navbar({ onNavigate, currentPath, onSearch, searchQuery 
               ))}
               <li className="pt-2">
                 <button
-                  onClick={() => { handleNavClick('#appointment', '/#appointment'); setMobileOpen(false); }}
+                  onClick={() => { onNavigate('/#appointment'); setMobileOpen(false); }}
                   className="btn-gold inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-6 py-3 text-xs font-medium uppercase tracking-luxe text-noir"
                 >
                   <CalendarHeart className="h-4 w-4" strokeWidth={1.5} />
