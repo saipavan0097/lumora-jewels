@@ -18,7 +18,7 @@ interface FooterProps {
 
 const quickLinks = [
   { label: 'Home', href: '/' },
-  { label: 'Shop', href: '/shop' },
+  { label: 'Our Work', href: '/shop' },
   { label: 'Collections', href: '/#collections' },
   { label: 'About Founder', href: '/#founder' },
   { label: 'Book Appointment', href: '/#appointment' },
@@ -26,11 +26,11 @@ const quickLinks = [
 ];
 
 const collectionLinks = [
-  { label: 'Bridal Collection', href: '#collections' },
-  { label: 'Diamond Collection', href: '#collections' },
-  { label: 'Gold Collection', href: '#collections' },
-  { label: 'Temple Jewellery', href: '#collections' },
-  { label: "Men's Collection", href: '#collections' },
+  { label: 'Handmade Necklaces', href: '#collections' },
+  { label: 'Pendants', href: '#collections' },
+  { label: 'Earrings', href: '#collections' },
+  { label: 'Rings', href: '#collections' },
+  { label: 'Chains & Bracelets', href: '#collections' },
 ];
 
 const socials = [
@@ -57,8 +57,8 @@ export default function Footer({ onNavigate }: FooterProps) {
               <span className="font-heading text-2xl font-semibold tracking-wide">DAIVIQUE</span>
             </div>
             <p className="mt-5 max-w-xs text-sm font-light leading-relaxed text-ivory/50">
-              Luxury Jewellery Maison. Crafted with passion since 2026.
-              Handcrafted fine jewellery for weddings, celebrations and timeless memories.
+              Handmade jewellery from a family goldsmith workshop.
+              Ornaments by Sai Pavan and his father, made with care for meaningful occasions.
             </p>
             <div className="mt-7 flex gap-3">
               {socials.map((social) => {
@@ -172,7 +172,7 @@ export default function Footer({ onNavigate }: FooterProps) {
           <div className="flex items-center gap-2">
             <span className="h-px w-6 bg-gold/40" />
             <span className="font-heading text-sm italic text-gold/70">
-              Crafted with Passion Since 2026
+              Crafted by Our Family
             </span>
             <span className="h-px w-6 bg-gold/40" />
           </div>

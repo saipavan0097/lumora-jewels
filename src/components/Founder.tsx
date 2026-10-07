@@ -11,7 +11,7 @@ export default function Founder() {
             <span className="text-xs font-light uppercase tracking-luxe text-gold">Our Story</span>
             <span className="h-px w-12 bg-gold/50" />
           </div>
-          <h2 className="font-heading text-4xl font-light text-noir sm:text-5xl lg:text-6xl">Meet the Founder</h2>
+          <h2 className="font-heading text-4xl font-light text-noir sm:text-5xl lg:text-6xl">A Family Goldsmith Story</h2>
         </Reveal>
 
         <div className="mx-auto max-w-6xl">
@@ -39,7 +39,7 @@ export default function Founder() {
                 </div>
                 <h3 className="font-heading text-3xl font-medium text-noir sm:text-4xl lg:text-5xl">Sai Pavan Rali</h3>
                 <p className="mt-7 text-sm font-light leading-relaxed text-charcoal/60">
-                  DAIVIQUE was founded with a vision to create timeless jewellery that celebrates elegance, craftsmanship and unforgettable moments. Every collection is designed with passion, precision and luxury.
+                  DAIVIQUE brings together Sai Pavan Rali&apos;s creative direction and his father&apos;s goldsmith craft. What began at the jeweller&apos;s bench is becoming a modern atelier for meaningful, custom-made ornaments — designed for celebrations today and memories that last for generations.
                 </p>
                 <div className="mt-8 flex items-center gap-3 border-t border-noir/8 pt-6">
                   <Sparkles className="h-4 w-4 text-gold/60" strokeWidth={1.5} />
