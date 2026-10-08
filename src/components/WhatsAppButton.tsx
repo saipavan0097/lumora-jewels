@@ -12,7 +12,7 @@ export default function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"
-      className="group fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] shadow-[0_6px_24px_rgba(37,211,102,0.4)] transition-all duration-500 hover:scale-110 hover:shadow-[0_8px_30px_rgba(37,211,102,0.6)]"
+      className="group fixed bottom-6 right-6 z-40 hidden h-14 w-14 items-center justify-center rounded-full bg-[#25D366] shadow-[0_6px_24px_rgba(37,211,102,0.4)] transition-all duration-500 hover:scale-110 hover:shadow-[0_8px_30px_rgba(37,211,102,0.6)] xl:flex"
     >
       {/* Subtle pulse ring */}
       <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-40 animate-ping" style={{ animationDuration: '2.5s' }} />

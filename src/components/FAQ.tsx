@@ -62,7 +62,7 @@ export default function FAQ() {
                     <Plus className="h-5 w-5 shrink-0 text-gold" strokeWidth={1.5} />
                   )}
                 </button>
-                <div id={`faq-panel-${i}`} role="region" aria-labelledby={`faq-button-${i}`} className={`overflow-hidden transition-all duration-400 ${open === i ? 'max-h-48' : 'max-h-0'}`}>
+                <div id={`faq-panel-${i}`} role="region" aria-labelledby={`faq-button-${i}`} hidden={open !== i}>
                   <p className="px-5 pb-5 text-sm font-light leading-relaxed text-charcoal/60">{faq.a}</p>
                 </div>
               </div>

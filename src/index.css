@@ -272,6 +272,25 @@
 
 /* ===== Reduced motion ===== */
 
+/* Keep phone content clear of the contact bar, including device safe areas. */
+.site-shell {
+  padding-bottom: calc(5rem + env(safe-area-inset-bottom, 0px));
+}
+.mobile-contact-bar {
+  padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
+}
+@media (min-width: 1280px) {
+  .site-shell { padding-bottom: 0; }
+}
+@media (max-width: 1279px) {
+  input:not([type='radio']):not([type='checkbox']), select, textarea {
+    font-size: 16px;
+  }
+  .site-shell:has(input:focus, select:focus, textarea:focus, #mobile-navigation) .mobile-contact-bar {
+    display: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

@@ -12,7 +12,7 @@ import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import ScrollToTop from '@/components/ScrollToTop';
 import MobileStickyCTA from '@/components/MobileStickyCTA';
-import LoadingScreen from '@/components/LoadingScreen';
+import CustomOrders from '@/components/CustomOrders';
 import AtelierGallery from '@/components/AtelierGallery';
 import DesignConcepts from '@/components/DesignConcepts';
 import PriceEstimator from '@/components/PriceEstimator';
@@ -31,14 +31,8 @@ function parseRoute(): Route {
 }
 
 function App() {
-  const [loading, setLoading] = useState(true);
   const [route, setRoute] = useState<Route>(parseRoute);
   const [searchQuery, setSearchQuery] = useState('');
-
-  useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2000);
-    return () => clearTimeout(timer);
-  }, []);
 
   useEffect(() => {
     const onHashChange = () => setRoute(parseRoute());
@@ -47,7 +41,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (loading || !route.sectionId) return;
+    if (!route.sectionId) return;
 
     // Section links can arrive while another page is mounted. Wait until the
     // homepage has rendered before locating the destination below the header.
@@ -59,7 +53,7 @@ function App() {
       section.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
     return () => window.cancelAnimationFrame(frame);
-  }, [route, loading]);
+  }, [route]);
 
   const navigate = useCallback((path: string) => {
     const nextHash = `#${path.replace(/^#/, '')}`;
@@ -74,15 +68,16 @@ function App() {
   }, []);
 
   return (
-      <div className="min-h-screen bg-ivory">
-        {loading && <LoadingScreen />}
+      <div className="site-shell min-h-screen bg-ivory">
+        <a href="#main-content" onClick={event => { event.preventDefault(); document.getElementById('main-content')?.focus(); }} className="sr-only fixed left-4 top-4 z-[60] rounded bg-ivory p-3 text-noir focus:not-sr-only">Skip to content</a>
         <Navbar onNavigate={navigate} currentPath={route.path} onSearch={setSearchQuery} searchQuery={searchQuery} />
 
-        <main key={route.path + (route.productId ?? '')} className="animate-page-enter">
+        <main id="main-content" tabIndex={-1} key={route.path + (route.productId ?? '')} className="animate-page-enter">
           {route.path === '/shop' && <AtelierGallery externalSearch={searchQuery} />}
           {route.path === '/' && (
             <>
               <Hero />
+              <CustomOrders />
               <FeaturedCollections />
               <SignatureJewellery />
               <DesignConcepts />
@@ -99,7 +94,7 @@ function App() {
         <Footer onNavigate={navigate} />
         <WhatsAppButton />
         <ScrollToTop />
-        {route.path === '/' && <MobileStickyCTA />}
+        <MobileStickyCTA />
       </div>
   );
 }

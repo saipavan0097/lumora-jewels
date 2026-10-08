@@ -13,6 +13,7 @@ const navLinks = [
   { label: 'Home', path: '/' },
   { label: 'Our Work', path: '/shop' },
   { label: 'Collections', path: '/#collections' },
+  { label: 'Custom Orders', path: '/#custom-orders' },
   { label: 'About', path: '/#founder' },
   { label: 'Contact', path: '/#contact' },
 ];
@@ -22,22 +23,42 @@ export default function Navbar({ onNavigate, currentPath, onSearch, searchQuery 
   const [mobileOpen, setMobileOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
+  const searchButtonRef = useRef<HTMLButtonElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const lightHeader = scrolled || currentPath !== '/' || mobileOpen || searchOpen;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener('scroll', onScroll);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   useEffect(() => {
-    const onClickOutside = (e: MouseEvent) => {
-      if (searchRef.current && !searchRef.current.contains(e.target as Node)) {
+    const onClickOutside = (e: PointerEvent) => {
+      if (searchRef.current && !searchRef.current.contains(e.target as Node) && !searchButtonRef.current?.contains(e.target as Node)) {
         setSearchOpen(false);
       }
     };
-    document.addEventListener('mousedown', onClickOutside);
-    return () => document.removeEventListener('mousedown', onClickOutside);
+    document.addEventListener('pointerdown', onClickOutside);
+    return () => document.removeEventListener('pointerdown', onClickOutside);
   }, []);
+
+  useEffect(() => {
+    const closePanels = () => { setMobileOpen(false); setSearchOpen(false); };
+    window.addEventListener('hashchange', closePanels);
+    return () => window.removeEventListener('hashchange', closePanels);
+  }, []);
+
+  useEffect(() => {
+    const closePanels = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') return;
+      if (searchOpen) { setSearchOpen(false); searchButtonRef.current?.focus(); }
+      if (mobileOpen) { setMobileOpen(false); menuButtonRef.current?.focus(); }
+    };
+    document.addEventListener('keydown', closePanels);
+    return () => document.removeEventListener('keydown', closePanels);
+  }, [searchOpen, mobileOpen]);
 
   const suggestions = useMemo(() => {
     if (!searchQuery.trim()) return [];
@@ -70,22 +91,22 @@ export default function Navbar({ onNavigate, currentPath, onSearch, searchQuery 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled || currentPath !== '/'
+        lightHeader
           ? 'glass-nav shadow-[0_2px_24px_rgba(17,17,17,0.06)] py-3'
           : 'bg-transparent py-6'
       }`}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-10">
+      <nav aria-label="Main navigation" className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-10">
         {/* Logo */}
-        <button onClick={() => onNavigate('/')} className="group flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-transparent rounded-lg" aria-label="DAIVIQUE home">
+        <button onClick={() => { setMobileOpen(false); setSearchOpen(false); onNavigate('/'); }} className="group flex min-h-11 items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-transparent rounded-lg sm:gap-3" aria-label="DAIVIQUE home">
           <Gem className="h-5 w-5 text-gold transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110" strokeWidth={1.5} />
-          <span className={`font-heading text-2xl font-semibold tracking-wide transition-colors duration-500 ${scrolled || currentPath !== '/' ? 'text-noir' : 'text-ivory'}`}>
+          <span className={`font-heading text-2xl font-semibold tracking-wide transition-colors duration-500 ${lightHeader ? 'text-noir' : 'text-ivory'}`}>
             DAIVIQUE
           </span>
         </button>
 
         {/* Desktop menu */}
-        <ul className="hidden items-center gap-9 lg:flex">
+        <ul className="hidden items-center gap-5 xl:flex">
           {navLinks.map((link) => {
             const isActive = currentPath === link.path || (link.path === '/' && currentPath === '/');
             return (
@@ -93,7 +114,7 @@ export default function Navbar({ onNavigate, currentPath, onSearch, searchQuery 
                 <button
                   onClick={() => onNavigate(link.path)}
                   className={`nav-link relative text-sm font-light tracking-wider-luxe transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-transparent rounded-lg px-1 py-1 ${
-                    scrolled || currentPath !== '/' ? 'text-charcoal hover:text-gold' : 'text-ivory/90 hover:text-gold'
+                    lightHeader ? 'text-charcoal hover:text-gold' : 'text-ivory/90 hover:text-gold'
                   }`}
                 >
                   {link.label}
@@ -105,13 +126,15 @@ export default function Navbar({ onNavigate, currentPath, onSearch, searchQuery 
         </ul>
 
         {/* Right icons */}
-        <div className="flex items-center gap-3 lg:gap-4">
+        <div className="flex items-center gap-1 sm:gap-3 xl:gap-4">
           {/* Search */}
           <button
-            onClick={() => setSearchOpen(!searchOpen)}
+            ref={searchButtonRef}
+            onClick={() => { setMobileOpen(false); setSearchOpen(value => !value); }}
             aria-label="Search jewellery"
             aria-expanded={searchOpen}
-            className={`transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-transparent rounded-lg p-1 ${scrolled || currentPath !== '/' ? 'text-noir hover:text-gold' : 'text-ivory hover:text-gold'}`}
+            aria-controls="jewellery-search"
+            className={`flex h-11 w-11 items-center justify-center transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-transparent rounded-lg ${lightHeader ? 'text-noir hover:text-gold' : 'text-ivory hover:text-gold'}`}
           >
             <Search className="h-5 w-5" strokeWidth={1.5} />
           </button>
@@ -119,7 +142,7 @@ export default function Navbar({ onNavigate, currentPath, onSearch, searchQuery 
           {/* CTA */}
           <button
             onClick={() => onNavigate('/#appointment')}
-            className="btn-gold hidden items-center gap-2 rounded-full bg-gold px-6 py-3 text-xs font-medium uppercase tracking-luxe text-noir lg:inline-flex"
+            className="btn-gold hidden items-center gap-2 rounded-full bg-gold px-5 py-3 text-xs font-medium uppercase tracking-wider text-noir xl:inline-flex"
           >
             <CalendarHeart className="h-4 w-4" strokeWidth={1.5} />
             Book Appointment
@@ -127,10 +150,12 @@ export default function Navbar({ onNavigate, currentPath, onSearch, searchQuery 
 
           {/* Mobile toggle */}
           <button
-            onClick={() => setMobileOpen((v) => !v)}
-            className={`lg:hidden transition-colors duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-transparent rounded-lg p-1 ${scrolled || currentPath !== '/' ? 'text-noir' : 'text-ivory'}`}
+            ref={menuButtonRef}
+            onClick={() => { setSearchOpen(false); setMobileOpen((v) => !v); }}
+            className={`flex h-11 w-11 items-center justify-center xl:hidden transition-colors duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-transparent rounded-lg ${lightHeader ? 'text-noir' : 'text-ivory'}`}
             aria-label="Toggle navigation menu"
             aria-expanded={mobileOpen}
+            aria-controls="mobile-navigation"
           >
             {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
@@ -139,9 +164,10 @@ export default function Navbar({ onNavigate, currentPath, onSearch, searchQuery 
 
       {/* Search bar with live suggestions */}
       {searchOpen && (
-        <div className="animate-fade-in" ref={searchRef}>
+        <div id="jewellery-search" className="max-h-[calc(100dvh-10rem)] overflow-y-auto bg-ivory" ref={searchRef}>
           <div className="mx-auto max-w-2xl px-6 py-4">
-            <div className="relative">
+            <div>
+              <div className="relative">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-charcoal/40" strokeWidth={1.5} />
               <input
                 type="text"
@@ -156,12 +182,13 @@ export default function Navbar({ onNavigate, currentPath, onSearch, searchQuery 
                 <button
                   onClick={clearSearch}
                   aria-label="Clear search"
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-charcoal/40 transition-colors hover:text-gold"
+                  className="absolute right-1 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center text-charcoal transition-colors hover:text-gold"
                 >
                   <X className="h-4 w-4" strokeWidth={1.5} />
                 </button>
               )}
 
+              </div>
               {/* Live suggestions dropdown */}
               {searchQuery.trim() && (
                 <div className="mt-2 overflow-hidden rounded-lg border border-noir/10 bg-white shadow-[0_8px_30px_rgba(17,17,17,0.08)]">
@@ -215,14 +242,14 @@ export default function Navbar({ onNavigate, currentPath, onSearch, searchQuery 
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="lg:hidden animate-fade-in">
-          <div className="mx-4 mt-4 glass-dark rounded-2xl px-6 py-6">
-            <ul className="flex flex-col gap-5">
+        <div id="mobile-navigation" className="max-h-[calc(100dvh-10rem)] overflow-y-auto overscroll-contain bg-ivory xl:hidden">
+          <div className="mx-4 mt-2 rounded-2xl border border-noir/10 bg-white px-5 py-4">
+            <ul className="flex flex-col gap-1">
               {navLinks.map((link) => (
                 <li key={link.label}>
                   <button
                     onClick={() => { onNavigate(link.path); setMobileOpen(false); }}
-                    className="block text-sm font-light tracking-wider-luxe text-ivory/90 transition-colors hover:text-gold"
+                    className="block min-h-11 w-full py-3 text-left text-base text-noir transition-colors hover:text-charcoal"
                   >
                     {link.label}
                   </button>

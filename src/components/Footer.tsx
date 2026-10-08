@@ -1,9 +1,7 @@
 import {
   Gem,
   Instagram,
-  Facebook,
   Linkedin,
-  Youtube,
   Github,
   MessageCircle,
   Mail,
@@ -19,6 +17,7 @@ interface FooterProps {
 const quickLinks = [
   { label: 'Home', href: '/' },
   { label: 'Our Work', href: '/shop' },
+  { label: 'Custom Orders', href: '/#custom-orders' },
   { label: 'Design Ideas', href: '/#design-ideas' },
   { label: 'Budget Calculator', href: '/#price-estimator' },
   { label: 'Collections', href: '/#collections' },
