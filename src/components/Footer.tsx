@@ -19,8 +19,6 @@ interface FooterProps {
 const quickLinks = [
   { label: 'Home', href: '/' },
   { label: 'Our Work', href: '/shop' },
-  { label: 'Design Ideas', href: '/#design-ideas' },
-  { label: 'Budget Calculator', href: '/#price-estimator' },
   { label: 'Collections', href: '/#collections' },
   { label: 'About Founder', href: '/#founder' },
   { label: 'Book Appointment', href: '/#appointment' },

@@ -14,8 +14,6 @@ import ScrollToTop from '@/components/ScrollToTop';
 import MobileStickyCTA from '@/components/MobileStickyCTA';
 import LoadingScreen from '@/components/LoadingScreen';
 import AtelierGallery from '@/components/AtelierGallery';
-import DesignConcepts from '@/components/DesignConcepts';
-import PriceEstimator from '@/components/PriceEstimator';
 
 type Route = { path: string; productId?: string; sectionId?: string };
 
@@ -85,8 +83,6 @@ function App() {
               <Hero />
               <FeaturedCollections />
               <SignatureJewellery />
-              <DesignConcepts />
-              <PriceEstimator />
               <InstagramGallery />
               <Founder />
               <Contact />

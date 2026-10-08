@@ -5,7 +5,7 @@ import Reveal from '@/components/Reveal';
 const faqs = [
   {
     q: 'Who made the jewellery in this gallery?',
-    a: 'Our Work showcases ornaments made by Sai Pavan and his father, with original workshop photos included. The separate Design Ideas section contains AI concepts that have not yet been made and need workshop approval.',
+    a: 'The gallery showcases ornaments made by Sai Pavan and his father. Each entry includes photographs from their family workshop.',
   },
   {
     q: 'How do I enquire about a piece?',
@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     q: 'Where can I find the price and material details?',
-    a: 'The budget calculator uses a clearly dated metal benchmark and our stated charges. Concept budgets use proposed weights, not measured weights. These are illustrations, not live prices or fixed offers. Ask us to confirm the design, purity, net weight and current final quote.',
+    a: 'Ask us for the specification and a current quote for the particular piece. Purity, stone identity, weight, making charges and any certification should be confirmed before an order.',
   },
   {
     q: 'Can I discuss a custom design or a visit?',
