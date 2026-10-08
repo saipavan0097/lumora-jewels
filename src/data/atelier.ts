@@ -216,11 +216,6 @@ export const atelierPieces: AtelierPiece[] = [
         "src": "/images/handmade/originals/38.webp",
         "label": "Original workshop photo",
         "kind": "original"
-      },
-      {
-        "src": "/images/handmade/originals/37.webp",
-        "label": "Original · view 2",
-        "kind": "original"
       }
     ],
     "featured": false
@@ -254,17 +249,17 @@ export const atelierPieces: AtelierPiece[] = [
     "id": "coin-necklace",
     "title": "Heritage Coin Necklace",
     "category": "Necklaces",
-    "description": "A row of engraved devotional coins with alternating coloured accents, photographed in its presentation box.",
-    "image": "/images/handmade/originals/39.webp",
+    "description": "A graduated row of nine devotional coins with alternating coloured accents.",
+    "image": "/images/handmade/edits/coin-necklace.webp",
     "images": [
+      {
+        "src": "/images/handmade/edits/coin-necklace.webp",
+        "label": "AI studio edit",
+        "kind": "edited"
+      },
       {
         "src": "/images/handmade/originals/39.webp",
         "label": "Original workshop photo",
-        "kind": "original"
-      },
-      {
-        "src": "/images/handmade/originals/1.webp",
-        "label": "Original · view 2",
         "kind": "original"
       }
     ],
@@ -275,8 +270,13 @@ export const atelierPieces: AtelierPiece[] = [
     "title": "Devotional Multi-Strand Chain",
     "category": "Chains & Bracelets",
     "description": "Fine linked strands meet an embossed central devotional connector.",
-    "image": "/images/handmade/originals/12.webp",
+    "image": "/images/handmade/edits/devotional-chain.webp",
     "images": [
+      {
+        "src": "/images/handmade/edits/devotional-chain.webp",
+        "label": "AI studio edit",
+        "kind": "edited"
+      },
       {
         "src": "/images/handmade/originals/12.webp",
         "label": "Original workshop photo",
@@ -300,8 +300,13 @@ export const atelierPieces: AtelierPiece[] = [
     "title": "Floral-Detail Long Chain",
     "category": "Chains & Bracelets",
     "description": "A double strand with an elongated floral connector and pink-toned accents.",
-    "image": "/images/handmade/originals/16.webp",
+    "image": "/images/handmade/edits/floral-link-chain.webp",
     "images": [
+      {
+        "src": "/images/handmade/edits/floral-link-chain.webp",
+        "label": "AI studio edit",
+        "kind": "edited"
+      },
       {
         "src": "/images/handmade/originals/16.webp",
         "label": "Original workshop photo",
@@ -322,11 +327,16 @@ export const atelierPieces: AtelierPiece[] = [
   },
   {
     "id": "engraved-disc-pair",
-    "title": "Engraved Disc Pair",
+    "title": "Engraved Gold Disc Pair",
     "category": "Earrings",
-    "description": "Circular engraved ornaments with geometric borders and raised central details.",
-    "image": "/images/handmade/originals/31.webp",
+    "description": "Gold circular engraved ornaments with geometric borders and raised central details. The workshop has confirmed the gold colour; purity and specifications are available on enquiry.",
+    "image": "/images/handmade/edits/engraved-disc-pair-v2.webp",
     "images": [
+      {
+        "src": "/images/handmade/edits/engraved-disc-pair-v2.webp",
+        "label": "AI studio edit",
+        "kind": "edited"
+      },
       {
         "src": "/images/handmade/originals/31.webp",
         "label": "Original workshop photo",
@@ -342,11 +352,16 @@ export const atelierPieces: AtelierPiece[] = [
   },
   {
     "id": "floral-scroll-pendant",
-    "title": "Floral Scroll Pendant",
-    "category": "Pendants",
-    "description": "A sweeping openwork design with clear accents and intricate leaf-like scrolls.",
-    "image": "/images/handmade/originals/133.webp",
+    "title": "Pale Oval-Bead Necklace",
+    "category": "Necklaces",
+    "description": "Pale oval beads joined by fine gold-coloured links, with a single orange-red accent bead.",
+    "image": "/images/handmade/edits/floral-scroll-pendant.webp",
     "images": [
+      {
+        "src": "/images/handmade/edits/floral-scroll-pendant.webp",
+        "label": "AI studio edit",
+        "kind": "edited"
+      },
       {
         "src": "/images/handmade/originals/133.webp",
         "label": "Original workshop photo",
@@ -362,11 +377,16 @@ export const atelierPieces: AtelierPiece[] = [
   },
   {
     "id": "fan-lattice-ornament",
-    "title": "Fan & Bead-Lattice Ornament",
+    "title": "Fan Pendant & Earring Set",
     "category": "Pendants",
-    "description": "A sculpted fan silhouette with suspended rows of tiny bead details.",
-    "image": "/images/handmade/originals/138.webp",
+    "description": "A fan-shaped pendant with pale-bead swags and two matching bell-shaped earrings.",
+    "image": "/images/handmade/edits/fan-lattice-ornament.webp",
     "images": [
+      {
+        "src": "/images/handmade/edits/fan-lattice-ornament.webp",
+        "label": "AI studio edit",
+        "kind": "edited"
+      },
       {
         "src": "/images/handmade/originals/138.webp",
         "label": "Original workshop photo",
@@ -377,11 +397,16 @@ export const atelierPieces: AtelierPiece[] = [
   },
   {
     "id": "red-bead-strands",
-    "title": "Red Bead Strands",
+    "title": "Red Bead Necklace",
     "category": "Necklaces",
-    "description": "Fine red-bead strands assembled by hand, shown on the workbench.",
-    "image": "/images/handmade/originals/108.webp",
+    "description": "A slender necklace of elongated red beads alternating with small gold-coloured beads and links.",
+    "image": "/images/handmade/edits/red-bead-strands.webp",
     "images": [
+      {
+        "src": "/images/handmade/edits/red-bead-strands.webp",
+        "label": "AI studio edit",
+        "kind": "edited"
+      },
       {
         "src": "/images/handmade/originals/108.webp",
         "label": "Original workshop photo",
@@ -399,9 +424,14 @@ export const atelierPieces: AtelierPiece[] = [
     "id": "round-bead-chain",
     "title": "Round Bead Chain",
     "category": "Chains & Bracelets",
-    "description": "A delicate strand of small gold-coloured spherical beads and fine links.",
-    "image": "/images/handmade/originals/187.webp",
+    "description": "Lustrous pale-yellow spherical beads with decorative gold-coloured spacers and fine links.",
+    "image": "/images/handmade/edits/round-bead-chain.webp",
     "images": [
+      {
+        "src": "/images/handmade/edits/round-bead-chain.webp",
+        "label": "AI studio edit",
+        "kind": "edited"
+      },
       {
         "src": "/images/handmade/originals/187.webp",
         "label": "Original workshop photo",
@@ -415,8 +445,13 @@ export const atelierPieces: AtelierPiece[] = [
     "title": "Multicolour Bead Chain",
     "category": "Necklaces",
     "description": "Two rows of coloured beads with decorative gold-coloured spacers.",
-    "image": "/images/handmade/originals/186.webp",
+    "image": "/images/handmade/edits/multicolour-bead-chain.webp",
     "images": [
+      {
+        "src": "/images/handmade/edits/multicolour-bead-chain.webp",
+        "label": "AI studio edit",
+        "kind": "edited"
+      },
       {
         "src": "/images/handmade/originals/186.webp",
         "label": "Original workshop photo",
@@ -430,8 +465,13 @@ export const atelierPieces: AtelierPiece[] = [
     "title": "Red Teardrop Bead Necklace",
     "category": "Necklaces",
     "description": "A long pale-bead strand finished with a red-toned teardrop centre.",
-    "image": "/images/handmade/originals/193.webp",
+    "image": "/images/handmade/edits/teardrop-bead-necklace.webp",
     "images": [
+      {
+        "src": "/images/handmade/edits/teardrop-bead-necklace.webp",
+        "label": "AI studio edit",
+        "kind": "edited"
+      },
       {
         "src": "/images/handmade/originals/193.webp",
         "label": "Original workshop photo",
@@ -445,8 +485,13 @@ export const atelierPieces: AtelierPiece[] = [
     "title": "Black Bead Chain",
     "category": "Chains & Bracelets",
     "description": "Black beads and decorative caps form a slender linked strand.",
-    "image": "/images/handmade/originals/190.webp",
+    "image": "/images/handmade/edits/black-bead-chain.webp",
     "images": [
+      {
+        "src": "/images/handmade/edits/black-bead-chain.webp",
+        "label": "AI studio edit",
+        "kind": "edited"
+      },
       {
         "src": "/images/handmade/originals/190.webp",
         "label": "Original workshop photo",
@@ -460,8 +505,13 @@ export const atelierPieces: AtelierPiece[] = [
     "title": "Faceted Emblem Signet",
     "category": "Rings",
     "description": "A faceted signet face with a raised emblem and patterned shoulders.",
-    "image": "/images/handmade/originals/153.webp",
+    "image": "/images/handmade/edits/emblem-signet.webp",
     "images": [
+      {
+        "src": "/images/handmade/edits/emblem-signet.webp",
+        "label": "AI studio edit",
+        "kind": "edited"
+      },
       {
         "src": "/images/handmade/originals/153.webp",
         "label": "Original workshop photo",
@@ -477,11 +527,16 @@ export const atelierPieces: AtelierPiece[] = [
   },
   {
     "id": "personalised-signet",
-    "title": "Personalised Signet Ring",
+    "title": "Raised-Motif Signet Ring",
     "category": "Rings",
-    "description": "A sculpted personalised motif on a polished signet face, with alternate workshop angles.",
-    "image": "/images/handmade/originals/156.webp",
+    "description": "A raised central motif on a faceted signet face, with patterned shoulders and alternate workshop angles.",
+    "image": "/images/handmade/edits/personalised-signet.webp",
     "images": [
+      {
+        "src": "/images/handmade/edits/personalised-signet.webp",
+        "label": "AI studio edit",
+        "kind": "edited"
+      },
       {
         "src": "/images/handmade/originals/156.webp",
         "label": "Original workshop photo",
@@ -505,8 +560,13 @@ export const atelierPieces: AtelierPiece[] = [
     "title": "Handmade Link Collection",
     "category": "Chains & Bracelets",
     "description": "A workshop selection of bright silver-coloured linked designs. Ask us about individual patterns and materials.",
-    "image": "/images/handmade/originals/145.webp",
+    "image": "/images/handmade/edits/link-bracelets.webp",
     "images": [
+      {
+        "src": "/images/handmade/edits/link-bracelets.webp",
+        "label": "AI studio edit",
+        "kind": "edited"
+      },
       {
         "src": "/images/handmade/originals/145.webp",
         "label": "Original workshop photo",
@@ -530,8 +590,13 @@ export const atelierPieces: AtelierPiece[] = [
     "title": "Small Devotional Pendant",
     "category": "Pendants",
     "description": "A compact embossed devotional motif, photographed from the front and reverse.",
-    "image": "/images/handmade/originals/170.webp",
+    "image": "/images/handmade/edits/small-devotional-pendant.webp",
     "images": [
+      {
+        "src": "/images/handmade/edits/small-devotional-pendant.webp",
+        "label": "AI studio edit",
+        "kind": "edited"
+      },
       {
         "src": "/images/handmade/originals/170.webp",
         "label": "Original workshop photo",
@@ -549,9 +614,14 @@ export const atelierPieces: AtelierPiece[] = [
     "id": "traditional-disc-pendant",
     "title": "Traditional Disc Pendant",
     "category": "Pendants",
-    "description": "A round traditional pendant with an engraved surface and the original photographed finish.",
-    "image": "/images/handmade/originals/185.webp",
+    "description": "A domed traditional disc with a rounded central boss, fine border and decorated top attachment.",
+    "image": "/images/handmade/edits/traditional-disc-pendant.webp",
     "images": [
+      {
+        "src": "/images/handmade/edits/traditional-disc-pendant.webp",
+        "label": "AI studio edit",
+        "kind": "edited"
+      },
       {
         "src": "/images/handmade/originals/185.webp",
         "label": "Original workshop photo",
@@ -562,11 +632,16 @@ export const atelierPieces: AtelierPiece[] = [
   },
   {
     "id": "leaf-pendant",
-    "title": "Traditional Leaf Pendant",
+    "title": "Traditional Mangalsutra Leaf Pendant",
     "category": "Pendants",
-    "description": "A leaf-shaped traditional pendant on a yellow cord, shown in its original workshop condition.",
-    "image": "/images/handmade/originals/195.webp",
+    "description": "A traditional mangalsutra leaf pendant with raised dot details, a central boss and a wide rolled bail. The AI shape and finish preview proposes a smoother, more balanced outline; it does not show a physical repair. See the original workshop photo for the piece as photographed.",
+    "image": "/images/handmade/edits/leaf-pendant-v2.webp",
     "images": [
+      {
+        "src": "/images/handmade/edits/leaf-pendant-v2.webp",
+        "label": "AI shape & finish preview",
+        "kind": "edited"
+      },
       {
         "src": "/images/handmade/originals/195.webp",
         "label": "Original workshop photo",
@@ -577,11 +652,16 @@ export const atelierPieces: AtelierPiece[] = [
   },
   {
     "id": "disc-ornament-selection",
-    "title": "Engraved Disc Selection",
-    "category": "Earrings",
-    "description": "A small workshop selection of round decorative ornaments with embossed centres.",
-    "image": "/images/handmade/originals/161.webp",
+    "title": "Engraved Gold Disc Pendant Selection",
+    "category": "Pendants",
+    "description": "Six gold disc pendants in three paired designs, with top bails and floral or devotional raised centres. The workshop has confirmed the gold colour; purity and specifications are available on enquiry.",
+    "image": "/images/handmade/edits/disc-ornament-selection-v2.webp",
     "images": [
+      {
+        "src": "/images/handmade/edits/disc-ornament-selection-v2.webp",
+        "label": "AI studio edit",
+        "kind": "edited"
+      },
       {
         "src": "/images/handmade/originals/161.webp",
         "label": "Original workshop photo",
