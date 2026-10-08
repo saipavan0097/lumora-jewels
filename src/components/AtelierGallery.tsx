@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { ArrowLeft, ArrowRight, Camera, MessageCircle, Search, X } from 'lucide-react';
-import { atelierPieces, getAtelierWhatsAppLink, type AtelierPiece } from '@/data/atelier';
+import { atelierPieces, getAtelierPageUrl, getAtelierWhatsAppLink, type AtelierPiece } from '@/data/atelier';
+import PhotoActions from '@/components/PhotoActions';
 
 function PieceDialog({ piece, onClose }: { piece: AtelierPiece; onClose: () => void }) {
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -36,6 +37,8 @@ function PieceDialog({ piece, onClose }: { piece: AtelierPiece; onClose: () => v
         <p className="mt-4 text-xs leading-relaxed text-charcoal/65">A showcase of our handmade work. Please enquire for material details, sizing, availability and a current quote.</p>
         <p className="mt-3 text-xs leading-relaxed text-charcoal/65">Weight is not inferred from this photo. For an illustrative budget at a weight you choose, <a href="#/#price-estimator" onClick={onClose} className="underline underline-offset-4">open the budget calculator</a>.</p>
         <a href={getAtelierWhatsAppLink(piece)} target="_blank" rel="noopener noreferrer" className="mt-7 inline-flex items-center justify-center gap-2 rounded-full bg-gold px-6 py-4 text-xs font-medium uppercase tracking-wider focus-visible:outline-noir"><MessageCircle className="h-4 w-4" />Enquire about this piece</a>
+        <p className="mt-2 text-xs leading-relaxed text-charcoal/70">Opens WhatsApp with text and photo links. To attach a picture, use the photo options below.</p>
+        <PhotoActions key={activeImage.src} photo={{ id: piece.id, title: piece.title, image: activeImage.src, label: activeImage.label, pageUrl: getAtelierPageUrl(piece) }} />
         {piece.images.some(img => img.kind === 'edited') && <div className="mt-6 rounded-lg border border-gold/30 p-4 text-xs leading-relaxed text-charcoal/70"><Camera className="mb-2 h-4 w-4 text-gold" />AI studio edits improve presentation and may differ in fine detail. The original workshop photographs are included for comparison and are the reference for the actual piece.<button onClick={() => setView(piece.images.findIndex(img => img.kind === 'original'))} className="mt-3 block underline underline-offset-4 focus-visible:outline-gold">View original photograph</button></div>}
         <p className="mt-5 text-[10px] text-charcoal/50">Reference: {piece.id}</p>
       </div>
@@ -43,8 +46,8 @@ function PieceDialog({ piece, onClose }: { piece: AtelierPiece; onClose: () => v
   </dialog>;
 }
 
-export function AtelierShowcase({ pieces }: { pieces: AtelierPiece[] }) {
-  const [selected, setSelected] = useState<AtelierPiece | null>(null);
+export function AtelierShowcase({ pieces, initialPiece }: { pieces: AtelierPiece[]; initialPiece?: AtelierPiece }) {
+  const [selected, setSelected] = useState<AtelierPiece | null>(initialPiece ?? null);
   return <>
     <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
       {pieces.map(piece => <article key={piece.id} className="group overflow-hidden rounded-xl border border-noir/10 bg-white">
@@ -59,11 +62,11 @@ export function AtelierShowcase({ pieces }: { pieces: AtelierPiece[] }) {
   </>;
 }
 
-export default function AtelierGallery({ externalSearch = '' }: { externalSearch?: string }) {
+export default function AtelierGallery({ externalSearch = '', initialPieceId }: { externalSearch?: string; initialPieceId?: string }) {
   const [search, setSearch] = useState(externalSearch);
   const [category, setCategory] = useState('All');
   const [visibleCount, setVisibleCount] = useState(12);
-  useEffect(() => { setSearch(externalSearch); setCategory('All'); setVisibleCount(12); }, [externalSearch]);
+  useEffect(() => { setSearch(initialPieceId ? '' : externalSearch); setCategory('All'); setVisibleCount(12); }, [externalSearch, initialPieceId]);
   const categories = ['All', ...new Set(atelierPieces.map(piece => piece.category))];
   const filtered = useMemo(() => { const query = search.trim().toLowerCase(); return atelierPieces.filter(piece => (category === 'All' || piece.category === category) && `${piece.title} ${piece.description} ${piece.category}`.toLowerCase().includes(query)); }, [search, category]);
   const reset = () => { setSearch(''); setCategory('All'); setVisibleCount(12); };
@@ -79,7 +82,7 @@ export default function AtelierGallery({ externalSearch = '' }: { externalSearch
       <div className="flex flex-wrap gap-2" aria-label="Filter jewellery categories">{categories.map(value => <button key={value} aria-pressed={category === value} onClick={() => { setCategory(value); setVisibleCount(12); }} className={`rounded-full border px-4 py-2 text-xs focus-visible:outline-gold ${category === value ? 'border-noir bg-noir text-ivory' : 'border-noir/15 bg-white text-charcoal hover:border-gold'}`}>{value}</button>)}</div>
       <p aria-live="polite" className="text-xs text-charcoal/65">{filtered.length} {filtered.length === 1 ? 'piece' : 'pieces'}{search.trim() ? ` matching “${search.trim()}”` : ''}</p>
     </div>
-    {filtered.length ? <AtelierShowcase pieces={filtered.slice(0, visibleCount)} /> : <div className="rounded-xl border border-noir/10 bg-white px-6 py-20 text-center"><h2 className="font-heading text-3xl">No matching pieces</h2><p className="mt-3 text-sm text-charcoal/65">Try another name or category.</p><button onClick={reset} className="mt-6 rounded-full bg-gold px-6 py-3 text-xs uppercase tracking-wider">Clear filters</button></div>}
+    {filtered.length ? <AtelierShowcase pieces={filtered.slice(0, visibleCount)} initialPiece={atelierPieces.find(piece => piece.id === initialPieceId)} /> : <div className="rounded-xl border border-noir/10 bg-white px-6 py-20 text-center"><h2 className="font-heading text-3xl">No matching pieces</h2><p className="mt-3 text-sm text-charcoal/65">Try another name or category.</p><button onClick={reset} className="mt-6 rounded-full bg-gold px-6 py-3 text-xs uppercase tracking-wider">Clear filters</button></div>}
     {filtered.length > visibleCount && <div className="mt-12 text-center"><button onClick={() => setVisibleCount(count => count + 12)} className="rounded-full border border-gold px-8 py-4 text-xs uppercase tracking-wider focus-visible:outline-gold">Load more pieces ({filtered.length - visibleCount} remaining)</button></div>}
     <p className="mx-auto mt-14 max-w-2xl text-center text-xs leading-relaxed text-charcoal/60">These photographs document our work, not a live stock list. Names are descriptive; materials, weights, prices and availability are confirmed personally on enquiry.</p>
   </div></section>;

@@ -25,6 +25,8 @@ function parseRoute(): Route {
     ? hash.slice(2)
     : !hash.startsWith('/') ? hash : undefined;
   if (sectionId) return { path: '/', sectionId };
+  const pieceMatch = hash.match(/^\/shop\?piece=([a-z0-9-]+)$/);
+  if (pieceMatch) return { path: '/shop', productId: pieceMatch[1] };
   const productMatch = hash.match(/^\/product\/(.+)$/);
   if (productMatch || hash === '/checkout') return { path: '/shop' };
   return { path: hash === '/shop' ? '/shop' : '/' };
@@ -73,7 +75,7 @@ function App() {
         <Navbar onNavigate={navigate} currentPath={route.path} onSearch={setSearchQuery} searchQuery={searchQuery} />
 
         <main id="main-content" tabIndex={-1} key={route.path + (route.productId ?? '')} className="animate-page-enter">
-          {route.path === '/shop' && <AtelierGallery externalSearch={searchQuery} />}
+          {route.path === '/shop' && <AtelierGallery externalSearch={searchQuery} initialPieceId={route.productId} />}
           {route.path === '/' && (
             <>
               <Hero />

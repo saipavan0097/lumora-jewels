@@ -1,7 +1,8 @@
 import { useId, useState } from 'react';
 import { MessageCircle } from 'lucide-react';
 import Reveal from '@/components/Reveal';
-import { designConcepts, getDesignConceptBudgetRange, getDesignConceptWhatsAppLink, type ConceptGoldMetal } from '@/data/designConcepts';
+import { designConcepts, getDesignConceptBudgetRange, getDesignConceptPageUrl, getDesignConceptWhatsAppLink, type ConceptGoldMetal } from '@/data/designConcepts';
+import PhotoActions from '@/components/PhotoActions';
 import { formatEstimateCurrency, pricingBenchmark } from '@/data/pricing';
 
 export default function DesignConcepts() {
@@ -56,7 +57,7 @@ export default function DesignConcepts() {
             const budget = getDesignConceptBudgetRange(concept, metal);
             const { minimumGrams, maximumGrams, scope } = concept.proposedNetMetalBudget;
             return (
-            <article key={concept.id} aria-labelledby={`${concept.id}-heading`} className="flex flex-col overflow-hidden rounded-2xl border border-noir/10 bg-white">
+            <article id={`concept-${concept.id}`} key={concept.id} aria-labelledby={`${concept.id}-heading`} className="scroll-mt-28 flex flex-col overflow-hidden rounded-2xl border border-noir/10 bg-white">
               <div className="bg-[#f6f1e9]">
                 <img
                   src={concept.image}
@@ -97,6 +98,8 @@ export default function DesignConcepts() {
                     <MessageCircle className="h-4 w-4 shrink-0" aria-hidden="true" />
                     Discuss this idea
                   </a>
+                  <p className="mt-2 text-xs leading-relaxed text-charcoal/70">Sends text and links. Use the options below to share a picture.</p>
+                  <PhotoActions photo={{ id: concept.id, title: concept.title, image: concept.image, label: 'AI design concept · not yet made', pageUrl: getDesignConceptPageUrl(concept) }} />
                 </div>
               </div>
             </article>

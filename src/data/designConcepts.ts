@@ -1,4 +1,4 @@
-import { calculateMetalEstimate, formatEstimateCurrency, pricingBenchmark, type MetalKey } from '@/data/pricing';
+import { calculateMetalEstimate, pricingBenchmark, type MetalKey } from '@/data/pricing';
 
 export type ConceptGoldMetal = Extract<MetalKey, 'gold22k' | 'gold18k'>;
 
@@ -91,9 +91,10 @@ export function getDesignConceptBudgetRange(concept: DesignConcept, metal: Conce
 }
 
 export function getDesignConceptWhatsAppLink(concept: DesignConcept, metal: ConceptGoldMetal = 'gold22k') {
-  const { minimumGrams, maximumGrams, scope } = concept.proposedNetMetalBudget;
-  const budget = getDesignConceptBudgetRange(concept, metal);
-  const priceRange = `${formatEstimateCurrency(budget.low.estimatedTotal)}–${formatEstimateCurrency(budget.high.estimatedTotal)}`;
-  const message = `Hi DAIVIQUE, I am interested in the ${concept.title} design concept (reference: ${concept.id}) in ${pricingBenchmark.metals[metal].label}. I understand this is an AI concept, not a finished or in-stock piece. Its unapproved planning budget is ${minimumGrams}–${maximumGrams} g net metal (${scope}); this is not a weight measured from the image or a guaranteed finished weight. The illustrative total is ${priceRange}, using the ${pricingBenchmark.displayDate} ${pricingBenchmark.session} IBJA benchmark and your stated all-in charges, not a live or final quote. Can we discuss customisation, size, feasibility and strength, any weight revision needed, and an itemised current quote for a stone-free version?`;
+  const message = `Hi DAIVIQUE, I’d like to discuss ${concept.title} in ${pricingBenchmark.metals[metal].label} (ref: ${concept.id}). AI concept, not yet made. Please confirm feasibility, net metal weight and a current quote.\nDesign: ${getDesignConceptPageUrl(concept)}\nConcept photo: https://daivique-jewels-landin-mj9x.bolt.host${concept.image}`;
   return `https://wa.me/917661930097?text=${encodeURIComponent(message)}`;
+}
+
+export function getDesignConceptPageUrl(concept: DesignConcept) {
+  return `https://daivique-jewels-landin-mj9x.bolt.host/#/#concept-${encodeURIComponent(concept.id)}`;
 }
