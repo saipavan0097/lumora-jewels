@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, lazy, Suspense } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import FeaturedCollections from '@/components/FeaturedCollections';
@@ -17,6 +17,8 @@ import AtelierGallery from '@/components/AtelierGallery';
 import DesignConcepts from '@/components/DesignConcepts';
 import PriceEstimator from '@/components/PriceEstimator';
 
+const OwnerDashboard = lazy(() => import('@/components/OwnerDashboard'));
+
 type Route = { path: string; productId?: string; sectionId?: string };
 
 function parseRoute(): Route {
@@ -25,6 +27,7 @@ function parseRoute(): Route {
     ? hash.slice(2)
     : !hash.startsWith('/') ? hash : undefined;
   if (sectionId) return { path: '/', sectionId };
+  if (hash === '/owner') return { path: '/owner' };
   const pieceMatch = hash.match(/^\/shop\?piece=([a-z0-9-]+)$/);
   if (pieceMatch) return { path: '/shop', productId: pieceMatch[1] };
   const productMatch = hash.match(/^\/product\/(.+)$/);
@@ -68,6 +71,8 @@ function App() {
     }
     if (!parseRoute().sectionId) window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
+
+  if (route.path === '/owner') return <Suspense fallback={<p className="p-10">Loading owner sign-in…</p>}><OwnerDashboard /></Suspense>;
 
   return (
       <div className="site-shell min-h-screen bg-ivory">

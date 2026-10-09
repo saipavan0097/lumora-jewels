@@ -4,8 +4,10 @@ import Reveal from '@/components/Reveal';
 import { designConcepts, getDesignConceptBudgetRange, getDesignConceptPageUrl, getDesignConceptWhatsAppLink, type ConceptGoldMetal } from '@/data/designConcepts';
 import PhotoActions from '@/components/PhotoActions';
 import { formatEstimateCurrency, pricingBenchmark } from '@/data/pricing';
+import { useWorkshop } from '@/hooks/useWorkshop';
 
 export default function DesignConcepts() {
+  const workshop = useWorkshop();
   const [metal, setMetal] = useState<ConceptGoldMetal>('gold22k');
   const metalChoiceId = useId();
   return (
@@ -46,7 +48,8 @@ export default function DesignConcepts() {
             </div>
           </fieldset>
           <p className="mt-4 text-xs leading-relaxed text-charcoal/75">
-            Based on the <a href={pricingBenchmark.datedSourceUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold">IBJA {pricingBenchmark.displayDate} {pricingBenchmark.session} benchmark (opens in a new tab)</a> — not a live rate.
+            {workshop.rateDescription}. {workshop.rateNotice}
+            {!workshop.rates && <> <a href={pricingBenchmark.datedSourceUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold">View dated IBJA benchmark (opens in a new tab)</a>.</>}
             {' '}Includes the workshop's stated all-in gold charges; no extra charge or separate tax is added in this illustration.
             A current, itemised quote requires approval of the design and net metal weight.
           </p>
@@ -54,7 +57,7 @@ export default function DesignConcepts() {
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {designConcepts.map(concept => {
-            const budget = getDesignConceptBudgetRange(concept, metal);
+            const budget = getDesignConceptBudgetRange(concept, metal, workshop.metalRates);
             const { minimumGrams, maximumGrams, scope } = concept.proposedNetMetalBudget;
             return (
             <article id={`concept-${concept.id}`} key={concept.id} aria-labelledby={`${concept.id}-heading`} className="scroll-mt-28 flex flex-col overflow-hidden rounded-2xl border border-noir/10 bg-white">
@@ -86,7 +89,7 @@ export default function DesignConcepts() {
                       <p className="text-[10px] uppercase tracking-wide text-charcoal/70">{pricingBenchmark.metals[metal].label} · illustrative total</p>
                       <p className="mt-1 text-lg font-medium text-noir">{formatEstimateCurrency(budget.low.estimatedTotal)}–{formatEstimateCurrency(budget.high.estimatedTotal)}</p>
                     </div>
-                    <p className="mt-2 text-xs leading-relaxed text-charcoal/65">IBJA {pricingBenchmark.displayDate} {pricingBenchmark.session} · not live. Final weight and price need design review.</p>
+                    <p className="mt-2 text-xs leading-relaxed text-charcoal/65">{workshop.rateDescription}. Final weight and price need design review.</p>
                   </div>
                   <a
                     href={getDesignConceptWhatsAppLink(concept, metal)}
@@ -98,7 +101,7 @@ export default function DesignConcepts() {
                     <MessageCircle className="h-4 w-4 shrink-0" aria-hidden="true" />
                     Discuss this idea
                   </a>
-                  <p className="mt-2 text-xs leading-relaxed text-charcoal/70">Sends text and links. Use the options below to share a picture.</p>
+                  <p className="mt-2 text-xs leading-relaxed text-charcoal/70">Opens WhatsApp with your enquiry and this design’s link. Use the options below to attach a picture.</p>
                   <PhotoActions photo={{ id: concept.id, title: concept.title, image: concept.image, label: 'AI design concept · not yet made', pageUrl: getDesignConceptPageUrl(concept) }} />
                 </div>
               </div>

@@ -1,5 +1,6 @@
 import { useId, useState } from 'react';
 import { ArrowUpRight, Calculator, MessageCircle } from 'lucide-react';
+import { useWorkshop } from '@/hooks/useWorkshop';
 import {
   calculateMetalEstimate,
   formatEstimateCurrency,
@@ -15,6 +16,7 @@ function formatRate(value: number): string {
 }
 
 export default function PriceEstimator() {
+  const workshop = useWorkshop();
   const fieldId = useId();
   const [metal, setMetal] = useState<MetalKey>('gold22k');
   const [weight, setWeight] = useState('');
@@ -25,11 +27,11 @@ export default function PriceEstimator() {
   const weightIsValid = enteredWeight && Number.isFinite(numericWeight)
     && numericWeight > 0 && numericWeight <= pricingPolicy.maximumNetMetalWeightGrams;
   const estimate = weightIsValid ? calculateMetalEstimate({
-    metal, netMetalWeightGrams: numericWeight, hasStones,
+    metal, netMetalWeightGrams: numericWeight, hasStones, ratePerGram: workshop.metalRates[metal],
   }) : null;
-  const selectedMetal = pricingBenchmark.metals[metal];
+  const selectedMetal = { ...pricingBenchmark.metals[metal], ratePerGram: workshop.metalRates[metal] };
   const enquiryText = estimate?.estimatedTotal !== null && estimate?.estimatedTotal !== undefined
-    ? `Hi DAIVIQUE, I would like to discuss a ${selectedMetal.label} design with a planning net metal weight of ${weight} g${isSilver ? '' : `, ${hasStones ? 'with' : 'without'} stones`}. The website budget estimate was ${formatEstimateCurrency(estimate.estimatedTotal)} using the ${pricingBenchmark.displayDate} ${pricingBenchmark.session} benchmark. Please confirm the design, achievable weight and current final quote.`
+    ? `Hi DAIVIQUE, I would like to discuss a ${selectedMetal.label} design with a planning net metal weight of ${weight} g${isSilver ? '' : `, ${hasStones ? 'with' : 'without'} stones`}. The website budget estimate was ${formatEstimateCurrency(estimate.estimatedTotal)}. Rate basis: ${workshop.rateDescription}. Please confirm the design, achievable weight and current final quote.`
     : 'Hi DAIVIQUE, I would like help planning a jewellery design and budget. Please discuss materials, weight and a current quote with me.';
 
   return (
@@ -100,8 +102,9 @@ export default function PriceEstimator() {
 
             <div className="mt-7 border-t border-ivory/20 pt-6 text-xs leading-relaxed text-ivory/70">
               <p>{selectedMetal.label} benchmark: <span className="text-ivory">{formatRate(selectedMetal.ratePerGram)} / g</span></p>
-              <p className="mt-2">IBJA · {pricingBenchmark.displayDate} · {pricingBenchmark.session}. Not a live rate or a confirmed local retail rate.</p>
-              <a href={pricingBenchmark.datedSourceUrl} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex items-center gap-1 text-gold underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold">View dated benchmark<ArrowUpRight className="h-3 w-3" aria-hidden="true" /></a>
+              <p className="mt-2">{workshop.rateDescription}</p>
+              <p className="mt-2">{workshop.rateNotice}</p>
+              {!workshop.rates && <a href={pricingBenchmark.datedSourceUrl} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex items-center gap-1 text-gold underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold">View dated benchmark<ArrowUpRight className="h-3 w-3" aria-hidden="true" /></a>}
               <p className="mt-4">No separate GST charge is added under the workshop’s stated pricing policy. This is not a claim of GST exemption.</p>
               <p className="mt-3">Final quote, design feasibility and net weight are confirmed by the workshop before an order.</p>
             </div>
@@ -112,7 +115,7 @@ export default function PriceEstimator() {
 
         <div className="mt-6 rounded-xl border border-noir/10 bg-white/60 p-5 text-xs leading-relaxed text-charcoal/80">
           <p className="font-medium text-noir">Interested in pure-silver work?</p>
-          <p className="mt-2">The fine-silver (999) metal benchmark is {formatRate(pricingBenchmark.metals.silver999.ratePerGram)} / g for {pricingBenchmark.displayDate} {pricingBenchmark.session}. The workshop adds {formatEstimateCurrency(pricingPolicy.silverAdditionalRatePerGram)} / g, including all charges. The benchmark is not an assay claim for a pictured piece; confirm its actual purity and weight with the workshop. Gold percentage slabs do not apply to silver.</p>
+          <p className="mt-2">Fine-silver (999) metal rate used: {formatRate(workshop.metalRates.silver999)} / g. {workshop.rateDescription}. The workshop adds {formatEstimateCurrency(pricingPolicy.silverAdditionalRatePerGram)} / g, including all charges. This is not an assay claim for a pictured piece; confirm its actual purity and weight with the workshop. Gold percentage slabs do not apply to silver.</p>
         </div>
       </div>
     </section>

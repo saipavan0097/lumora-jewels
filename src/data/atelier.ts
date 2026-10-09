@@ -677,11 +677,11 @@ export const atelierPieces: AtelierPiece[] = [
   }
 ];
 export function getAtelierWhatsAppLink(piece: AtelierPiece) {
-  const message = `Hi DAIVIQUE, I’m interested in ${piece.title} (ref: ${piece.id}). Please confirm materials, availability and a current quote.\nDesign: ${getAtelierPageUrl(piece)}\nPhoto (${piece.images[0].label}): https://daivique-jewels-landin-mj9x.bolt.host${piece.image}`;
+  const message = `Hi DAIVIQUE, I’m interested in ${piece.title} (ref: ${piece.id}). Please confirm materials, availability and a current quote.\n${getAtelierPageUrl(piece)}`;
   return `https://wa.me/917661930097?text=${encodeURIComponent(message)}`;
 }
 
 export function getAtelierPageUrl(piece: AtelierPiece) {
-  return `https://daivique-jewels-landin-mj9x.bolt.host/#/shop?piece=${encodeURIComponent(piece.id)}`;
+  return `https://daivique-jewels-landin-mj9x.bolt.host/share/work/${encodeURIComponent(piece.id)}.html`;
 }
 

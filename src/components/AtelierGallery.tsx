@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { ArrowLeft, ArrowRight, Camera, MessageCircle, Search, X } from 'lucide-react';
 import { atelierPieces, getAtelierPageUrl, getAtelierWhatsAppLink, type AtelierPiece } from '@/data/atelier';
 import PhotoActions from '@/components/PhotoActions';
+import Availability from '@/components/Availability';
 
 function PieceDialog({ piece, onClose }: { piece: AtelierPiece; onClose: () => void }) {
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -34,10 +35,11 @@ function PieceDialog({ piece, onClose }: { piece: AtelierPiece; onClose: () => v
         <p className="text-[10px] uppercase tracking-luxe text-gold">From our family workshop · {piece.category}</p>
         <h2 id="piece-title" className="mt-4 font-heading text-4xl leading-tight">{piece.title}</h2>
         <p id="piece-description" className="mt-5 text-sm leading-relaxed text-charcoal/75">{piece.description}</p>
+        <Availability pieceId={piece.id} details />
         <p className="mt-4 text-xs leading-relaxed text-charcoal/65">A showcase of our handmade work. Please enquire for material details, sizing, availability and a current quote.</p>
         <p className="mt-3 text-xs leading-relaxed text-charcoal/65">Weight is not inferred from this photo. For an illustrative budget at a weight you choose, <a href="#/#price-estimator" onClick={onClose} className="underline underline-offset-4">open the budget calculator</a>.</p>
         <a href={getAtelierWhatsAppLink(piece)} target="_blank" rel="noopener noreferrer" className="mt-7 inline-flex items-center justify-center gap-2 rounded-full bg-gold px-6 py-4 text-xs font-medium uppercase tracking-wider focus-visible:outline-noir"><MessageCircle className="h-4 w-4" />Enquire about this piece</a>
-        <p className="mt-2 text-xs leading-relaxed text-charcoal/70">Opens WhatsApp with text and photo links. To attach a picture, use the photo options below.</p>
+        <p className="mt-2 text-xs leading-relaxed text-charcoal/70">Opens WhatsApp with your enquiry and a link to this piece. To attach a picture, use the photo options below.</p>
         <PhotoActions key={activeImage.src} photo={{ id: piece.id, title: piece.title, image: activeImage.src, label: activeImage.label, pageUrl: getAtelierPageUrl(piece) }} />
         {piece.images.some(img => img.kind === 'edited') && <div className="mt-6 rounded-lg border border-gold/30 p-4 text-xs leading-relaxed text-charcoal/70"><Camera className="mb-2 h-4 w-4 text-gold" />AI studio edits improve presentation and may differ in fine detail. The original workshop photographs are included for comparison and are the reference for the actual piece.<button onClick={() => setView(piece.images.findIndex(img => img.kind === 'original'))} className="mt-3 block underline underline-offset-4 focus-visible:outline-gold">View original photograph</button></div>}
         <p className="mt-5 text-[10px] text-charcoal/50">Reference: {piece.id}</p>
@@ -55,7 +57,7 @@ export function AtelierShowcase({ pieces, initialPiece }: { pieces: AtelierPiece
           <img src={piece.image} alt={piece.title} loading="lazy" decoding="async" className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-[1.025]" />
           <span className="absolute bottom-3 left-3 rounded-full bg-white/95 px-3 py-1.5 text-[9px] uppercase tracking-wider text-charcoal">{piece.images[0].label}{piece.images[0].kind === 'edited' ? ' · original included' : ''}</span>
         </button>
-        <div className="p-5 sm:p-6"><p className="text-[10px] uppercase tracking-luxe text-gold">{piece.category}</p><h3 className="mt-2 font-heading text-2xl text-noir"><button onClick={() => setSelected(piece)} className="text-left focus-visible:outline-gold">{piece.title}</button></h3><p className="mt-3 min-h-[3rem] text-sm leading-relaxed text-charcoal/65">{piece.description}</p><button onClick={() => setSelected(piece)} className="mt-5 inline-flex items-center gap-2 border-b border-gold pb-1 text-xs uppercase tracking-wider text-noir focus-visible:outline-gold">View piece & photos <ArrowRight className="h-3.5 w-3.5" /></button></div>
+<div className="p-5 sm:p-6"><p className="text-[10px] uppercase tracking-luxe text-gold">{piece.category}</p><h3 className="mt-2 font-heading text-2xl text-noir"><button onClick={() => setSelected(piece)} className="text-left focus-visible:outline-gold">{piece.title}</button></h3><Availability pieceId={piece.id} /><p className="mt-3 min-h-[3rem] text-sm leading-relaxed text-charcoal/65">{piece.description}</p><button onClick={() => setSelected(piece)} className="mt-5 inline-flex items-center gap-2 border-b border-gold pb-1 text-xs uppercase tracking-wider text-noir focus-visible:outline-gold">View piece & photos <ArrowRight className="h-3.5 w-3.5" /></button></div>
       </article>)}
     </div>
     {selected && <PieceDialog key={selected.id} piece={selected} onClose={() => setSelected(null)} />}

@@ -180,6 +180,7 @@ export default function Footer({ onNavigate }: FooterProps) {
           <p className="text-xs font-light tracking-wider-luxe text-ivory/35">
             Designed & Developed by{' '}
             <span className="font-medium text-gold/70">Sai Pavan Rali</span>
+            <a href="#/owner" className="ml-4 underline underline-offset-4 text-ivory/60 focus-visible:outline-gold">Owner sign-in</a>
           </p>
         </div>
       </div>

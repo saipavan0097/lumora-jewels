@@ -37,6 +37,7 @@ export interface MetalEstimateInput {
   metal: MetalKey;
   netMetalWeightGrams: number;
   hasStones: boolean;
+  ratePerGram?: number;
 }
 
 export interface MetalEstimate {
@@ -85,7 +86,8 @@ export function calculateMetalEstimate(input: MetalEstimateInput): MetalEstimate
   validateNetMetalWeight(netMetalWeightGrams);
   validateHasStones(hasStones);
   // Each benchmark already reflects the selected purity: do not multiply by purity again.
-  const ratePerGram = pricingBenchmark.metals[metal].ratePerGram;
+  const ratePerGram = input.ratePerGram ?? pricingBenchmark.metals[metal].ratePerGram;
+  if (!Number.isFinite(ratePerGram) || ratePerGram <= 0 || ratePerGram > 1000000) throw new RangeError('Enter a valid metal rate per gram.');
   const metalValue = netMetalWeightGrams * ratePerGram;
   // The owner confirms a separate flat per-gram silver charge, not gold wastage slabs.
   const wastagePercent = metal === 'silver999' ? null : getGoldWastagePercent(netMetalWeightGrams, hasStones);

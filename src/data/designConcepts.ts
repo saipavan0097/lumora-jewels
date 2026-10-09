@@ -82,19 +82,19 @@ export const designConcepts: DesignConcept[] = [
   },
 ];
 
-export function getDesignConceptBudgetRange(concept: DesignConcept, metal: ConceptGoldMetal) {
+export function getDesignConceptBudgetRange(concept: DesignConcept, metal: ConceptGoldMetal, rates?: Record<MetalKey, number>) {
   const { minimumGrams, maximumGrams } = concept.proposedNetMetalBudget;
   return {
-    low: calculateMetalEstimate({ metal, netMetalWeightGrams: minimumGrams, hasStones: false }),
-    high: calculateMetalEstimate({ metal, netMetalWeightGrams: maximumGrams, hasStones: false }),
+    low: calculateMetalEstimate({ metal, netMetalWeightGrams: minimumGrams, hasStones: false, ratePerGram: rates?.[metal] }),
+    high: calculateMetalEstimate({ metal, netMetalWeightGrams: maximumGrams, hasStones: false, ratePerGram: rates?.[metal] }),
   };
 }
 
 export function getDesignConceptWhatsAppLink(concept: DesignConcept, metal: ConceptGoldMetal = 'gold22k') {
-  const message = `Hi DAIVIQUE, I’d like to discuss ${concept.title} in ${pricingBenchmark.metals[metal].label} (ref: ${concept.id}). AI concept, not yet made. Please confirm feasibility, net metal weight and a current quote.\nDesign: ${getDesignConceptPageUrl(concept)}\nConcept photo: https://daivique-jewels-landin-mj9x.bolt.host${concept.image}`;
+  const message = `Hi DAIVIQUE, I’d like to discuss ${concept.title} in ${pricingBenchmark.metals[metal].label} (ref: ${concept.id}). AI concept, not yet made. Please confirm feasibility, net metal weight and a current quote.\n${getDesignConceptPageUrl(concept)}`;
   return `https://wa.me/917661930097?text=${encodeURIComponent(message)}`;
 }
 
 export function getDesignConceptPageUrl(concept: DesignConcept) {
-  return `https://daivique-jewels-landin-mj9x.bolt.host/#/#concept-${encodeURIComponent(concept.id)}`;
+  return `https://daivique-jewels-landin-mj9x.bolt.host/share/concepts/${encodeURIComponent(concept.id)}.html`;
 }
