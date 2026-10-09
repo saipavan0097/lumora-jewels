@@ -1,5 +1,4 @@
 import {
-  Gem,
   Instagram,
   Linkedin,
   Github,
@@ -9,6 +8,7 @@ import {
   MapPin,
   ArrowUpRight,
 } from 'lucide-react';
+import BrandLogo from './BrandLogo';
 
 interface FooterProps {
   onNavigate: (path: string) => void;
@@ -53,10 +53,7 @@ export default function Footer({ onNavigate }: FooterProps) {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-5 lg:gap-10">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-2.5">
-              <Gem className="h-5 w-5 text-gold" strokeWidth={1.5} />
-              <span className="font-heading text-2xl font-semibold tracking-wide">DAIVIQUE</span>
-            </div>
+            <BrandLogo className="w-[244px] max-w-full" />
             <p className="mt-5 max-w-xs text-sm font-light leading-relaxed text-ivory/50">
               Handmade jewellery from a family goldsmith workshop.
               Ornaments by Sai Pavan and his father, made with care for meaningful occasions.

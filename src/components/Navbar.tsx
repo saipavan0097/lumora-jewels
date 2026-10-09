@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo, useRef } from 'react';
-import { Gem, Menu, X, CalendarHeart, Search } from 'lucide-react';
+import { Menu, X, CalendarHeart, Search } from 'lucide-react';
 import { atelierPieces } from '@/data/atelier';
+import BrandLogo from './BrandLogo';
 
 interface NavbarProps {
   onNavigate: (path: string) => void;
@@ -98,11 +99,8 @@ export default function Navbar({ onNavigate, currentPath, onSearch, searchQuery 
     >
       <nav aria-label="Main navigation" className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-10">
         {/* Logo */}
-        <button onClick={() => { setMobileOpen(false); setSearchOpen(false); onNavigate('/'); }} className="group flex min-h-11 items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-transparent rounded-lg sm:gap-3" aria-label="DAIVIQUE home">
-          <Gem className="h-5 w-5 text-gold transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110" strokeWidth={1.5} />
-          <span className={`font-heading text-2xl font-semibold tracking-wide transition-colors duration-500 ${lightHeader ? 'text-noir' : 'text-ivory'}`}>
-            DAIVIQUE
-          </span>
+        <button onClick={() => { setMobileOpen(false); setSearchOpen(false); onNavigate('/'); }} className="group flex min-h-11 shrink-0 items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-transparent rounded-lg" aria-label="DAIVIQUE home">
+          <BrandLogo variant={lightHeader ? 'light' : 'dark'} className="w-[184px] sm:w-[210px]" />
         </button>
 
         {/* Desktop menu */}

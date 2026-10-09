@@ -1,4 +1,5 @@
 import { useEffect, useState, type FormEvent } from 'react';
+import BrandLogo from './BrandLogo';
 import type { Session } from '@supabase/supabase-js';
 import { atelierPieces } from '@/data/atelier';
 import { workshopClient } from '@/lib/workshopClient';
@@ -135,7 +136,7 @@ export default function OwnerDashboard() {
   });
   return <div className="min-h-screen bg-ivory px-5 py-8 text-noir sm:px-8">
     <div className="mx-auto max-w-6xl">
-      <header className="flex flex-wrap items-center justify-between gap-4 border-b border-noir/10 pb-6"><a href="#/" className="font-heading text-2xl tracking-widest">DAIVIQUE</a><div className="flex items-center gap-5"><a href="#/shop" className="text-sm underline underline-offset-4">View website</a>{session && <button onClick={() => { void signOut(); }} disabled={busy} className={button}>Sign out</button>}</div></header>
+      <header className="flex flex-wrap items-center justify-between gap-4 border-b border-noir/10 pb-6"><a href="#/" aria-label="DAIVIQUE home" className="inline-flex rounded-lg"><BrandLogo variant="light" className="w-[210px]" /></a><div className="flex items-center gap-5"><a href="#/shop" className="text-sm underline underline-offset-4">View website</a>{session && <button onClick={() => { void signOut(); }} disabled={busy} className={button}>Sign out</button>}</div></header>
       <main className="py-10">
         <p className="text-xs uppercase tracking-widest text-gold">Private workspace</p><h1 className="mt-3 font-heading text-4xl sm:text-5xl">Your workshop, up to date.</h1>
         <p className="mt-4 max-w-2xl text-sm leading-relaxed text-charcoal/75">Manage the rates and availability customers see. Your changes save to the database and update the website without uploading code.</p>
