@@ -13,12 +13,12 @@ export default function Hero() {
         </div>
         <div className="mt-10 flex flex-wrap gap-x-6 border-t border-ivory/15 pt-4">
           <a href="#/#custom-orders" className="inline-flex min-h-11 items-center text-sm text-gold underline underline-offset-4">How custom orders work</a>
-          <a href="#gallery" className="inline-flex min-h-11 items-center text-sm text-ivory/80 underline underline-offset-4">Inside our workshop</a>
+          <a href="#gallery" className="inline-flex min-h-11 items-center text-sm text-ivory/80 underline underline-offset-4">See it worn</a>
         </div>
       </div>
       <figure className="relative mx-auto w-full max-w-lg">
         <div className="overflow-hidden rounded-t-[12rem] rounded-b-2xl bg-[#f6f1e9]"><img src="/images/handmade/edits/floral-peacock.webp" alt="Our floral peacock pendant with coloured accents and pale bead drops, shown in an AI studio edit" fetchPriority="high" width="1122" height="1402" className="aspect-[4/5] w-full object-contain" /></div>
-        <figcaption className="mt-4 flex justify-between gap-4 text-[10px] text-ivory/55"><span>Floral Peacock Pendant</span><span>AI studio edit · original in gallery</span></figcaption>
+        <figcaption className="mt-4 flex justify-between gap-4 text-[10px] text-ivory/55"><span>Floral Peacock Pendant</span><span>AI studio presentation</span></figcaption>
       </figure>
     </div>
   </section>;

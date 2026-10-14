@@ -86,6 +86,7 @@ export default function Footer({ onNavigate }: FooterProps) {
               Quick Links
             </h4>
             <ul className="space-y-3">
+              <li><a href="/jewellery.html" className="inline-flex min-h-8 items-center text-sm font-light text-ivory/55 hover:text-gold focus-visible:outline-gold">Jewellery catalogue</a></li>
               {quickLinks.map((link) => (
                 <li key={link.label}>
                   <button

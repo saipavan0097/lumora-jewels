@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://daivique-jewels-landin-mj9x.bolt.host/sitemap.xml

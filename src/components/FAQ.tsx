@@ -5,15 +5,15 @@ import Reveal from '@/components/Reveal';
 const faqs = [
   {
     q: 'Who made the jewellery in this gallery?',
-    a: 'Our Work showcases ornaments made by Sai Pavan and his father, with original workshop photos included. The separate Design Ideas section contains AI concepts that have not yet been made and need workshop approval.',
+    a: 'Our Work showcases ornaments made by Sai Pavan and his father, shown through AI studio edits and model previews. The separate Design Ideas section contains AI concepts that have not yet been made and need workshop approval.',
   },
   {
     q: 'How do I enquire about a piece?',
     a: 'Open the piece and choose Enquire about this piece. WhatsApp opens with its name and reference ready to send. You can discuss materials, sizing, price and availability with us directly.',
   },
   {
-    q: 'Why are there studio edits and original photos?',
-    a: 'AI studio edits offer a cleaner presentation, but fine details can differ. Original workshop photos are included for comparison and remain the reference for the photographed ornament.',
+    q: 'Are the model photographs real?',
+    a: 'Our studio images and model previews are AI presentations based on our jewellery designs. They help you explore the look, but fine details, fit and scale may vary. Styling chains are illustrative unless included in the confirmed order. Ask us to confirm dimensions and finish before ordering.',
   },
   {
     q: 'Are these pieces available to buy immediately?',

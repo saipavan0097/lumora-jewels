@@ -1,5 +1,5 @@
 export type AtelierCategory = 'Necklaces' | 'Pendants' | 'Earrings' | 'Rings' | 'Chains & Bracelets';
-export interface AtelierImage { src: string; label: string; kind: 'edited' | 'original'; }
+export interface AtelierImage { src: string; label: string; kind: 'edited' | 'worn'; }
 export interface AtelierPiece {
   id: string;
   title: string;
@@ -23,19 +23,9 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/originals/64.webp",
-        "label": "Original workshop photo",
-        "kind": "original"
-      },
-      {
-        "src": "/images/handmade/originals/59.webp",
-        "label": "Original · view 2",
-        "kind": "original"
-      },
-      {
-        "src": "/images/handmade/originals/168.webp",
-        "label": "Original · view 3",
-        "kind": "original"
+        "src": "/images/handmade/worn-v7/floral-peacock.webp",
+        "label": "AI model preview",
+        "kind": "worn"
       }
     ],
     "featured": true
@@ -44,7 +34,7 @@ export const atelierPieces: AtelierPiece[] = [
     "id": "crescent-jhumka",
     "title": "Floral Crescent Jhumka",
     "category": "Earrings",
-    "description": "A floral top, green-accent crescent and detailed bell drop. One earring is shown in the workshop photograph.",
+    "description": "A floral top, green-accent crescent and detailed bell drop. The model preview features one earring.",
     "image": "/images/handmade/edits/crescent-jhumka.webp",
     "images": [
       {
@@ -53,9 +43,9 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/originals/206.webp",
-        "label": "Original workshop photo",
-        "kind": "original"
+        "src": "/images/handmade/worn-v7/crescent-jhumka.webp",
+        "label": "AI model preview",
+        "kind": "worn"
       }
     ],
     "featured": true
@@ -73,14 +63,9 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/originals/191.webp",
-        "label": "Original workshop photo",
-        "kind": "original"
-      },
-      {
-        "src": "/images/handmade/originals/192.webp",
-        "label": "Original · view 2",
-        "kind": "original"
+        "src": "/images/handmade/worn-v7/green-floral-strands.webp",
+        "label": "AI model preview",
+        "kind": "worn"
       }
     ],
     "featured": true
@@ -98,14 +83,9 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/originals/35.webp",
-        "label": "Original workshop photo",
-        "kind": "original"
-      },
-      {
-        "src": "/images/handmade/originals/36.webp",
-        "label": "Original · view 2",
-        "kind": "original"
+        "src": "/images/handmade/worn-v7/rectangular-deity-ring.webp",
+        "label": "AI model preview",
+        "kind": "worn"
       }
     ],
     "featured": true
@@ -123,9 +103,9 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/originals/188.webp",
-        "label": "Original workshop photo",
-        "kind": "original"
+        "src": "/images/handmade/worn-v7/filigree-bead-necklace.webp",
+        "label": "AI model preview",
+        "kind": "worn"
       }
     ],
     "featured": true
@@ -143,14 +123,9 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/originals/81.webp",
-        "label": "Original workshop photo",
-        "kind": "original"
-      },
-      {
-        "src": "/images/handmade/originals/77.webp",
-        "label": "Original · view 2",
-        "kind": "original"
+        "src": "/images/handmade/worn-v7/oval-devotional-pendant.webp",
+        "label": "AI model preview",
+        "kind": "worn"
       }
     ],
     "featured": true
@@ -168,14 +143,9 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/originals/107.webp",
-        "label": "Original workshop photo",
-        "kind": "original"
-      },
-      {
-        "src": "/images/handmade/originals/105.webp",
-        "label": "Original · view 2",
-        "kind": "original"
+        "src": "/images/handmade/worn-v7/bead-fringe-pendant.webp",
+        "label": "AI model preview",
+        "kind": "worn"
       }
     ],
     "featured": false
@@ -193,9 +163,9 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/originals/182.webp",
-        "label": "Original workshop photo",
-        "kind": "original"
+        "src": "/images/handmade/worn-v7/engraved-drops.webp",
+        "label": "AI model preview",
+        "kind": "worn"
       }
     ],
     "featured": false
@@ -213,9 +183,9 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/originals/38.webp",
-        "label": "Original workshop photo",
-        "kind": "original"
+        "src": "/images/handmade/worn-v7/ganesha-ring.webp",
+        "label": "AI model preview",
+        "kind": "worn"
       }
     ],
     "featured": false
@@ -233,14 +203,9 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/originals/140.webp",
-        "label": "Original workshop photo",
-        "kind": "original"
-      },
-      {
-        "src": "/images/handmade/originals/141.webp",
-        "label": "Original · view 2",
-        "kind": "original"
+        "src": "/images/handmade/worn-v7/silver-tone-deity-ring.webp",
+        "label": "AI model preview",
+        "kind": "worn"
       }
     ],
     "featured": false
@@ -258,9 +223,9 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/originals/39.webp",
-        "label": "Original workshop photo",
-        "kind": "original"
+        "src": "/images/handmade/worn-v7/coin-necklace.webp",
+        "label": "AI model preview",
+        "kind": "worn"
       }
     ],
     "featured": false
@@ -278,19 +243,9 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/originals/12.webp",
-        "label": "Original workshop photo",
-        "kind": "original"
-      },
-      {
-        "src": "/images/handmade/originals/13.webp",
-        "label": "Original · view 2",
-        "kind": "original"
-      },
-      {
-        "src": "/images/handmade/originals/92.webp",
-        "label": "Original · view 3",
-        "kind": "original"
+        "src": "/images/handmade/worn-v7/devotional-chain.webp",
+        "label": "AI model preview",
+        "kind": "worn"
       }
     ],
     "featured": false
@@ -308,19 +263,9 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/originals/16.webp",
-        "label": "Original workshop photo",
-        "kind": "original"
-      },
-      {
-        "src": "/images/handmade/originals/17.webp",
-        "label": "Original · view 2",
-        "kind": "original"
-      },
-      {
-        "src": "/images/handmade/originals/93.webp",
-        "label": "Original · view 3",
-        "kind": "original"
+        "src": "/images/handmade/worn-v7/floral-link-chain.webp",
+        "label": "AI model preview",
+        "kind": "worn"
       }
     ],
     "featured": false
@@ -338,14 +283,9 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/originals/31.webp",
-        "label": "Original workshop photo",
-        "kind": "original"
-      },
-      {
-        "src": "/images/handmade/originals/30.webp",
-        "label": "Original · view 2",
-        "kind": "original"
+        "src": "/images/handmade/worn-v7/engraved-disc-pair.webp",
+        "label": "AI model preview",
+        "kind": "worn"
       }
     ],
     "featured": false
@@ -363,14 +303,9 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/originals/133.webp",
-        "label": "Original workshop photo",
-        "kind": "original"
-      },
-      {
-        "src": "/images/handmade/originals/134.webp",
-        "label": "Original · view 2",
-        "kind": "original"
+        "src": "/images/handmade/worn-v7/floral-scroll-pendant.webp",
+        "label": "AI model preview",
+        "kind": "worn"
       }
     ],
     "featured": false
@@ -388,9 +323,9 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/originals/138.webp",
-        "label": "Original workshop photo",
-        "kind": "original"
+        "src": "/images/handmade/worn-v7/fan-lattice-ornament.webp",
+        "label": "AI model preview",
+        "kind": "worn"
       }
     ],
     "featured": false
@@ -408,14 +343,9 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/originals/108.webp",
-        "label": "Original workshop photo",
-        "kind": "original"
-      },
-      {
-        "src": "/images/handmade/originals/109.webp",
-        "label": "Original · view 2",
-        "kind": "original"
+        "src": "/images/handmade/worn-v7/red-bead-strands.webp",
+        "label": "AI model preview",
+        "kind": "worn"
       }
     ],
     "featured": false
@@ -433,9 +363,9 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/originals/187.webp",
-        "label": "Original workshop photo",
-        "kind": "original"
+        "src": "/images/handmade/worn-v7/round-bead-chain.webp",
+        "label": "AI model preview",
+        "kind": "worn"
       }
     ],
     "featured": false
@@ -453,9 +383,9 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/originals/186.webp",
-        "label": "Original workshop photo",
-        "kind": "original"
+        "src": "/images/handmade/worn-v7/multicolour-bead-chain.webp",
+        "label": "AI model preview",
+        "kind": "worn"
       }
     ],
     "featured": false
@@ -473,9 +403,9 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/originals/193.webp",
-        "label": "Original workshop photo",
-        "kind": "original"
+        "src": "/images/handmade/worn-v7/teardrop-bead-necklace.webp",
+        "label": "AI model preview",
+        "kind": "worn"
       }
     ],
     "featured": false
@@ -493,9 +423,9 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/originals/190.webp",
-        "label": "Original workshop photo",
-        "kind": "original"
+        "src": "/images/handmade/worn-v7/black-bead-chain.webp",
+        "label": "AI model preview",
+        "kind": "worn"
       }
     ],
     "featured": false
@@ -513,14 +443,9 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/originals/153.webp",
-        "label": "Original workshop photo",
-        "kind": "original"
-      },
-      {
-        "src": "/images/handmade/originals/154.webp",
-        "label": "Original · view 2",
-        "kind": "original"
+        "src": "/images/handmade/worn-v7/emblem-signet.webp",
+        "label": "AI model preview",
+        "kind": "worn"
       }
     ],
     "featured": false
@@ -529,7 +454,7 @@ export const atelierPieces: AtelierPiece[] = [
     "id": "personalised-signet",
     "title": "Raised-Motif Signet Ring",
     "category": "Rings",
-    "description": "A raised central motif on a faceted signet face, with patterned shoulders and alternate workshop angles.",
+    "description": "A raised central motif on a faceted signet face, with patterned shoulders.",
     "image": "/images/handmade/edits/personalised-signet.webp",
     "images": [
       {
@@ -538,19 +463,9 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/originals/156.webp",
-        "label": "Original workshop photo",
-        "kind": "original"
-      },
-      {
-        "src": "/images/handmade/originals/159.webp",
-        "label": "Original · view 2",
-        "kind": "original"
-      },
-      {
-        "src": "/images/handmade/originals/158.webp",
-        "label": "Original · view 3",
-        "kind": "original"
+        "src": "/images/handmade/worn-v7/personalised-signet.webp",
+        "label": "AI model preview",
+        "kind": "worn"
       }
     ],
     "featured": false
@@ -559,7 +474,7 @@ export const atelierPieces: AtelierPiece[] = [
     "id": "link-bracelets",
     "title": "Handmade Link Collection",
     "category": "Chains & Bracelets",
-    "description": "A workshop selection of bright silver-coloured linked designs. Ask us about individual patterns and materials.",
+    "description": "A workshop selection of bright silver-coloured linked designs. Ask us about individual patterns and materials. The model view features the fourth-row bracelet with a long oval link alternating with three short links.",
     "image": "/images/handmade/edits/link-bracelets.webp",
     "images": [
       {
@@ -568,19 +483,9 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/originals/145.webp",
-        "label": "Original workshop photo",
-        "kind": "original"
-      },
-      {
-        "src": "/images/handmade/originals/143.webp",
-        "label": "Original · view 2",
-        "kind": "original"
-      },
-      {
-        "src": "/images/handmade/originals/144.webp",
-        "label": "Original · view 3",
-        "kind": "original"
+        "src": "/images/handmade/worn-v7/link-bracelets.webp",
+        "label": "AI model preview · selected bracelet",
+        "kind": "worn"
       }
     ],
     "featured": false
@@ -589,7 +494,7 @@ export const atelierPieces: AtelierPiece[] = [
     "id": "small-devotional-pendant",
     "title": "Small Devotional Pendant",
     "category": "Pendants",
-    "description": "A compact embossed devotional motif, photographed from the front and reverse.",
+    "description": "A compact embossed devotional motif with a fine border and rolled bail.",
     "image": "/images/handmade/edits/small-devotional-pendant.webp",
     "images": [
       {
@@ -598,14 +503,9 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/originals/170.webp",
-        "label": "Original workshop photo",
-        "kind": "original"
-      },
-      {
-        "src": "/images/handmade/originals/171.webp",
-        "label": "Original · view 2",
-        "kind": "original"
+        "src": "/images/handmade/worn-v7/small-devotional-pendant.webp",
+        "label": "AI model preview",
+        "kind": "worn"
       }
     ],
     "featured": false
@@ -623,9 +523,9 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/originals/185.webp",
-        "label": "Original workshop photo",
-        "kind": "original"
+        "src": "/images/handmade/worn-v7/traditional-disc-pendant.webp",
+        "label": "AI model preview",
+        "kind": "worn"
       }
     ],
     "featured": false
@@ -634,7 +534,7 @@ export const atelierPieces: AtelierPiece[] = [
     "id": "leaf-pendant",
     "title": "Traditional Mangalsutra Leaf Pendant",
     "category": "Pendants",
-    "description": "A traditional mangalsutra leaf pendant with raised dot details, a central boss and a wide rolled bail. The AI shape and finish preview proposes a smoother, more balanced outline; it does not show a physical repair. See the original workshop photo for the piece as photographed.",
+    "description": "A traditional mangalsutra leaf pendant with raised dot details, a central boss and a wide rolled bail. The AI shape and finish preview proposes a smoother, more balanced outline; it does not show a physical repair. Please confirm the final shape and finish with our workshop.",
     "image": "/images/handmade/edits/leaf-pendant-v2.webp",
     "images": [
       {
@@ -643,9 +543,9 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/originals/195.webp",
-        "label": "Original workshop photo",
-        "kind": "original"
+        "src": "/images/handmade/worn-v7/leaf-pendant.webp",
+        "label": "AI model preview",
+        "kind": "worn"
       }
     ],
     "featured": false
@@ -654,7 +554,7 @@ export const atelierPieces: AtelierPiece[] = [
     "id": "disc-ornament-selection",
     "title": "Engraved Gold Disc Pendant Selection",
     "category": "Pendants",
-    "description": "Six gold disc pendants in three paired designs, with top bails and floral or devotional raised centres. The workshop has confirmed the gold colour; purity and specifications are available on enquiry.",
+    "description": "Six gold disc pendants in three paired designs, with top bails and floral or devotional raised centres. The workshop has confirmed the gold colour; purity and specifications are available on enquiry. The model view features the top-left floral disc only.",
     "image": "/images/handmade/edits/disc-ornament-selection-v2.webp",
     "images": [
       {
@@ -663,14 +563,9 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/originals/161.webp",
-        "label": "Original workshop photo",
-        "kind": "original"
-      },
-      {
-        "src": "/images/handmade/originals/162.webp",
-        "label": "Original · view 2",
-        "kind": "original"
+        "src": "/images/handmade/worn-v7/disc-ornament-selection.webp",
+        "label": "AI model preview · selected floral disc",
+        "kind": "worn"
       }
     ],
     "featured": false

@@ -4,9 +4,9 @@ import { atelierPieces, getAtelierPageUrl, getAtelierWhatsAppLink, type AtelierP
 import PhotoActions from '@/components/PhotoActions';
 import Availability from '@/components/Availability';
 
-function PieceDialog({ piece, onClose }: { piece: AtelierPiece; onClose: () => void }) {
+function PieceDialog({ piece, initialView = 0, onClose }: { piece: AtelierPiece; initialView?: number; onClose: () => void }) {
   const dialogRef = useRef<HTMLDialogElement>(null);
-  const [view, setView] = useState(0);
+  const [view, setView] = useState(initialView);
   const activeImage = piece.images[view];
   const changeView = (direction: number) => setView(index => (index + direction + piece.images.length) % piece.images.length);
   useEffect(() => {
@@ -41,26 +41,28 @@ function PieceDialog({ piece, onClose }: { piece: AtelierPiece; onClose: () => v
         <a href={getAtelierWhatsAppLink(piece)} target="_blank" rel="noopener noreferrer" className="mt-7 inline-flex items-center justify-center gap-2 rounded-full bg-gold px-6 py-4 text-xs font-medium uppercase tracking-wider focus-visible:outline-noir"><MessageCircle className="h-4 w-4" />Enquire about this piece</a>
         <p className="mt-2 text-xs leading-relaxed text-charcoal/70">Opens WhatsApp with your enquiry and a link to this piece. To attach a picture, use the photo options below.</p>
         <PhotoActions key={activeImage.src} photo={{ id: piece.id, title: piece.title, image: activeImage.src, label: activeImage.label, pageUrl: getAtelierPageUrl(piece) }} />
-        {piece.images.some(img => img.kind === 'edited') && <div className="mt-6 rounded-lg border border-gold/30 p-4 text-xs leading-relaxed text-charcoal/70"><Camera className="mb-2 h-4 w-4 text-gold" />AI studio edits improve presentation and may differ in fine detail. The original workshop photographs are included for comparison and are the reference for the actual piece.<button onClick={() => setView(piece.images.findIndex(img => img.kind === 'original'))} className="mt-3 block underline underline-offset-4 focus-visible:outline-gold">View original photograph</button></div>}
+        <div className="mt-6 rounded-lg border border-gold/30 p-4 text-xs leading-relaxed text-charcoal/70"><Camera className="mb-2 h-4 w-4 text-gold" />Studio images and model previews are AI presentations of our designs. Fine details, fit and scale may vary. Styling chains and other accessories are illustrative; please confirm the included pieces, dimensions and finish with us.</div>
         <p className="mt-5 text-[10px] text-charcoal/50">Reference: {piece.id}</p>
       </div>
     </div>
   </dialog>;
 }
 
-export function AtelierShowcase({ pieces, initialPiece }: { pieces: AtelierPiece[]; initialPiece?: AtelierPiece }) {
+export function AtelierShowcase({ pieces, initialPiece, presentation = 'edited' }: { pieces: AtelierPiece[]; initialPiece?: AtelierPiece; presentation?: 'edited' | 'worn' }) {
   const [selected, setSelected] = useState<AtelierPiece | null>(initialPiece ?? null);
   return <>
     <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
-      {pieces.map(piece => <article key={piece.id} className="group overflow-hidden rounded-xl border border-noir/10 bg-white">
-        <button onClick={() => setSelected(piece)} aria-label={`View ${piece.title}`} className="relative block aspect-[4/5] w-full overflow-hidden bg-[#f6f1e9] focus-visible:outline-gold focus-visible:outline-offset-[-3px]">
-          <img src={piece.image} alt={piece.title} loading="lazy" decoding="async" className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-[1.025]" />
-          <span className="absolute bottom-3 left-3 rounded-full bg-white/95 px-3 py-1.5 text-[9px] uppercase tracking-wider text-charcoal">{piece.images[0].label}{piece.images[0].kind === 'edited' ? ' · original included' : ''}</span>
-        </button>
+      {pieces.map(piece => {
+        const photo = piece.images.find(image => image.kind === presentation) ?? piece.images[0];
+        return <article key={piece.id} className="group overflow-hidden rounded-xl border border-noir/10 bg-white">
+        <a href={getAtelierPageUrl(piece)} onClick={event => { if (!event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey) { event.preventDefault(); setSelected(piece); } }} aria-label={`View ${piece.title}`} className="relative block aspect-[4/5] w-full overflow-hidden bg-[#f6f1e9] focus-visible:outline-gold focus-visible:outline-offset-[-3px]">
+          <img src={photo.src} alt={`${piece.title} — ${photo.label}`} loading="lazy" decoding="async" className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-[1.025]" />
+          <span className="absolute bottom-3 left-3 rounded-full bg-white/95 px-3 py-1.5 text-[9px] uppercase tracking-wider text-charcoal">{photo.label}</span>
+        </a>
 <div className="p-5 sm:p-6"><p className="text-[10px] uppercase tracking-luxe text-gold">{piece.category}</p><h3 className="mt-2 font-heading text-2xl text-noir"><button onClick={() => setSelected(piece)} className="text-left focus-visible:outline-gold">{piece.title}</button></h3><Availability pieceId={piece.id} /><p className="mt-3 min-h-[3rem] text-sm leading-relaxed text-charcoal/65">{piece.description}</p><button onClick={() => setSelected(piece)} className="mt-5 inline-flex items-center gap-2 border-b border-gold pb-1 text-xs uppercase tracking-wider text-noir focus-visible:outline-gold">View piece & photos <ArrowRight className="h-3.5 w-3.5" /></button></div>
-      </article>)}
+      </article>})}
     </div>
-    {selected && <PieceDialog key={selected.id} piece={selected} onClose={() => setSelected(null)} />}
+    {selected && <PieceDialog key={selected.id} piece={selected} initialView={Math.max(0, selected.images.findIndex(image => image.kind === presentation))} onClose={() => setSelected(null)} />}
   </>;
 }
 
@@ -68,6 +70,7 @@ export default function AtelierGallery({ externalSearch = '', initialPieceId }: 
   const [search, setSearch] = useState(externalSearch);
   const [category, setCategory] = useState('All');
   const [visibleCount, setVisibleCount] = useState(12);
+  const [presentation, setPresentation] = useState<'edited' | 'worn'>('edited');
   useEffect(() => { setSearch(initialPieceId ? '' : externalSearch); setCategory('All'); setVisibleCount(12); }, [externalSearch, initialPieceId]);
   const categories = ['All', ...new Set(atelierPieces.map(piece => piece.category))];
   const filtered = useMemo(() => { const query = search.trim().toLowerCase(); return atelierPieces.filter(piece => (category === 'All' || piece.category === category) && `${piece.title} ${piece.description} ${piece.category}`.toLowerCase().includes(query)); }, [search, category]);
@@ -78,14 +81,15 @@ export default function AtelierGallery({ externalSearch = '', initialPieceId }: 
       <a href="#/#design-ideas" className="rounded-full border border-gold px-5 py-3 text-xs text-noir focus-visible:outline-gold">New design ideas</a>
       <a href="#/#price-estimator" className="rounded-full border border-noir/20 px-5 py-3 text-xs text-noir focus-visible:outline-gold">Explore a price estimate</a>
     </nav>
-    <div className="mb-12 mt-9 max-w-2xl"><p className="text-xs uppercase tracking-luxe text-gold">Made by our family</p><h1 className="mt-4 font-heading text-5xl sm:text-6xl">Our Work</h1><p className="mt-5 text-sm leading-relaxed text-charcoal/70">Explore the ornaments made by Sai Pavan and his father. Open a piece to see its workshop photographs, alternate angles and available studio edits.</p></div>
+    <div className="mb-8 mt-9 max-w-2xl"><p className="text-xs uppercase tracking-luxe text-gold">Made by our family</p><h1 className="mt-4 font-heading text-5xl sm:text-6xl">Our Work</h1><p className="mt-5 text-sm leading-relaxed text-charcoal/70">Explore jewellery from our family workshop. See each design in a studio presentation or on an AI model, then speak with us about making it yours.</p></div>
+    <fieldset className="mb-8"><legend className="mb-3 text-xs font-medium text-charcoal">Choose your view</legend><div className="inline-flex flex-wrap gap-2 rounded-2xl border border-noir/10 bg-white p-2">{([{ value: 'edited', label: 'Studio view' }, { value: 'worn', label: 'On model' }] as const).map(option => <button key={option.value} type="button" aria-pressed={presentation === option.value} onClick={() => setPresentation(option.value)} className={`min-h-11 rounded-full px-5 py-3 text-sm focus-visible:outline-gold ${presentation === option.value ? 'bg-noir text-ivory' : 'text-charcoal hover:bg-ivory'}`}>{option.label}</button>)}</div><p className="mt-3 text-xs leading-relaxed text-charcoal/65">AI presentations · model fit and scale are illustrative.</p></fieldset>
     <div className="mb-7 flex flex-col gap-5">
       <label className="relative block max-w-lg"><span className="sr-only">Search handmade jewellery</span><Search className="absolute left-4 top-4 h-4 w-4 text-charcoal/50" /><input value={search} onChange={event => { setSearch(event.target.value); setVisibleCount(12); }} type="search" placeholder="Search necklaces, jhumkas, pendants…" className="w-full rounded-full border border-noir/20 bg-white py-3 pl-11 pr-5 text-sm focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/30" /></label>
       <div className="flex flex-wrap gap-2" aria-label="Filter jewellery categories">{categories.map(value => <button key={value} aria-pressed={category === value} onClick={() => { setCategory(value); setVisibleCount(12); }} className={`rounded-full border px-4 py-2 text-xs focus-visible:outline-gold ${category === value ? 'border-noir bg-noir text-ivory' : 'border-noir/15 bg-white text-charcoal hover:border-gold'}`}>{value}</button>)}</div>
       <p aria-live="polite" className="text-xs text-charcoal/65">{filtered.length} {filtered.length === 1 ? 'piece' : 'pieces'}{search.trim() ? ` matching “${search.trim()}”` : ''}</p>
     </div>
-    {filtered.length ? <AtelierShowcase pieces={filtered.slice(0, visibleCount)} initialPiece={atelierPieces.find(piece => piece.id === initialPieceId)} /> : <div className="rounded-xl border border-noir/10 bg-white px-6 py-20 text-center"><h2 className="font-heading text-3xl">No matching pieces</h2><p className="mt-3 text-sm text-charcoal/65">Try another name or category.</p><button onClick={reset} className="mt-6 rounded-full bg-gold px-6 py-3 text-xs uppercase tracking-wider">Clear filters</button></div>}
+    {filtered.length ? <AtelierShowcase pieces={filtered.slice(0, visibleCount)} initialPiece={atelierPieces.find(piece => piece.id === initialPieceId)} presentation={presentation} /> : <div className="rounded-xl border border-noir/10 bg-white px-6 py-20 text-center"><h2 className="font-heading text-3xl">No matching pieces</h2><p className="mt-3 text-sm text-charcoal/65">Try another name or category.</p><button onClick={reset} className="mt-6 rounded-full bg-gold px-6 py-3 text-xs uppercase tracking-wider">Clear filters</button></div>}
     {filtered.length > visibleCount && <div className="mt-12 text-center"><button onClick={() => setVisibleCount(count => count + 12)} className="rounded-full border border-gold px-8 py-4 text-xs uppercase tracking-wider focus-visible:outline-gold">Load more pieces ({filtered.length - visibleCount} remaining)</button></div>}
-    <p className="mx-auto mt-14 max-w-2xl text-center text-xs leading-relaxed text-charcoal/60">These photographs document our work, not a live stock list. Names are descriptive; materials, weights, prices and availability are confirmed personally on enquiry.</p>
+    <p className="mx-auto mt-14 max-w-2xl text-center text-xs leading-relaxed text-charcoal/60">This gallery presents our designs using AI studio edits and model previews. Materials, dimensions, weights, prices and availability are confirmed personally on enquiry.</p>
   </div></section>;
 }

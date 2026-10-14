@@ -55,7 +55,7 @@ export default function PhotoActions({ photo }: { photo: PhotoShare }) {
   return <details onToggle={event => setOpen(event.currentTarget.open)} className="mt-4 rounded-xl border border-noir/15 bg-white text-noir">
     <summary className="min-h-11 cursor-pointer px-4 py-3 text-sm font-medium">Photo &amp; design link</summary>
     {open && <div className="border-t border-noir/10 px-4 pb-4 pt-3">
-      <p className="text-xs leading-relaxed text-charcoal/80">Share a picture through your phone’s share menu, or download it and attach it in WhatsApp. The photo includes its name and original/AI label.</p>
+      <p className="text-xs leading-relaxed text-charcoal/80">Share a picture through your phone’s share menu, or download it and attach it in WhatsApp. The photo includes the jewellery name and its AI presentation label.</p>
       <div className="mt-3 flex flex-wrap gap-2">
         {file && canSharePhoto(file) && <button type="button" disabled={busy} onClick={handleShare} className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-noir px-4 py-3 text-xs text-ivory disabled:opacity-60"><Share2 className="h-4 w-4" aria-hidden="true" />{busy ? 'Opening share…' : 'Share photo'}</button>}
         {downloadUrl && <a href={downloadUrl} download={file?.name} className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-noir/25 px-4 py-3 text-xs"><Download className="h-4 w-4" aria-hidden="true" />Download photo</a>}
