@@ -1,4 +1,4 @@
-export type AtelierCategory = 'Necklaces' | 'Pendants' | 'Earrings' | 'Rings' | 'Chains & Bracelets';
+export type AtelierCategory = 'Necklaces' | 'Pendants' | 'Earrings' | 'Rings' | 'Chains & Bracelets' | 'Mangalsutras' | 'Waist Ornaments' | 'Devotional Ornaments';
 export interface AtelierImage { src: string; label: string; kind: 'edited' | 'worn'; }
 export interface AtelierPiece {
   id: string;
@@ -14,7 +14,7 @@ export const atelierPieces: AtelierPiece[] = [
     "id": "floral-peacock",
     "title": "Floral Peacock Pendant",
     "category": "Pendants",
-    "description": "Openwork birds and floral scrolls frame coloured accents and a pale-bead fringe.",
+    "description": "Openwork birds and floral scrolls frame coloured accents and a pale-bead fringe. The model preview pairs the pendant with a cream pearl chain.",
     "image": "/images/handmade/edits/floral-peacock.webp",
     "images": [
       {
@@ -23,7 +23,7 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/worn-v7/floral-peacock.webp",
+        "src": "/images/handmade/worn-v8/floral-peacock.webp",
         "label": "AI model preview",
         "kind": "worn"
       }
@@ -43,7 +43,7 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/worn-v7/crescent-jhumka.webp",
+        "src": "/images/handmade/worn-v8/crescent-jhumka.webp",
         "label": "AI model preview",
         "kind": "worn"
       }
@@ -63,7 +63,7 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/worn-v7/green-floral-strands.webp",
+        "src": "/images/handmade/worn-v8/green-floral-strands.webp",
         "label": "AI model preview",
         "kind": "worn"
       }
@@ -83,7 +83,7 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/worn-v7/rectangular-deity-ring.webp",
+        "src": "/images/handmade/worn-v8/rectangular-deity-ring.webp",
         "label": "AI model preview",
         "kind": "worn"
       }
@@ -94,7 +94,7 @@ export const atelierPieces: AtelierPiece[] = [
     "id": "filigree-bead-necklace",
     "title": "Filigree & Bead Necklace",
     "category": "Necklaces",
-    "description": "Large pale beads, decorative caps and openwork spheres joined into a short strand.",
+    "description": "Pale beads, decorative caps and openwork spheres joined into a short strand.",
     "image": "/images/handmade/edits/filigree-bead-necklace.webp",
     "images": [
       {
@@ -103,7 +103,7 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/worn-v7/filigree-bead-necklace.webp",
+        "src": "/images/handmade/worn-v8/filigree-bead-necklace.webp",
         "label": "AI model preview",
         "kind": "worn"
       }
@@ -112,20 +112,15 @@ export const atelierPieces: AtelierPiece[] = [
   },
   {
     "id": "oval-devotional-pendant",
-    "title": "Temple Relief Pendant",
-    "category": "Pendants",
-    "description": "A sculpted temple-inspired centre, arched canopy and a border of rounded drops.",
+    "title": "Islamic Devotional Ornament",
+    "category": "Devotional Ornaments",
+    "description": "An Islamic devotional ornament with an architectural motif, arched canopy and rounded border details. Presented as a standalone ornament; please enquire about its dimensions and intended use.",
     "image": "/images/handmade/edits/oval-devotional-pendant.webp",
     "images": [
       {
         "src": "/images/handmade/edits/oval-devotional-pendant.webp",
         "label": "AI studio edit",
         "kind": "edited"
-      },
-      {
-        "src": "/images/handmade/worn-v7/oval-devotional-pendant.webp",
-        "label": "AI model preview",
-        "kind": "worn"
       }
     ],
     "featured": true
@@ -134,7 +129,7 @@ export const atelierPieces: AtelierPiece[] = [
     "id": "bead-fringe-pendant",
     "title": "Devotional Bead-Fringe Pendant",
     "category": "Pendants",
-    "description": "An embossed oval motif finished with small pale-bead clusters.",
+    "description": "An embossed oval devotional motif finished with small pale-bead clusters, styled on a smooth round gold chain in the model preview.",
     "image": "/images/handmade/edits/bead-fringe-pendant.webp",
     "images": [
       {
@@ -143,7 +138,7 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/worn-v7/bead-fringe-pendant.webp",
+        "src": "/images/handmade/worn-v8/bead-fringe-pendant.webp",
         "label": "AI model preview",
         "kind": "worn"
       }
@@ -152,9 +147,9 @@ export const atelierPieces: AtelierPiece[] = [
   },
   {
     "id": "engraved-drops",
-    "title": "Engraved Round Drops",
-    "category": "Earrings",
-    "description": "A pair of small hooked earrings with faceted circular drops and rounded bead details.",
+    "title": "Small Round Mangalsutra Pair",
+    "category": "Mangalsutras",
+    "description": "Two small round mangalsutra pieces with faceted details and rounded beads, styled together at the centre of a black-bead chain.",
     "image": "/images/handmade/edits/engraved-drops.webp",
     "images": [
       {
@@ -163,7 +158,7 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/worn-v7/engraved-drops.webp",
+        "src": "/images/handmade/worn-v8/engraved-drops.webp",
         "label": "AI model preview",
         "kind": "worn"
       }
@@ -183,7 +178,7 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/worn-v7/ganesha-ring.webp",
+        "src": "/images/handmade/worn-v8/ganesha-ring.webp",
         "label": "AI model preview",
         "kind": "worn"
       }
@@ -203,7 +198,7 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/worn-v7/silver-tone-deity-ring.webp",
+        "src": "/images/handmade/worn-v8/silver-tone-deity-ring.webp",
         "label": "AI model preview",
         "kind": "worn"
       }
@@ -212,9 +207,9 @@ export const atelierPieces: AtelierPiece[] = [
   },
   {
     "id": "coin-necklace",
-    "title": "Heritage Coin Necklace",
-    "category": "Necklaces",
-    "description": "A graduated row of nine devotional coins with alternating coloured accents.",
+    "title": "Heritage Coin Vaddanam",
+    "category": "Waist Ornaments",
+    "description": "A traditional waist ornament with nine graduated devotional coins and coloured accents, styled around the waist over a sari.",
     "image": "/images/handmade/edits/coin-necklace.webp",
     "images": [
       {
@@ -223,7 +218,7 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/worn-v7/coin-necklace.webp",
+        "src": "/images/handmade/worn-v8/coin-necklace.webp",
         "label": "AI model preview",
         "kind": "worn"
       }
@@ -243,7 +238,7 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/worn-v7/devotional-chain.webp",
+        "src": "/images/handmade/worn-v8/devotional-chain.webp",
         "label": "AI model preview",
         "kind": "worn"
       }
@@ -263,7 +258,7 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/worn-v7/floral-link-chain.webp",
+        "src": "/images/handmade/worn-v8/floral-link-chain.webp",
         "label": "AI model preview",
         "kind": "worn"
       }
@@ -272,9 +267,9 @@ export const atelierPieces: AtelierPiece[] = [
   },
   {
     "id": "engraved-disc-pair",
-    "title": "Engraved Gold Disc Pair",
-    "category": "Earrings",
-    "description": "Gold circular engraved ornaments with geometric borders and raised central details. The workshop has confirmed the gold colour; purity and specifications are available on enquiry.",
+    "title": "Engraved Disc Mangalsutra Pair",
+    "category": "Mangalsutras",
+    "description": "A pair of small gold mangalsutra discs with engraved borders and raised centres, styled together on a black-bead chain. Purity and specifications are available on enquiry.",
     "image": "/images/handmade/edits/engraved-disc-pair-v2.webp",
     "images": [
       {
@@ -283,7 +278,7 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/worn-v7/engraved-disc-pair.webp",
+        "src": "/images/handmade/worn-v8/engraved-disc-pair.webp",
         "label": "AI model preview",
         "kind": "worn"
       }
@@ -303,7 +298,7 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/worn-v7/floral-scroll-pendant.webp",
+        "src": "/images/handmade/worn-v8/floral-scroll-pendant.webp",
         "label": "AI model preview",
         "kind": "worn"
       }
@@ -314,7 +309,7 @@ export const atelierPieces: AtelierPiece[] = [
     "id": "fan-lattice-ornament",
     "title": "Fan Pendant & Earring Set",
     "category": "Pendants",
-    "description": "A fan-shaped pendant with pale-bead swags and two matching bell-shaped earrings.",
+    "description": "A fan-shaped pendant with pale-bead swags and two matching bell-shaped earrings. The model preview uses a substantial gold chain to complement the pendant.",
     "image": "/images/handmade/edits/fan-lattice-ornament.webp",
     "images": [
       {
@@ -323,7 +318,7 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/worn-v7/fan-lattice-ornament.webp",
+        "src": "/images/handmade/worn-v8/fan-lattice-ornament.webp",
         "label": "AI model preview",
         "kind": "worn"
       }
@@ -343,7 +338,7 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/worn-v7/red-bead-strands.webp",
+        "src": "/images/handmade/worn-v8/red-bead-strands.webp",
         "label": "AI model preview",
         "kind": "worn"
       }
@@ -363,7 +358,7 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/worn-v7/round-bead-chain.webp",
+        "src": "/images/handmade/worn-v8/round-bead-chain.webp",
         "label": "AI model preview",
         "kind": "worn"
       }
@@ -383,7 +378,7 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/worn-v7/multicolour-bead-chain.webp",
+        "src": "/images/handmade/worn-v8/multicolour-bead-chain.webp",
         "label": "AI model preview",
         "kind": "worn"
       }
@@ -403,7 +398,7 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/worn-v7/teardrop-bead-necklace.webp",
+        "src": "/images/handmade/worn-v8/teardrop-bead-necklace.webp",
         "label": "AI model preview",
         "kind": "worn"
       }
@@ -414,7 +409,7 @@ export const atelierPieces: AtelierPiece[] = [
     "id": "black-bead-chain",
     "title": "Black Bead Chain",
     "category": "Chains & Bracelets",
-    "description": "Black beads and decorative caps form a slender linked strand.",
+    "description": "Black beads and decorative caps form a slender linked strand, finished with pale beads, a red accent and a black bead drop. Shown with a black shirt in the model preview.",
     "image": "/images/handmade/edits/black-bead-chain.webp",
     "images": [
       {
@@ -423,7 +418,7 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/worn-v7/black-bead-chain.webp",
+        "src": "/images/handmade/worn-v8/black-bead-chain.webp",
         "label": "AI model preview",
         "kind": "worn"
       }
@@ -443,7 +438,7 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/worn-v7/emblem-signet.webp",
+        "src": "/images/handmade/worn-v8/emblem-signet.webp",
         "label": "AI model preview",
         "kind": "worn"
       }
@@ -463,7 +458,7 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/worn-v7/personalised-signet.webp",
+        "src": "/images/handmade/worn-v8/personalised-signet.webp",
         "label": "AI model preview",
         "kind": "worn"
       }
@@ -483,7 +478,7 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/worn-v7/link-bracelets.webp",
+        "src": "/images/handmade/worn-v8/link-bracelets.webp",
         "label": "AI model preview · selected bracelet",
         "kind": "worn"
       }
@@ -494,7 +489,7 @@ export const atelierPieces: AtelierPiece[] = [
     "id": "small-devotional-pendant",
     "title": "Small Devotional Pendant",
     "category": "Pendants",
-    "description": "A compact embossed devotional motif with a fine border and rolled bail.",
+    "description": "A compact embossed devotional motif with a fine border and rolled bail. The model preview shows a small pendant and matching gold chain over a child’s festive kurta; dimensions and fit are confirmed personally.",
     "image": "/images/handmade/edits/small-devotional-pendant.webp",
     "images": [
       {
@@ -503,7 +498,7 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/worn-v7/small-devotional-pendant.webp",
+        "src": "/images/handmade/worn-v8/small-devotional-pendant.webp",
         "label": "AI model preview",
         "kind": "worn"
       }
@@ -514,7 +509,7 @@ export const atelierPieces: AtelierPiece[] = [
     "id": "traditional-disc-pendant",
     "title": "Traditional Disc Pendant",
     "category": "Pendants",
-    "description": "A domed traditional disc with a rounded central boss, fine border and decorated top attachment.",
+    "description": "A domed traditional disc with a rounded central boss, fine border and decorated top attachment, styled on a substantial round gold chain.",
     "image": "/images/handmade/edits/traditional-disc-pendant.webp",
     "images": [
       {
@@ -523,7 +518,7 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/worn-v7/traditional-disc-pendant.webp",
+        "src": "/images/handmade/worn-v8/traditional-disc-pendant.webp",
         "label": "AI model preview",
         "kind": "worn"
       }
@@ -534,7 +529,7 @@ export const atelierPieces: AtelierPiece[] = [
     "id": "leaf-pendant",
     "title": "Traditional Mangalsutra Leaf Pendant",
     "category": "Pendants",
-    "description": "A traditional mangalsutra leaf pendant with raised dot details, a central boss and a wide rolled bail. The AI shape and finish preview proposes a smoother, more balanced outline; it does not show a physical repair. Please confirm the final shape and finish with our workshop.",
+    "description": "A traditional mangalsutra leaf pendant with raised dot details, a central boss and a wide rolled bail, styled on a substantial round gold chain. The AI shape and finish preview proposes a smoother outline; please confirm the final shape and finish with our workshop.",
     "image": "/images/handmade/edits/leaf-pendant-v2.webp",
     "images": [
       {
@@ -543,7 +538,7 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/worn-v7/leaf-pendant.webp",
+        "src": "/images/handmade/worn-v8/leaf-pendant.webp",
         "label": "AI model preview",
         "kind": "worn"
       }
@@ -563,7 +558,7 @@ export const atelierPieces: AtelierPiece[] = [
         "kind": "edited"
       },
       {
-        "src": "/images/handmade/worn-v7/disc-ornament-selection.webp",
+        "src": "/images/handmade/worn-v8/disc-ornament-selection.webp",
         "label": "AI model preview · selected floral disc",
         "kind": "worn"
       }
