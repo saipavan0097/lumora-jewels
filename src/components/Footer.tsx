@@ -1,16 +1,13 @@
 import {
-  Gem,
   Instagram,
-  Facebook,
-  Linkedin,
   Youtube,
-  Github,
   MessageCircle,
   Mail,
   Phone,
   MapPin,
   ArrowUpRight,
 } from 'lucide-react';
+import BrandLogo from './BrandLogo';
 
 interface FooterProps {
   onNavigate: (path: string) => void;
@@ -19,6 +16,9 @@ interface FooterProps {
 const quickLinks = [
   { label: 'Home', href: '/' },
   { label: 'Our Work', href: '/shop' },
+  { label: 'Custom Orders', href: '/#custom-orders' },
+  { label: 'Design Ideas', href: '/#design-ideas' },
+  { label: 'Budget Calculator', href: '/#price-estimator' },
   { label: 'Collections', href: '/#collections' },
   { label: 'About Founder', href: '/#founder' },
   { label: 'Book Appointment', href: '/#appointment' },
@@ -34,11 +34,10 @@ const collectionLinks = [
 ];
 
 const socials = [
-  { icon: Github, href: 'https://github.com/Saipavanrali', label: 'GitHub' },
-  { icon: Linkedin, href: 'https://linkedin.com/in/sai-pavan-rali', label: 'LinkedIn' },
-  { icon: Instagram, href: 'https://instagram.com/pavan_rajz', label: 'Instagram' },
+  { icon: Instagram, href: 'https://www.instagram.com/daivique_jewellery/', label: 'Instagram' },
   { icon: MessageCircle, href: 'https://wa.me/917661930097', label: 'WhatsApp' },
   { icon: Mail, href: 'mailto:saipavanvizag601@gmail.com', label: 'Email' },
+  { icon: Youtube, href: 'https://youtube.com/@saipavangoldworks', label: 'YouTube' },
 ];
 
 export default function Footer({ onNavigate }: FooterProps) {
@@ -52,10 +51,7 @@ export default function Footer({ onNavigate }: FooterProps) {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-5 lg:gap-10">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-2.5">
-              <Gem className="h-5 w-5 text-gold" strokeWidth={1.5} />
-              <span className="font-heading text-2xl font-semibold tracking-wide">DAIVIQUE</span>
-            </div>
+            <BrandLogo className="w-[244px] max-w-full" />
             <p className="mt-5 max-w-xs text-sm font-light leading-relaxed text-ivory/50">
               Handmade jewellery from a family goldsmith workshop.
               Ornaments by Sai Pavan and his father, made with care for meaningful occasions.
@@ -88,6 +84,7 @@ export default function Footer({ onNavigate }: FooterProps) {
               Quick Links
             </h4>
             <ul className="space-y-3">
+              <li><a href="/jewellery.html" className="inline-flex min-h-8 items-center text-sm font-light text-ivory/55 hover:text-gold focus-visible:outline-gold">Jewellery catalogue</a></li>
               {quickLinks.map((link) => (
                 <li key={link.label}>
                   <button
@@ -137,7 +134,7 @@ export default function Footer({ onNavigate }: FooterProps) {
               <li className="flex items-start gap-3">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold/70" strokeWidth={1.5} />
                 <span className="text-sm font-light leading-relaxed text-ivory/55">
-                  Visakhapatnam, Andhra Pradesh
+                  22-42-7, Kanchara Street, 1 Town, Visakhapatnam, Andhra Pradesh
                 </span>
               </li>
               <li>
@@ -179,6 +176,7 @@ export default function Footer({ onNavigate }: FooterProps) {
           <p className="text-xs font-light tracking-wider-luxe text-ivory/35">
             Designed & Developed by{' '}
             <span className="font-medium text-gold/70">Sai Pavan Rali</span>
+            <a href="#/owner" className="ml-4 underline underline-offset-4 text-ivory/60 focus-visible:outline-gold">Owner sign-in</a>
           </p>
         </div>
       </div>
