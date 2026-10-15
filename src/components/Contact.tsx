@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import {
   Phone,
   Mail,
@@ -6,8 +5,6 @@ import {
   Clock,
   MessageCircle,
   Instagram,
-  Facebook,
-  Linkedin,
   Youtube,
 } from 'lucide-react';
 import Reveal from '@/components/Reveal';
@@ -19,20 +16,15 @@ const contactInfo = [
 ];
 
 const socialLinks = [
-  { icon: Instagram, label: 'Instagram', value: '@pavan_rajz', href: 'https://instagram.com/pavan_rajz' },
-  { icon: Facebook, label: 'Facebook', value: 'Pavan Rajz', href: 'https://facebook.com/PavanRajz' },
-  { icon: Linkedin, label: 'LinkedIn', value: 'Sai Pavan Rali', href: 'https://linkedin.com/in/sai-pavan-rali' },
+  { icon: Instagram, label: 'Instagram', value: '@daivique_jewellery', href: 'https://www.instagram.com/daivique_jewellery/' },
   { icon: Youtube, label: 'YouTube', value: '@saipavangoldworks', href: 'https://youtube.com/@saipavangoldworks' },
 ];
 
-const hours = [
-  { day: 'Monday – Friday', time: '10:00 AM – 11:00 PM' },
-  { day: 'Saturday – Sunday', time: '10:00 AM – 12:00 AM' },
-];
+const shopAddress = '22-42-7, Kanchara Street, 1 Town, Visakhapatnam, Andhra Pradesh';
+const mapsQuery = encodeURIComponent(`${shopAddress}, India`);
+const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${mapsQuery}`;
 
 export default function Contact() {
-  const [mapLoaded, setMapLoaded] = useState(false);
-
   return (
     <section id="contact" className="bg-white py-28 lg:py-40">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
@@ -94,7 +86,7 @@ export default function Contact() {
               {/* Social */}
               <div className="rounded-2xl border border-noir/8 bg-ivory/40 p-7">
                 <h3 className="mb-5 text-xs font-medium uppercase tracking-luxe text-gold">Connect With Us</h3>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                   {socialLinks.map((s) => {
                     const Icon = s.icon;
                     return (
@@ -105,11 +97,11 @@ export default function Contact() {
                         rel="noopener noreferrer"
                         className="group flex items-center gap-3 rounded-lg p-2 transition-colors hover:bg-white"
                       >
-                        <div className="flex h-9 w-9 items-center justify-center rounded-full border border-noir/10 transition-all duration-300 group-hover:border-gold group-hover:bg-gold">
+                        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-noir/10 transition-all duration-300 group-hover:border-gold group-hover:bg-gold">
                           <Icon className="h-4 w-4 text-charcoal/60 transition-colors duration-300 group-hover:text-noir" strokeWidth={1.5} />
                         </div>
-                        <div>
-                          <span className="block text-xs font-light text-noir group-hover:text-gold">{s.value}</span>
+                        <div className="min-w-0">
+                          <span className="block break-words text-xs font-light text-noir group-hover:text-gold">{s.value}</span>
                           <span className="block text-[10px] font-light uppercase tracking-wider-luxe text-charcoal/35">{s.label}</span>
                         </div>
                       </a>
@@ -123,16 +115,9 @@ export default function Contact() {
                 <div className="rounded-2xl border border-noir/8 bg-ivory/40 p-6">
                   <div className="mb-4 flex items-center gap-2">
                     <Clock className="h-4 w-4 text-gold" strokeWidth={1.5} />
-                    <h3 className="text-xs font-medium uppercase tracking-luxe text-gold">Business Hours</h3>
+                    <h3 className="text-xs font-medium uppercase tracking-luxe text-gold">Visiting Hours</h3>
                   </div>
-                  <div className="space-y-3">
-                    {hours.map((h) => (
-                      <div key={h.day} className="border-b border-noir/5 pb-2 last:border-0 last:pb-0">
-                        <p className="text-xs font-light text-charcoal/55">{h.day}</p>
-                        <p className="text-sm font-light text-noir">{h.time}</p>
-                      </div>
-                    ))}
-                  </div>
+                  <p className="text-sm font-light text-noir">10:00 AM – 10:00 PM</p>
                 </div>
 
                 <div className="flex flex-col justify-center rounded-2xl border border-noir/8 bg-ivory/40 p-6">
@@ -141,8 +126,11 @@ export default function Contact() {
                     <h3 className="text-xs font-medium uppercase tracking-luxe text-gold">Our Location</h3>
                   </div>
                   <p className="text-sm font-light leading-relaxed text-noir">
-                    Visakhapatnam, Andhra Pradesh
+                    {shopAddress}
                   </p>
+                  <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex min-h-11 items-center text-sm text-noir underline decoration-gold underline-offset-4 hover:text-gold focus-visible:outline-gold">
+                    Open in Google Maps
+                  </a>
                 </div>
               </div>
             </div>
@@ -151,24 +139,15 @@ export default function Contact() {
           {/* Right: Google Maps */}
           <Reveal delay={200}>
             <div className="h-full min-h-[500px] overflow-hidden rounded-2xl border border-noir/8 shadow-[0_4px_30px_rgba(17,17,17,0.06)]">
-              {!mapLoaded && (
-                <div className="flex h-full min-h-[500px] items-center justify-center bg-ivory">
-                  <div className="flex flex-col items-center gap-3">
-                    <MapPin className="h-8 w-8 animate-pulse text-gold" strokeWidth={1.5} />
-                    <p className="text-sm font-light text-charcoal/50">Loading map...</p>
-                  </div>
-                </div>
-              )}
               <iframe
-                title="DAIVIQUE — Visakhapatnam, Andhra Pradesh"
-                src="https://www.google.com/maps?q=Visakhapatnam%2C%20Andhra%20Pradesh%2C%20India&output=embed"
+                title="DAIVIQUE — 22-42-7, Kanchara Street, 1 Town, Visakhapatnam"
+                src={`https://www.google.com/maps?q=${mapsQuery}&output=embed`}
                 width="100%"
                 height="100%"
                 style={{ border: 0, minHeight: '500px' }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                onLoad={() => setMapLoaded(true)}
               />
             </div>
           </Reveal>

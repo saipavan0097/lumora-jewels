@@ -1,7 +1,6 @@
 import {
   Instagram,
-  Linkedin,
-  Github,
+  Youtube,
   MessageCircle,
   Mail,
   Phone,
@@ -35,11 +34,10 @@ const collectionLinks = [
 ];
 
 const socials = [
-  { icon: Github, href: 'https://github.com/Saipavanrali', label: 'GitHub' },
-  { icon: Linkedin, href: 'https://linkedin.com/in/sai-pavan-rali', label: 'LinkedIn' },
-  { icon: Instagram, href: 'https://instagram.com/pavan_rajz', label: 'Instagram' },
+  { icon: Instagram, href: 'https://www.instagram.com/daivique_jewellery/', label: 'Instagram' },
   { icon: MessageCircle, href: 'https://wa.me/917661930097', label: 'WhatsApp' },
   { icon: Mail, href: 'mailto:saipavanvizag601@gmail.com', label: 'Email' },
+  { icon: Youtube, href: 'https://youtube.com/@saipavangoldworks', label: 'YouTube' },
 ];
 
 export default function Footer({ onNavigate }: FooterProps) {
@@ -136,7 +134,7 @@ export default function Footer({ onNavigate }: FooterProps) {
               <li className="flex items-start gap-3">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold/70" strokeWidth={1.5} />
                 <span className="text-sm font-light leading-relaxed text-ivory/55">
-                  Visakhapatnam, Andhra Pradesh
+                  22-42-7, Kanchara Street, 1 Town, Visakhapatnam, Andhra Pradesh
                 </span>
               </li>
               <li>
