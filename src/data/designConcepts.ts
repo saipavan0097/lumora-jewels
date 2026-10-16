@@ -92,7 +92,7 @@ export function getDesignConceptBudgetRange(concept: DesignConcept, metal: Conce
 
 export function getDesignConceptWhatsAppLink(concept: DesignConcept, metal: ConceptGoldMetal = 'gold22k') {
   const message = `Hi DAIVIQUE, I’d like to discuss ${concept.title} in ${pricingBenchmark.metals[metal].label} (ref: ${concept.id}). AI concept, not yet made. Please confirm feasibility, net metal weight and a current quote.\n${getDesignConceptPageUrl(concept)}`;
-  return `https://wa.me/917661930097?text=${encodeURIComponent(message)}`;
+  return `https://wa.me/917661916097?text=${encodeURIComponent(message)}`;
 }
 
 export function getDesignConceptPageUrl(concept: DesignConcept) {
