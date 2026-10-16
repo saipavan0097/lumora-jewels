@@ -9,7 +9,7 @@ export default function Hero() {
         <p className="mt-7 max-w-md text-sm font-light leading-relaxed text-ivory/70 sm:text-base">Handmade ornaments by Sai Pavan and his father. Traditional details, patient hands, and the personal touch of a family workshop.</p>
         <div className="mt-9 flex flex-wrap gap-4">
           <a href="#/shop" className="inline-flex items-center gap-2 rounded-full bg-gold px-7 py-4 text-xs font-medium uppercase tracking-wider text-noir focus-visible:outline-white">Explore our work <ArrowRight className="h-4 w-4" /></a>
-          <a href="https://wa.me/917661930097?text=Hi%20DAIVIQUE%2C%20I%20would%20like%20to%20discuss%20a%20jewellery%20design." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border border-gold/50 px-7 py-4 text-xs uppercase tracking-wider text-ivory focus-visible:outline-gold"><MessageCircle className="h-4 w-4" />Talk to us</a>
+          <a href="https://wa.me/917661916097?text=Hi%20DAIVIQUE%2C%20I%20would%20like%20to%20discuss%20a%20jewellery%20design." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border border-gold/50 px-7 py-4 text-xs uppercase tracking-wider text-ivory focus-visible:outline-gold"><MessageCircle className="h-4 w-4" />Talk to us</a>
         </div>
         <div className="mt-10 flex flex-wrap gap-x-6 border-t border-ivory/15 pt-4">
           <a href="#/#custom-orders" className="inline-flex min-h-11 items-center text-sm text-gold underline underline-offset-4">How custom orders work</a>

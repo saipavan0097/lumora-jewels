@@ -11,7 +11,7 @@ export default function MobileStickyCTA() {
           <PencilLine aria-hidden="true" className="h-4 w-4 shrink-0" />
           Custom order
         </a>
-        <a href="https://wa.me/917661930097?text=Hi%20DAIVIQUE%2C%20I%20would%20like%20to%20discuss%20a%20jewellery%20design." target="_blank" rel="noopener noreferrer" className="flex min-h-12 items-center justify-center gap-2 rounded-full bg-gold px-3 py-3 text-sm font-medium text-noir">
+        <a href="https://wa.me/917661916097?text=Hi%20DAIVIQUE%2C%20I%20would%20like%20to%20discuss%20a%20jewellery%20design." target="_blank" rel="noopener noreferrer" className="flex min-h-12 items-center justify-center gap-2 rounded-full bg-gold px-3 py-3 text-sm font-medium text-noir">
           <MessageCircle aria-hidden="true" className="h-4 w-4 shrink-0" />WhatsApp
         </a>
       </div>

@@ -32,7 +32,7 @@ export default function CustomOrders() {
           <p className="text-sm leading-relaxed text-charcoal/80">Helpful to share: a reference photo, budget range, preferred metal and any occasion date. It’s fine if you’re still deciding.</p>
           <p className="mt-2 text-xs leading-relaxed text-charcoal/70">An enquiry does not place an order. Feasibility, price and timing are confirmed personally.</p>
         </div>
-        <a href={`https://wa.me/917661930097?text=${enquiry}`} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 shrink-0 items-center justify-center gap-2 rounded-full bg-gold px-6 py-4 text-sm font-medium text-noir">
+        <a href={`https://wa.me/917661916097?text=${enquiry}`} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 shrink-0 items-center justify-center gap-2 rounded-full bg-gold px-6 py-4 text-sm font-medium text-noir">
           <MessageCircle aria-hidden="true" className="h-4 w-4" />Discuss my idea<ArrowRight aria-hidden="true" className="h-4 w-4" />
         </a>
       </div>

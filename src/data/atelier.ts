@@ -568,7 +568,7 @@ export const atelierPieces: AtelierPiece[] = [
 ];
 export function getAtelierWhatsAppLink(piece: AtelierPiece) {
   const message = `Hi DAIVIQUE, I’m interested in ${piece.title} (ref: ${piece.id}). Please confirm materials, availability and a current quote.\n${getAtelierPageUrl(piece)}`;
-  return `https://wa.me/917661930097?text=${encodeURIComponent(message)}`;
+  return `https://wa.me/917661916097?text=${encodeURIComponent(message)}`;
 }
 
 export function getAtelierPageUrl(piece: AtelierPiece) {

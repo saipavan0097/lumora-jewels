@@ -4,7 +4,7 @@ export default function WhatsAppButton() {
   const message = encodeURIComponent(
     'Hi DAIVIQUE,\nI would like to know more about your jewellery collection.'
   );
-  const href = `https://wa.me/917661930097?text=${message}`;
+  const href = `https://wa.me/917661916097?text=${message}`;
 
   return (
     <a

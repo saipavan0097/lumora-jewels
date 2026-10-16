@@ -109,7 +109,7 @@ export default function PriceEstimator() {
               <p className="mt-3">Final quote, design feasibility and net weight are confirmed by the workshop before an order.</p>
             </div>
 
-            <a href={`https://wa.me/917661930097?text=${encodeURIComponent(enquiryText)}`} target="_blank" rel="noopener noreferrer" className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-5 py-4 text-center text-xs uppercase tracking-wide text-noir focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ivory focus-visible:ring-offset-2 focus-visible:ring-offset-noir"><MessageCircle className="h-4 w-4 shrink-0" aria-hidden="true" />Discuss a personal quote</a>
+            <a href={`https://wa.me/917661916097?text=${encodeURIComponent(enquiryText)}`} target="_blank" rel="noopener noreferrer" className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-5 py-4 text-center text-xs uppercase tracking-wide text-noir focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ivory focus-visible:ring-offset-2 focus-visible:ring-offset-noir"><MessageCircle className="h-4 w-4 shrink-0" aria-hidden="true" />Discuss a personal quote</a>
           </div>
         </div>
 

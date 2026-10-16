@@ -35,7 +35,7 @@ const collectionLinks = [
 
 const socials = [
   { icon: Instagram, href: 'https://www.instagram.com/daivique_jewellery/', label: 'Instagram' },
-  { icon: MessageCircle, href: 'https://wa.me/917661930097', label: 'WhatsApp' },
+  { icon: MessageCircle, href: 'https://wa.me/917661916097', label: 'WhatsApp' },
   { icon: Mail, href: 'mailto:saipavanvizag601@gmail.com', label: 'Email' },
   { icon: Youtube, href: 'https://youtube.com/@saipavangoldworks', label: 'YouTube' },
 ];
@@ -148,11 +148,11 @@ export default function Footer({ onNavigate }: FooterProps) {
               </li>
               <li>
                 <a
-                  href="tel:+917661930097"
+                  href="tel:+917661916097"
                   className="group flex items-center gap-3 text-sm font-light text-ivory/55 transition-colors hover:text-gold focus-visible:outline-none focus-visible:text-gold"
                 >
                   <Phone className="h-4 w-4 shrink-0 text-gold/70" strokeWidth={1.5} />
-                  +91 7661930097
+                  +91 7661916097
                 </a>
               </li>
             </ul>

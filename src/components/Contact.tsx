@@ -10,8 +10,8 @@ import {
 import Reveal from '@/components/Reveal';
 
 const contactInfo = [
-  { icon: Phone, label: 'Phone', value: '+91 7661930097', href: 'tel:+917661930097' },
-  { icon: MessageCircle, label: 'WhatsApp', value: 'Chat on WhatsApp', href: 'https://wa.me/917661930097' },
+  { icon: Phone, label: 'Phone', value: '+91 7661916097', href: 'tel:+917661916097' },
+  { icon: MessageCircle, label: 'WhatsApp', value: 'Chat on WhatsApp', href: 'https://wa.me/917661916097' },
   { icon: Mail, label: 'Email', value: 'saipavanvizag601@gmail.com', href: 'mailto:saipavanvizag601@gmail.com' },
 ];
 
