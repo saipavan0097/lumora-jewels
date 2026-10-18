@@ -272,15 +272,24 @@
 
 /* ===== Reduced motion ===== */
 
-/* Keep phone content clear of the contact bar, including device safe areas. */
+/* Leave room for the free hosting badge without covering customer controls. */
+:root {
+  --hosting-badge-clearance: 4rem;
+}
 .site-shell {
-  padding-bottom: calc(5rem + env(safe-area-inset-bottom, 0px));
+  padding-bottom: calc(5rem + var(--hosting-badge-clearance) + env(safe-area-inset-bottom, 0px));
 }
 .mobile-contact-bar {
-  padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
+  padding-bottom: calc(0.75rem + var(--hosting-badge-clearance) + env(safe-area-inset-bottom, 0px));
+}
+.floating-whatsapp {
+  bottom: calc(1.5rem + var(--hosting-badge-clearance) + env(safe-area-inset-bottom, 0px));
+}
+.scroll-to-top {
+  bottom: calc(6rem + var(--hosting-badge-clearance) + env(safe-area-inset-bottom, 0px));
 }
 @media (min-width: 1280px) {
-  .site-shell { padding-bottom: 0; }
+  .site-shell { padding-bottom: var(--hosting-badge-clearance); }
 }
 @media (max-width: 1279px) {
   input:not([type='radio']):not([type='checkbox']), select, textarea {
